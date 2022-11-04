@@ -1,0 +1,76 @@
+---
+import GameCard from './GameCard'
+---
+
+<div class="w-[75vw] mt-11">
+    <h1 class="text-center text-2xl mb-0">Games</h1>
+    <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
+    <ul class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
+      <GameCard client:visible
+        name={'Skyrim'}
+        cover={'../../src/assets/gamecover/skyrim.jpg'}
+        url={'https://elderscrolls.bethesda.net/en/skyrim'}
+        stats={'../../src/assets/games/Skyrim.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-100"
+        name={'Hearts of Iron IV'}
+        cover={'../../src/assets/gamecover/hoi4.jpg'}
+        url={'https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about'}
+        stats={'../../src/assets/games/hoi4.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-200"
+        name={'Super Auto Pets'}
+        cover={'../../src/assets/gamecover/sap.jpg'}
+        url={'https://teamwoodgames.com/'}
+        stats={'../../src/assets/games/SAP.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-300"
+        name={'League of Legends'}
+        cover={'../../src/assets/gamecover/league.png'}
+        url={'https://www.leagueoflegends.com/en-us/'}
+        stats={'../../src/assets/games/League.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-[400ms]"
+        name={'Starcraft II'}
+        cover={'../../src/assets/gamecover/sc2.jpg'}
+        url={'https://starcraft2.com/en-us/'}
+        stats={'../../src/assets/games/SC2.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-500"
+        name={'Civilization V'}
+        cover={'../../src/assets/gamecover/civ.jpg'}
+        url={'https://civilization.com/civilization-5/'}
+        stats={'../../src/assets/games/civfive.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-[600ms]"
+        name={'Arknights'}
+        cover={'../../src/assets/gamecover/arknights.jpg'}
+        url={'https://www.arknights.global/'}
+        stats={'../../src/assets/games/Arknights.png'}
+      />
+      <GameCard client:visible
+        delay="lg:delay-700"
+        name={'Azur Lane'}
+        cover={'../../src/assets/gamecover/azur-logo.jpg'}
+        url={'https://azurlane.yo-star.com/#/'}
+        stats={'../../src/assets/games/Azur.png'}
+      />
+    </ul>
+  </div>
+
+
+
+<!-- https://cdn.akamai.steamstatic.com/steam/apps/489830/header.jpg?t=1650909796
+https://cdn.akamai.steamstatic.com/steam/apps/394360/header.jpg?t=1661438345
+https://cdn.akamai.steamstatic.com/steam/apps/1714040/header.jpg?t=1660917023
+https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/0d441de75945e5acbc865406fc9a2559.png
+https://o.aolcdn.com/hss/storage/midas/87ef85574244b74f1d251b63a07b7abb/203880681/starcraftii-logo.jpg
+https://cdn.akamai.steamstatic.com/steam/apps/8930/header.jpg?t=1579731804
+https://www.gameuidatabase.com/uploads/Arknights01252021-022418-77137.jpg -->
+

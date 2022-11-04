@@ -1,0 +1,39 @@
+---
+import Slideshow from '../components/Slideshow'
+import { Image } from '@astrojs/image/components';
+import dogsscuffed from '../../src/assets/dog/dogs.jpg'
+---
+<div
+    class="mt-11 mb-40 flex justify-center bg-[#1F2022] ml-4 mr-4 w-[75vw] rounded-3xl relative"
+>
+    <div class="p-4 flex items-center flex-col w-[65vw]">
+        <h1 class="text-center text-3xl">meet my dogs</h1>
+        <div class="mt-11 md:h-1/4 md:w-1/4">
+            <Image alt="my dogs, cami and xena" src={dogsscuffed} />
+        </div>
+        <div class="mt-11 p-4 text-left text-xl leading-8 mb-4">
+            <div class="flex flex-col">
+                <ul class="mt-4 p-4">
+                    <li>
+                        <p class="text-center font-bold">Cami</p>
+                        <p class="text-center">Chihuahua-Dachshund</p>
+                    </li>
+                    <Slideshow client:visible
+                        photos={['../src/assets/dog/cami1.jpg', '../src/assets/dog/cami2.jpg', '../src/assets/dog/cami3.jpg', '../src/assets/dog/cami4.jpg', '../src/assets/dog/cami5.jpg', '../src/assets/dog/cami6.jpg']}
+                        dynamicAlt={"Cami"}
+                    />
+                </ul>
+                <ul class="mt-4 p-4">
+                    <li>
+                        <p class="text-center font-bold">Xena</p>
+                        <p class="text-center">Mixed Labrador</p>
+                    </li>
+                    <Slideshow client:visible
+                        photos={['../src/assets/dog/xena1.jpg', '../src/assets/dog/xena2.jpg', '../src/assets/dog/xena3.jpg', '../src/assets/dog/xena4.jpg', '../src/assets/dog/xena5.jpg', '../src/assets/dog/xena6.jpg']}
+                        dynamicAlt={"Xena"}
+                    />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
