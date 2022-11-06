@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/About.astro";
+import BlogPosts from "../components/BlogPosts.astro";
+---
+
+<Layout title="Welcome to Astro.">
+    <div id="wrapper" class="flex flex-col justify-center items-center">
+        <About
+            header="Even More About Me"
+            paragraph1="If you clicked on this for whatever reason, have fun learning more about me than you should really know about me."
+            destination="/"
+        />
+        <BlogPosts />
+    </div>
+</Layout>

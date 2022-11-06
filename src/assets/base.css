@@ -9,6 +9,7 @@
     @apply text-gray-300;
     @apply overflow-x-hidden;
     @apply scrollbar-hide;
+    @apply min-h-screen;
   }
 }
 

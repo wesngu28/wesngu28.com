@@ -12,9 +12,11 @@ export interface Props {
     paragraph1: string
     paragraph2?: string
     destination: string
+    image?: string
+    blog?: boolean
 }
 
-const { header, paragraph1, paragraph2, destination } = Astro.props;
+const { header, paragraph1, paragraph2, destination, image, blog } = Astro.props;
 ---
 
 <div class="md:flex justify-center items-center p-4 bg-[#1F2022] w-full relative">
@@ -26,19 +28,21 @@ const { header, paragraph1, paragraph2, destination } = Astro.props;
           <a href={destination} class="hover:text-yellow-400 underline p-4 text-left text-sm md:text-xl leading-8 m-auto">
             {destination === '/'
               ? 'Click me to return home'
-              : 'Click me for more about me'}
+              : destination === '/blog' ? 'Go back to blog' : 'Click me for more about me'}
           </a>
         </div>
     </div>
     <div class="flex flex-col items-center">
       <div class="w-3/5">
         <Image
-          class="p-4 rounded-full mx-auto object-cover"
+          class={`p-4 ${blog ? 'rounded-none' : 'rounded-full'} mx-auto object-cover`}
           alt="photo of me"
-          src={grotesque}
+          width={image ? 720 : null}
+          height={image ? 360 : null}
+          src={image ? image : grotesque}
         />
       </div>
-      <ul class="list-none flex flex-wrap items-center justify-center">
+      {!blog ? <ul class="list-none flex flex-wrap items-center justify-center">
         <NavLink imgsrc={github} name="github" url="https://www.github.com/wesngu28" />
         <NavLink
           imgsrc={linkedin}
@@ -47,6 +51,6 @@ const { header, paragraph1, paragraph2, destination } = Astro.props;
         />
         <NavLink imgsrc={email}  name="email" url="" />
         <NavLink imgsrc={resume}  name="resume" url="https://wesngu28.github.io/resume/" />
-      </ul>
+      </ul> : null }
     </div>
 </div>

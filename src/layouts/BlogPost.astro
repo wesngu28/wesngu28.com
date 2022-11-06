@@ -1,0 +1,53 @@
+---
+import "../assets/base.css";
+import About from "../components/About.astro";
+import TopSVG from "../components/TopSVG.astro";
+import Layout from "./Layout.astro";
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		pubDate?: string;
+		updatedDate?: string;
+		heroImage?: string;
+	};
+}
+
+const {
+	content: { title, description, pubDate, updatedDate, heroImage },
+} = Astro.props;
+---
+
+<Layout title="Blog">
+	<About
+		header={title}
+		paragraph1={description}
+		destination="/blog"
+		image={heroImage}
+		blog={true}
+	/>
+	<div class="w-[100vw] relative flex items-center justify-center">
+		<TopSVG />
+		<article class="w-full md:w-[75vw] lg:w-[55vw]">
+			<h1 class="mt-11 text-center text-5xl p-4 font-bold">{title}</h1>
+			{pubDate && <p class="text-lg text-center m-2"><time>{pubDate}</time></p>}
+			{
+				updatedDate && (
+					<div>
+						Last updated on <time>{updatedDate}</time>
+					</div>
+				)
+			}
+			<hr />
+			<slot/>
+		</article>
+	</div>
+</Layout>
+
+<style is:global>
+	p {
+		margin: 1.25rem;
+		line-height: 2;
+		font-size: 1.25rem;
+	}
+</style>
