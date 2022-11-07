@@ -1,12 +1,11 @@
-import { forwardRef } from 'react'
 import Slideshow from './Slideshow'
 
 interface Props {
   index: number
-  view: boolean
+  ref: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
 }
 
-const Chapter = forwardRef<HTMLDivElement, Props>(({ index, view }: Props, ref) => {
+const Chapter = (({ index, ref }: Props) => {
   const chapters = [
     {
       top: ['md:top-[30vh]', 'top-[30vh]'],
@@ -78,19 +77,18 @@ const Chapter = forwardRef<HTMLDivElement, Props>(({ index, view }: Props, ref) 
 
   return (
     <div
+      id={String(index)}
       ref={ref}
-      className={`${
-        view ? 'opacity-100 transition-opacity duration-1000' : 'opacity-25'
-      } rounded-3xl bg-[#1F2022] text-white z-10 absolute mb-11 ${
+      class={`rounded-3xl bg-[#1F2022] text-white z-10 absolute mb-11 ${
         chapters[index].top[1]
       } ${chapters[index].top[0]} md:p-4 md:w-1/4 h-max rounded`}
     >
-      <h2 className="text-center text-2xl font-bold">{chapters[index].heading}</h2>
+      <h2 class="text-center text-2xl font-bold">{chapters[index].heading}</h2>
       {chapters[index].duration ? (
-        <p className="m-2 text-center">{chapters[index].duration}</p>
+        <p class="m-2 text-center">{chapters[index].duration}</p>
       ) : null}
       {chapters[index].source ? (
-        <div className="p-4 flex justify-center">
+        <div class="p-4 flex justify-center">
           <img alt={chapters[index].alt} src={chapters[index].source!} />
         </div>
       ) : null}
@@ -98,7 +96,7 @@ const Chapter = forwardRef<HTMLDivElement, Props>(({ index, view }: Props, ref) 
         {chapters[index].paragraph
           ? chapters[index].paragraph!.map(text => {
               return (
-                <p key={text} className="p-4 text-left text-sm md:text-lg leading-8">
+                <p class="p-4 text-left text-sm md:text-lg leading-8">
                   {text}
                 </p>
               )
@@ -134,7 +132,5 @@ const Chapter = forwardRef<HTMLDivElement, Props>(({ index, view }: Props, ref) 
     </div>
   )
 })
-
-Chapter.displayName = 'Chapter'
 
 export default Chapter

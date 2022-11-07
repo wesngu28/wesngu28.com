@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Accessor, createSignal, For, Show } from 'solid-js'
 
 interface Props {
   photos: string[]
@@ -11,54 +11,52 @@ interface Props {
 }
 
 export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = createSignal(0)
 
   function decrementImage() {
-    setActive(active - 1)
-    if (active === 0) {
+    setActive(active() - 1)
+    if (active() === 0) {
       return setActive(photos.length - 1)
     }
   }
 
   function incrementImage() {
-    setActive(active + 1)
-    if (active === photos.length - 1) {
+    setActive(active() + 1)
+    if (active() === photos.length - 1) {
       return setActive(0)
     }
   }
   return (
-    <div className="flex items-center justify-center">
-      <p onClick={decrementImage} className="text-6xl text-[#6E6E6E]">
+    <div class="flex items-center justify-center">
+      <p onClick={decrementImage} class="text-6xl text-[#6E6E6E]">
         &#8592;
       </p>
-      {photos.map((photo: string, i: number) => {
-        return (
+      <For each={photos}>
+        {(photo: string, i: Accessor<number>) =>
           <div
-            key={i}
-            className={`flex flex-col justify-center ${
-              photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
-            } m-auto relative ${active === i ? 'block animate-slideshow' : 'hidden'}`}
+            class={`flex flex-col justify-center ${photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
+              } m-auto relative ${active() === i() ? 'block animate-slideshow' : 'hidden'}`}
           >
-            {caption ? (
+            <Show when={caption} fallback={null}>
               <div>
-                <h2 className="text-center p-4 text-sm md:text-md font-bold">
-                  {caption[i].location}
+                <h2 class="text-center p-4 text-sm md:text-md font-bold">
+                  {caption![i()].location}
                 </h2>
-                <p className="text-center text-sm md:text-md mb-4">
-                  <span className="font-bold">{caption[i].title}</span> -{' '}
-                  {caption[i].duration}
+                <p class="text-center text-sm md:text-md mb-4">
+                  <span class="font-bold">{caption![i()].title}</span> -{' '}
+                  {caption![i()].duration}
                 </p>
               </div>
-            ) : null}
+            </Show>
             <img
               alt={dynamicAlt}
               src={photo}
-              className="object-contain"
+              class="object-contain"
             />
           </div>
-        )
-      })}
-      <p onClick={incrementImage} className="text-6xl text-[#6E6E6E]">
+        }
+      </For>
+      <p onClick={incrementImage} class="text-6xl text-[#6E6E6E]">
         &#8594;
       </p>
     </div>

@@ -12,6 +12,17 @@ export interface Props {
 }
 
 const { techs, image, name, desc, url, live } = Astro.props;
+const linguist = await fetch(`http://localhost:3000/api/github.json?repo=${url.replace("https://github.com/wesngu28/", "")}`);
+const linguini = await linguist.text();
+const langs = await JSON.parse(linguini);
+const counts: Array<number> = Object.values(langs);
+const total = counts.reduce(
+  (previousValue: number, currentValue) => previousValue + currentValue,
+  0
+);
+Object.keys(langs).map((extension) => {
+  langs[extension] = (langs[extension] / total) * 100;
+});
 ---
 
 <li class="p-4 bg-[#21222a] m-4 inline-block">
@@ -35,7 +46,7 @@ const { techs, image, name, desc, url, live } = Astro.props;
             />
         )
     }
-    <Github url={url} client:idle/>
+    <Github url={url} prefetch={langs} client:idle/>
     <div class={`pr-2 pl-2`}>
         <ul class={"flex mt-1 justify-center flex-wrap"}>
             {

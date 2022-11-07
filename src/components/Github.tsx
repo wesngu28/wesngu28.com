@@ -1,13 +1,16 @@
 import languageList from "../../languages.json";
-import useSWR from "swr"
+import { createEffect, createSignal, For, Show } from "solid-js";
 
 interface Props {
     url: string
+    prefetch: { [key: string]: string }
 }
 
-export default function Github({url}: Props) {
-    const swrFetch = async (url: string) => {
-        const linguist = await fetch(url);
+export default function Github({ url, prefetch }: Props) {
+    const [data, setData] = createSignal<{ [key: string]: string }>(prefetch)
+
+    const fetchNewData = async () => {
+        const linguist = await fetch(`http://localhost:3000/api/github.json?repo=${url.replace("https://github.com/wesngu28/", "")}`)
         const linguini = await linguist.text()
         const langs = await JSON.parse(linguini);
         const counts: Array<number> = Object.values(langs);
@@ -19,41 +22,28 @@ export default function Github({url}: Props) {
             langs[extension] = (langs[extension] / total) * 100;
         });
         return langs;
-    };
-    
-    const { data, error } = useSWR(
-        `/api/github.json?repo=${url.replace("https://github.com/wesngu28/", "")}`,
-        swrFetch,
-        {
-            refreshInterval: 86400000,
-            revalidateOnFocus: false,
-        }
-    );
-    
+    }
+
+    createEffect(() => {
+        let interval = setInterval(async () => setData(await fetchNewData()), (86400000))
+        return () => clearInterval(interval)
+    })
+
     return (
-        <div className="-my-2 w-full">
-        {
-            data && Object.keys(data).length > 0
-                ? Object.keys(data).map((lang) => {
-                      const divStyle = {
-                          width: `${data[lang]}%`,
-                          backgroundColor: `${
-                              (languageList as any)[lang].color
-                          }`,
-                          color: `${(languageList as any)[lang].color}`,
-                      };
-                      return (
-                          <span
-                              title={lang}
-                              style={divStyle}
-                              className={`inline-block bg-[#3178c6] text-[0.4rem]`}
-                              data-view-component="true"
-                          >
-                              .
-                          </span>
-                      );
-                  })
-                : null
+        <div class="-my-2 w-full">
+            {
+                <Show when={data() && Object.keys(data()).length > 0} fallback={null}>
+                    <For each={Object.keys(data())}>
+                        {(lang) => <span
+                            title={lang}
+                            style={`width: ${data()[lang]}%; background-color: ${(languageList as any)[lang].color}; color: ${(languageList as any)[lang].color}`}
+                            class={`inline-block bg-[#3178c6] text-[0.4rem]`}
+                            data-view-component="true"
+                        >
+                            .
+                        </span>}
+                    </For>
+                </Show>
         }
         </div>
     )

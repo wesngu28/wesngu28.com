@@ -1,46 +1,44 @@
-import Map, { MapRef, Marker } from 'react-map-gl'
-import { useInView } from 'react-intersection-observer'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { useRef } from 'react'
+import { Map, Marker } from 'mapbox-gl';
 import Chapter from './Chapter'
+import { onMount } from 'solid-js'
 
 export default function ScrollyMap() {
-  const mapRef = useRef<MapRef>(null)
-  const { ref: vietnam, inView: vietnamView } = useInView({ threshold: 0.25 })
-  const { ref: bham, inView: bhamView } = useInView({ threshold: 0.25 })
-  const { ref: hazen, inView: hazenView } = useInView({ threshold: 0.25 })
-  const { ref: uw, inView: uwView } = useInView({ threshold: 0.25 })
-  const { ref: rs, inView: rsView } = useInView({ threshold: 0.25 })
-  const { ref: clack, inView: clackView } = useInView({ threshold: 0.25 })
-  const { ref: otherCareer, inView: otherCareerView } = useInView({ threshold: 0.25 })
+
+  let mapContainer: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined;
+  let vietnam1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let bham1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let hazen1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let uw1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let rs1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let clack1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  let otherCareer1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
+  const refs = [vietnam1, bham1, hazen1, uw1, rs1, clack1, otherCareer1]
 
   const mapChapter = [
     {
-      ref: vietnam,
-      view: vietnamView,
+      ref: vietnam1,
       center: [107.800854, 15.82164],
       zoom: 6,
       pitch: 16.5,
       style: 'mapbox://styles/wesngu028/cl8qaisxu000m14nzgup6koq4',
     },
     {
-      ref: bham,
-      view: bhamView,
+      ref: bham1,
       center: [-122.488778, 48.752951],
       zoom: 12,
       pitch: 60.5,
     },
     {
-      ref: hazen,
-      view: hazenView,
+      ref: hazen1,
       center: [-122.1529, 47.5016],
       zoom: 16,
       pitch: 25.5,
       bearing: 25,
     },
     {
-      ref: rs,
-      view: rsView,
+      ref: rs1,
       center: [-122.148192, 47.584425],
       zoom: 16.5,
       pitch: 0,
@@ -48,8 +46,7 @@ export default function ScrollyMap() {
       marker: '../src/assets/map/bc-logo.jpg',
     },
     {
-      ref: uw,
-      view: uwView,
+      ref: uw1,
       center: [-122.303366, 47.654353],
       zoom: 15.5,
       pitch: 45.0,
@@ -58,16 +55,14 @@ export default function ScrollyMap() {
       marker: '../src/assets/map/uw-logo.png',
     },
     {
-      ref: clack,
-      view: clackView,
+      ref: clack1,
       center: [-122.565194, 45.41686],
       zoom: 17,
       pitch: 60.5,
       bearing: 30,
     },
     {
-      ref: otherCareer,
-      view: otherCareerView,
+      ref: otherCareer1,
       center: [-122.1800715, 47.5832877],
       zoom: 11.0,
       pitch: 0.5,
@@ -75,79 +70,103 @@ export default function ScrollyMap() {
     },
   ]
 
-  if (mapRef.current) {
-    mapChapter.forEach(locationConf => {
-      if (locationConf.view) {
-        mapRef.current!.getMap().flyTo({
-          center: locationConf.center as [number, number],
-          zoom: locationConf.zoom,
-          pitch: locationConf.pitch,
-          bearing: locationConf.bearing ? locationConf.bearing : 0,
-          duration: 8000,
-          essential: true,
+  onMount(() => {
+    if (mapContainer) {
+      const map = new Map({
+        container: (mapContainer as HTMLDivElement),
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [107.800854, 15.82164],
+        zoom: 6,
+        pitch: 16.5,
+        interactive: false,
+        accessToken: `${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
+      });
+      mapChapter.forEach(chapter => {
+        let marker = null
+        if (chapter.marker) marker = (<img alt={chapter.alt} src={chapter.marker}/> as HTMLElement)
+        new Marker({element: (marker as HTMLElement)}).setLngLat([chapter.center[0], chapter.center[1]]).addTo(map)
+      })
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            const flyHere = Number(entry.target.id)
+            entry.target.classList.add('opacity-100')
+            entry.target.classList.add('duration-1000')
+            entry.target.classList.add('transition-opacity')
+            entry.target.classList.remove('opacity-25')
+            map.flyTo({
+              center: mapChapter[flyHere].center as [number, number],
+              zoom: mapChapter[flyHere].zoom,
+              pitch: mapChapter[flyHere].pitch,
+              bearing: mapChapter[flyHere].bearing ? mapChapter[flyHere].bearing : 0,
+              duration: 8000,
+              essential: true,
+            })
+          } else {
+            entry.target.classList.remove('opacity-100')
+            entry.target.classList.remove('duration-1000')
+            entry.target.classList.remove('transition-opacity')
+            entry.target.classList.add('opacity-25')
+          }
         })
-        mapRef
-          .current!.getMap()
-          .setStyle(
-            locationConf.style ? locationConf.style : 'mapbox://styles/mapbox/dark-v10'
-          )
+      }, {
+        threshold: 0
       }
-    })
-  }
+      )
+
+      refs.forEach(ref => {
+        if (ref) observer.observe((ref as HTMLElement))
+      })
+      return () => {
+        map.remove();
+        refs.forEach(ref => {
+          if (ref) observer.unobserve((ref as HTMLElement))
+        })
+      }
+    }
+  })
 
   return (
     <>
       {mapChapter.map((chapter, idx) => {
         return (
           <Chapter
-            key={chapter.center[0]}
             index={idx}
-            ref={chapter.ref}
-            view={chapter.view}
+            ref={refs[idx]}
           />
         )
       })}
-      <div className="h-[100vh] w-full fixed top-0 bottom-0 left-0 right-0">
-        <Map
-          ref={mapRef}
-          initialViewState={{
-            longitude: 107.800854,
-            latitude: 15.82164,
-            zoom: 6,
-            pitch: 16.5,
-          }}
-          interactive={false}
-          mapStyle="mapbox://styles/wesngu028/cl8qaisxu000m14nzgup6koq4"
-          mapboxAccessToken={`${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`}
-        >
-          {mapChapter.map(chapter => {
-            return chapter.view ? (
-              chapter.view === otherCareerView ? (
-                <>
-                  <Marker longitude={-122.1800715} latitude={47.5532877}>
-                    <img alt="nhstc logo map marker" src={'../src/assets/map/nhstc-marker.png'} />
-                  </Marker>
-                  <Marker longitude={-122.1999175} latitude={47.4968123}>
-                    <img alt="target logo map marker" src={'../src/assets/map/target-marker.png'} />
-                  </Marker>
-                  <Marker longitude={-122.1733261} latitude={47.575893}>
-                    <img
-                      alt="amazon fresh logo map marker"
-                      src={'../src/assets/map/fresh-marker.png'}
-                    />
-                  </Marker>
-                </>
-              ) : (
-                <Marker longitude={chapter.center[0]} latitude={chapter.center[1]}>
-                  {chapter.marker ? (
-                    <img alt={chapter.alt} src={chapter.marker} />
-                  ) : null}
-                </Marker>
-              )
-            ) : null
-          })}
-        </Map>
-      </div>
-    </>
+    <div class="h-[100vh] w-full fixed top-0 bottom-0 left-0 right-0">
+      <div ref={mapContainer} class="h-full"></div>
+    </div>
+    // </>
   )
 }
+// new Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+
+// {mapChapter.map(chapter => {
+//   return chapter.view ? (
+//     chapter.view === otherCareerView ? (
+//       <>
+//         <Marker longitude={-122.1800715} latitude={47.5532877}>
+//           <Image alt="nhstc logo map marker" src={nhstcMapMarker} />
+//         </Marker>
+//         <Marker longitude={-122.1999175} latitude={47.4968123}>
+//           <Image alt="target logo map marker" src={targetMapMarker} />
+//         </Marker>
+//         <Marker longitude={-122.1733261} latitude={47.575893}>
+//           <Image
+//             alt="amazon fresh logo map marker"
+//             src={amazonFreshMapMarker}
+//           />
+//         </Marker>
+//       </>
+//     ) : (
+//       <Marker longitude={chapter.center[0]} latitude={chapter.center[1]}>
+//         {chapter.marker ? (
+//           <Image alt={chapter.alt} src={chapter.marker} />
+//         ) : null}
+//       </Marker>
+//     )
+//   ) : null
+// })}
