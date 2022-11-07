@@ -22,7 +22,6 @@ const {
 	<About
 		header={title}
 		paragraph1={description}
-		destination="/blog"
 		image={heroImage}
 		blog={true}
 	/>
@@ -45,9 +44,35 @@ const {
 </Layout>
 
 <style is:global>
-	p {
+	h1, p, h2 {
 		margin: 1.25rem;
+	}
+
+	ul {
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+		margin-left: 5.5rem;
+	}
+
+	h1 {
+		font-size: 2.25rem;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+		line-height: 1.25rem;
+	}
+
+	p, li { 
+		font-size: 1.25rem; 
 		line-height: 2;
-		font-size: 1.25rem;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	ul {
+		list-style: circle;
 	}
 </style>
