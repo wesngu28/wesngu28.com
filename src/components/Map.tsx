@@ -81,10 +81,16 @@ export default function ScrollyMap() {
         interactive: false,
         accessToken: `${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
       });
-      mapChapter.forEach(chapter => {
+      mapChapter.forEach((chapter, i) => {
         let marker = null
         if (chapter.marker) marker = (<img alt={chapter.alt} src={chapter.marker}/> as HTMLElement)
-        new Marker({element: (marker as HTMLElement)}).setLngLat([chapter.center[0], chapter.center[1]]).addTo(map)
+        if (i === 6) {
+          new Marker({element: (<img alt="nhstc logo map marker" src={nhstcMapMarker} /> as HTMLElement)}).setLngLat([-122.1800715, 47.5532877]).addTo(map)
+          new Marker({element: (<img alt="target logo map marker" src={targetMapMarker} /> as HTMLElement)}).setLngLat([-122.1999175, 47.4968123]).addTo(map)
+          new Marker({element: (<img alt={chapter.alt} src={amazonFreshMapMarker}/> as HTMLElement)}).setLngLat([-122.1733261, 47.575893]).addTo(map)
+        } else {
+          new Marker({element: (marker as HTMLElement)}).setLngLat([chapter.center[0], chapter.center[1]]).addTo(map)
+        }
       })
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -142,31 +148,3 @@ export default function ScrollyMap() {
     // </>
   )
 }
-// new Marker().setLngLat(feature.geometry.coordinates).addTo(map)
-
-// {mapChapter.map(chapter => {
-//   return chapter.view ? (
-//     chapter.view === otherCareerView ? (
-//       <>
-//         <Marker longitude={-122.1800715} latitude={47.5532877}>
-//           <Image alt="nhstc logo map marker" src={nhstcMapMarker} />
-//         </Marker>
-//         <Marker longitude={-122.1999175} latitude={47.4968123}>
-//           <Image alt="target logo map marker" src={targetMapMarker} />
-//         </Marker>
-//         <Marker longitude={-122.1733261} latitude={47.575893}>
-//           <Image
-//             alt="amazon fresh logo map marker"
-//             src={amazonFreshMapMarker}
-//           />
-//         </Marker>
-//       </>
-//     ) : (
-//       <Marker longitude={chapter.center[0]} latitude={chapter.center[1]}>
-//         {chapter.marker ? (
-//           <Image alt={chapter.alt} src={chapter.marker} />
-//         ) : null}
-//       </Marker>
-//     )
-//   ) : null
-// })}
