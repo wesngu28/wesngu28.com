@@ -1,5 +1,4 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { useRef } from 'react'
 import { Map, Marker } from 'mapbox-gl';
 import Chapter from './Chapter'
 import { onMount } from 'solid-js'
@@ -85,9 +84,9 @@ export default function ScrollyMap() {
         let marker = null
         if (chapter.marker) marker = (<img alt={chapter.alt} src={chapter.marker}/> as HTMLElement)
         if (i === 6) {
-          new Marker({element: (<img alt="nhstc logo map marker" src={nhstcMapMarker} /> as HTMLElement)}).setLngLat([-122.1800715, 47.5532877]).addTo(map)
-          new Marker({element: (<img alt="target logo map marker" src={targetMapMarker} /> as HTMLElement)}).setLngLat([-122.1999175, 47.4968123]).addTo(map)
-          new Marker({element: (<img alt={chapter.alt} src={amazonFreshMapMarker}/> as HTMLElement)}).setLngLat([-122.1733261, 47.575893]).addTo(map)
+          new Marker({element: (<img alt="nhstc logo map marker" src='../src/assets/map/nhstc-marker.png' /> as HTMLElement)}).setLngLat([-122.1800715, 47.5532877]).addTo(map)
+          new Marker({element: (<img alt="target logo map marker" src='../src/assets/map/target-marker.jpg' /> as HTMLElement)}).setLngLat([-122.1999175, 47.4968123]).addTo(map)
+          new Marker({element: (<img alt="amazon fresh logo map marker" src='../src/assets/map/fresh-marker.png'/> as HTMLElement)}).setLngLat([-122.1733261, 47.575893]).addTo(map)
         } else {
           new Marker({element: (marker as HTMLElement)}).setLngLat([chapter.center[0], chapter.center[1]]).addTo(map)
         }
@@ -108,6 +107,7 @@ export default function ScrollyMap() {
               duration: 8000,
               essential: true,
             })
+            if(mapChapter[flyHere].style) map.setStyle(mapChapter[flyHere].style!)
           } else {
             entry.target.classList.remove('opacity-100')
             entry.target.classList.remove('duration-1000')
@@ -116,7 +116,7 @@ export default function ScrollyMap() {
           }
         })
       }, {
-        threshold: 0
+        threshold: 0.25
       }
       )
 
