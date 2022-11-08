@@ -4,12 +4,15 @@ import ArtistCard from './ArtistCard'
 import TopSVG from './TopSVG.astro'
 import type { spotifyAPI } from '../models/spotifyAPI'
 import type { lastFMAPI } from '../models/lastFMAPI'
+import { Show } from 'solid-js'
 
 const songQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/spotify.json`)
 const songText = await songQuery.text()
 const songJson: spotifyAPI = await JSON.parse(songText)
 
-const artistQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`)
+const artistQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`, {
+  cache: 'no-cache'
+})
 const artistText = await artistQuery.text()
 const artistJson: Array<lastFMAPI> = await JSON.parse(artistText)
 ---
@@ -26,7 +29,9 @@ const artistJson: Array<lastFMAPI> = await JSON.parse(artistText)
       <div>
         <p class="text-center mt-11 mb-5">
           My Top Artists This Month
-          <ArtistCard client:idle prefetch={artistJson} />
+          <Show when={artistJson} fallback={'Fuck you'}>
+            <ArtistCard client:idle prefetch={artistJson} />
+          </Show>
         </p>
       </div>
     </ul>
