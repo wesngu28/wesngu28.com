@@ -5,7 +5,7 @@ interface Props {
   ref: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
 }
 
-const Chapter = (({ index, ref }: Props) => {
+const Chapter = ({ index, ref }: Props) => {
   const chapters = [
     {
       top: ['md:top-[30vh]', 'top-[30vh]'],
@@ -79,9 +79,7 @@ const Chapter = (({ index, ref }: Props) => {
     <div
       id={String(index)}
       ref={ref}
-      class={`rounded-3xl bg-[#1F2022] text-white z-10 absolute mb-11 ${
-        chapters[index].top[1]
-      } ${chapters[index].top[0]} md:p-4 md:w-1/4 h-max rounded`}
+      class={`rounded-3xl bg-[#1F2022] text-white z-10 absolute mb-11 ${chapters[index].top[1]} ${chapters[index].top[0]} md:p-4 md:w-1/4 h-max rounded`}
     >
       <h2 class="text-center text-2xl font-bold">{chapters[index].heading}</h2>
       {chapters[index].duration ? (
@@ -95,18 +93,18 @@ const Chapter = (({ index, ref }: Props) => {
       <div>
         {chapters[index].paragraph
           ? chapters[index].paragraph!.map(text => {
-              return (
-                <p class="p-4 text-left text-sm md:text-lg leading-8">
-                  {text}
-                </p>
-              )
+              return <p class="p-4 text-left text-sm md:text-lg leading-8">{text}</p>
             })
           : null}
         {chapters[index].top[1] === 'top-[930vh]' ||
         chapters[index].top[0] === 'md:top-[630vh]' ? (
           <div>
             <Slideshow
-              photos={['../src/assets/map/nhstc.png', '../src/assets/map/target.jpg', '../src/assets/map/fresh.png']}
+              photos={[
+                '../src/assets/map/nhstc.png',
+                '../src/assets/map/target.jpg',
+                '../src/assets/map/fresh.png',
+              ]}
               caption={[
                 {
                   location: 'Newport Hills Swim Club',
@@ -124,13 +122,13 @@ const Chapter = (({ index, ref }: Props) => {
                   title: 'Overnight Associate',
                 },
               ]}
-              dynamicAlt='logos of newport hills swim club, target, and amazon fresh respectively'
+              dynamicAlt="logos of newport hills swim club, target, and amazon fresh respectively"
             />
           </div>
         ) : null}
       </div>
     </div>
   )
-})
+}
 
 export default Chapter

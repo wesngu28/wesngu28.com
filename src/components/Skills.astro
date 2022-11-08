@@ -1,5 +1,5 @@
 ---
-import SkillCard from "./SkillCard.astro";
+import SkillCard from './SkillCard.astro'
 import mongo from '../assets/skills/mongo.png'
 import redis from '../assets/skills/redis.png'
 import cockroach from '../assets/skills/cockroach.png'
@@ -22,47 +22,37 @@ import opensuse from '../assets/skills/opensuse.png'
 import docker from '../assets/skills/docker.png'
 import git from '../assets/skills/git.png'
 import linux from '../assets/skills/linux.png'
-import TopSVG from "./TopSVG.astro";
+import TopSVG from './TopSVG.astro'
 ---
 
 <div class="w-[100vw] relative">
-    <TopSVG />
-    <h1 class="mt-11  text-center text-2xl p-4 font-bold">Skills</h1>
-    <ul class="flex flex-wrap justify-center p-4">
-      <SkillCard
-        images={[linux, git, opensuse, docker]}
-        name={'Tools and Systems'}
-        desc={
-          'Operating systems and tools that help me run services and start new projects.'
-        }
-      />
-      <SkillCard    
-        images={[ html, css, bootstrap, sass, tailwind ]}
-        name={'HTML and CSS'}
-        desc={
-          'The building blocks of the internet. CSS enhanced by Bootstrap, Sass, and Tailwind.'
-        }
-      />
-      <SkillCard
-        images={[ js, ts, node, svelte, react, next, vue, nuxt ]}
-        name={'Javascript'}
-        desc={
-          'The various flavors of Javascript, its frameworks, bundlers (Vite), and everything in-between.'
-        }
-      />
-      <SkillCard
-        images={[python, flask]}
-        name={'Python'}
-        desc={
-          'The language of data and AI. I have also used Jupyter and the ML libaries to some extent.'
-        }
-      />
-      <SkillCard
-        images={[mongo, redis, cockroach]}
-        name={'Databases'}
-        desc={
-          'Storage of data in the backend. I have worked with Postgres but have not used it in a project.'
-        }
-      />
-    </ul>
-  </div>
+  <TopSVG />
+  <h1 class="mt-11 text-center text-2xl p-4 font-bold">Skills</h1>
+  <ul class="flex flex-wrap justify-center p-4">
+    <SkillCard
+      images={[linux, git, opensuse, docker]}
+      name={'Tools and Systems'}
+      desc={'Operating systems and tools that help me run services and start new projects.'}
+    />
+    <SkillCard
+      images={[html, css, bootstrap, sass, tailwind]}
+      name={'HTML and CSS'}
+      desc={'The building blocks of the internet. CSS enhanced by Bootstrap, Sass, and Tailwind.'}
+    />
+    <SkillCard
+      images={[js, ts, node, svelte, react, next, vue, nuxt]}
+      name={'Javascript'}
+      desc={'The various flavors of Javascript, its frameworks, bundlers (Vite), and everything in-between.'}
+    />
+    <SkillCard
+      images={[python, flask]}
+      name={'Python'}
+      desc={'The language of data and AI. I have also used Jupyter and the ML libaries to some extent.'}
+    />
+    <SkillCard
+      images={[mongo, redis, cockroach]}
+      name={'Databases'}
+      desc={'Storage of data in the backend. I have worked with Postgres but have not used it in a project.'}
+    />
+  </ul>
+</div>

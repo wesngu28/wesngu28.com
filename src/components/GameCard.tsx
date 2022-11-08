@@ -13,7 +13,6 @@ interface skyrimProps {
 }
 
 export default function GameCard({ name, url, cover, stats, delay }: Props) {
-
   const openNewTab = (gameUrl: string) => {
     window.open(gameUrl, '_blank', 'noopener,noreferrer')
   }
@@ -21,20 +20,19 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
   const [moreInfo, setMoreInfo] = createSignal(false)
   const [visible, setVisible] = createSignal(false)
 
-  let listRef: HTMLLIElement | ((el: HTMLLIElement) => void) | undefined;
-  
+  let listRef: HTMLLIElement | ((el: HTMLLIElement) => void) | undefined
+
   createEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       const [entry] = entries
       setVisible(entry.isIntersecting)
       if (entry.isIntersecting) {
-        observer.unobserve((listRef as HTMLElement))
+        observer.unobserve(listRef as HTMLElement)
       }
-    }
-    )
-    if (listRef) observer.observe((listRef as HTMLElement))
+    })
+    if (listRef) observer.observe(listRef as HTMLElement)
     return () => {
-      if(listRef) observer.unobserve((listRef as HTMLElement))
+      if (listRef) observer.unobserve(listRef as HTMLElement)
     }
   })
 
@@ -42,10 +40,11 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
     <>
       <li
         ref={listRef}
-        class={`${visible()
+        class={`${
+          visible()
             ? `${delay} opacity-100 md:translate-x-0-all duration-1000`
             : 'md:-translate-x-full  opacity-0'
-          } bg-[#21222a] hover:z-50 m-1 inline-block border-b-4`}
+        } bg-[#21222a] hover:z-50 m-1 inline-block border-b-4`}
       >
         <div
           onClick={() => openNewTab(url)}
@@ -53,7 +52,8 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
         >
           <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
             <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
-              <img class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
+              <img
+                class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
                 onMouseEnter={() => setMoreInfo(true)}
                 onMouseLeave={() => setMoreInfo(false)}
                 src={cover}
@@ -89,7 +89,7 @@ function Skyrim({ stats }: skyrimProps) {
       <img alt={'steam skyrim stats'} src={stats} />
 
       <table class="m-auto w-full bg-slate-800">
-      <caption class="mt-5 font-bold">Elder Scrolls Favorites</caption>
+        <caption class="mt-5 font-bold">Elder Scrolls Favorites</caption>
         <tbody>
           <tr class="text-center border-b">
             <th></th>

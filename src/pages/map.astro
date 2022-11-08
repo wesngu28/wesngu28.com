@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro'
 import Map from '../components/Map'
-import MapHeader from "../components/MapHeader.astro";
+import MapHeader from '../components/MapHeader.astro'
 ---
 
-<Layout title="Welcome to Astro.">
-	<div class="h-[1030vh] md:h-[700vh]">
-		<MapHeader />
-		<Map client:load/>
-	</div>
+<Layout title="My Map">
+  <div class="h-[1030vh] md:h-[700vh]">
+    <MapHeader />
+    <Map client:load />
+  </div>
 </Layout>

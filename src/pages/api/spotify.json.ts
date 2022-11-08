@@ -36,14 +36,14 @@ export const get: APIRoute = async () => {
     const albumImageUrl = song.track.album.images[0].url
     const songUrl = song.track.external_urls.spotify
     return {
-        body: JSON.stringify({
-            album,
-            albumImageUrl,
-            artist,
-            songUrl,
-            title,
-            recent: true,
-          })
+      body: JSON.stringify({
+        album,
+        albumImageUrl,
+        artist,
+        songUrl,
+        title,
+        recent: true,
+      }),
     }
   }
 
@@ -59,12 +59,12 @@ export const get: APIRoute = async () => {
 
   return {
     body: JSON.stringify({
-        album,
-        albumImageUrl,
-        artist,
-        isPlaying,
-        songUrl,
-        title,
-      })
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+    }),
   }
 }

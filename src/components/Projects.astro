@@ -1,92 +1,93 @@
 ---
-import personalWebsite from "../assets/projects/personal-web.png";
-import rhodes from "../assets/projects/rhodes.png";
-import mappingTerrorism from "../assets/projects/mapping-terrorism.png";
-import closure from "../assets/projects/closure.png";
-import searchify from "../assets/projects/searchify.png";
-import translator from "../assets/projects/translator.png";
-import observatory from "../assets/projects/observatory.png";
-import glaceon from "../assets/projects/pokemon.png";
-import lux from "../assets/projects/champview.png";
-import ProjectCard from "./ProjectCard.astro";
+import personalWebsite from '../assets/projects/personal-web.png'
+import rhodes from '../assets/projects/rhodes.png'
+import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
+import closure from '../assets/projects/closure.png'
+import searchify from '../assets/projects/searchify.png'
+import holoboard from '../assets/projects/holoboard.png'
+import observatory from '../assets/projects/observatory.png'
+import glaceon from '../assets/projects/pokemon.png'
+import lux from '../assets/projects/champview.png'
+import ProjectCard from './ProjectCard.astro'
 ---
 
 <div class="w-[85vw] mt-11">
   <h1 class="text-center font-bold text-2xl p-2">Projects</h1>
   <p class="m-auto sm:w-96 break-normal text-center">
-    I like to make projects that are personal to me so I feel more engaged with
-    my learning. Here are some of the ones I have worked on recently!
+    I like to make projects that are personal to me so I feel more engaged with my
+    learning. Here are some of the ones I have worked on recently!
   </p>
   <ul class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     <ProjectCard
-      techs={["Typescript", "Tailwind", "React", "Next.js", "Mapbox"]}
-      live={"https://wesngu28.com"}
-      url={"https://github.com/wesngu28/wesngu28.com"}
+      techs={['Typescript', 'Tailwind', 'Astro', 'SolidJS', 'Mapbox']}
+      live={'https://wesngu28.com'}
+      url={'https://github.com/wesngu28/wesngu28.com'}
       image={personalWebsite}
-      name={"Personal Website"}
-      desc={"This very own website. I learned a lot about Tailwind through this project and got more exposure with the Next.js framework."}
+      name={'Personal Website'}
+      desc={'This very own website. I learned a lot about Tailwind through this project and got more exposure with the Next.js framework.'}
     />
     <ProjectCard
-      techs={["Javascript", "Mapbox", "Sass"]}
-      live={"https://wesngu28.github.io/mapping-terrorism/"}
-      url={"https://github.com/wesngu28/mapping-terrorism"}
+      techs={['Javascript', 'Mapbox', 'Sass']}
+      live={'https://wesngu28.github.io/mapping-terrorism/'}
+      url={'https://github.com/wesngu28/mapping-terrorism'}
       image={mappingTerrorism}
-      name={"Mapping Terrorism"}
-      desc={"A website dashboard that visualizes the data from the University of Maryland Global Terrorism Database. Made as a group project for Geography 458 with the University of Washington. Was responsible for the design and structure of the website and the icons on the map."}
+      name={'Mapping Terrorism'}
+      desc={'A website dashboard that visualizes the data from the University of Maryland Global Terrorism Database. Made as a group project for Geography 458 with the University of Washington. Was responsible for the design and structure of the website and the icons on the map.'}
     />
     <ProjectCard
-      techs={["Typescript", "Node.js", "Tailwind", "React", "Next.js", "NPM"]}
-      live={"https://observatories.vercel.app/"}
-      url={"https://github.com/wesngu28/observatory"}
+      techs={['Typescript', 'Node.js', 'Tailwind', 'React', 'Next.js', 'NPM']}
+      live={'https://observatories.vercel.app/'}
+      url={'https://github.com/wesngu28/observatory'}
       image={observatory}
-      name={"Observatory"}
-      desc={"A web app to complement a CLI I made. Input your package.json or requirements.txt dependency file, and the backend will parse the relevant github repositories and display a table of the ones you have yet to star. You can click to star or unstar the repos from that table."}
+      name={'Observatory'}
+      desc={'A web app to complement a CLI I made. Input your package.json or requirements.txt dependency file, and the backend will parse the relevant github repositories and display a table of the ones you have yet to star. You can click to star or unstar the repos from that table.'}
     />
     <ProjectCard
-      techs={["Typescript", "SvelteKit", "Prisma", "PostgreSQL", "CockroachDB"]}
-      live={"https://pokemon-stats-game.vercel.app/"}
-      url={"https://github.com/wesngu28/pokemon-stats-game"}
+      techs={['Typescript', 'SvelteKit', 'Prisma', 'PostgreSQL', 'CockroachDB']}
+      live={'https://pokemon-stats-game.vercel.app/'}
+      url={'https://github.com/wesngu28/pokemon-stats-game'}
       image={glaceon}
-      name={"Pokemon Stats Game"}
-      desc={"First real web project I made that has since been reforged in SvelteKit. Allows you to search for a specific pokemon or query six random pokemon. Also has a challenge feature, in which you must choose the Pokemon that has the higher of the specified stat."}
+      name={'Pokemon Stats Game'}
+      desc={'First real web project I made that has since been reforged in SvelteKit. Allows you to search for a specific pokemon or query six random pokemon. Also has a challenge feature, in which you must choose the Pokemon that has the higher of the specified stat.'}
     />
     <ProjectCard
-      techs={["Typescript", "Python", "React", "Next.js", "Flask"]}
-      live={"https://searchifyy.vercel.app/"}
-      url={"https://github.com/wesngu28/searchify"}
+      techs={['Typescript', 'Python', 'React', 'Next.js', 'Flask']}
+      live={'https://searchifyy.vercel.app/'}
+      url={'https://github.com/wesngu28/searchify'}
       image={searchify}
-      name={"Searchify"}
-      desc={"A website that allows you to paste in a Spotify artist, track, playlist, or album, and get some information about them and also receive a table with YouTube links of the songs inside of it or recommendations. Also allows for you to login and get information about your listening habits."}
+      name={'Searchify'}
+      desc={'A website that allows you to paste in a Spotify artist, track, playlist, or album, and get some information about them and also receive a table with YouTube links of the songs inside of it or recommendations. Also allows for you to login and get information about your listening habits.'}
     />
     <ProjectCard
-      techs={["Typescript", "Vue", "Nuxt.js"]}
-      live={"https://simplechampview.vercel.app/"}
-      url={"https://github.com/wesngu28/simple-champion-viewer"}
+      techs={['Typescript', 'Vue', 'Nuxt.js']}
+      live={'https://simplechampview.vercel.app/'}
+      url={'https://github.com/wesngu28/simple-champion-viewer'}
       image={lux}
-      name={"Champ Viewer"}
-      desc={"A web app that allows you to query a champion and get their skins and spells, as well as other tidbits. Can be intensive for slower networks and is defaulted to Lux. Was made to learn a bit of Vue since I wanted to experience it a bit and got some Nuxt as a side dish."}
+      name={'Champ Viewer'}
+      desc={'A web app that allows you to query a champion and get their skins and spells, as well as other tidbits. Can be intensive for slower networks and is defaulted to Lux. Was made to learn a bit of Vue since I wanted to experience it a bit and got some Nuxt as a side dish.'}
     />
     <ProjectCard
-      techs={["Typescript", "Node.js", "Express.js", "MongoDB"]}
-      url={"https://github.com/wesngu28/rhodesapi"}
+      techs={['Typescript', 'Node.js', 'Express.js', 'MongoDB']}
+      url={'https://github.com/wesngu28/rhodesapi'}
       image={rhodes}
-      name={"RhodesAPI"}
-      desc={"A RESTful API for the gacha tower defense game Arknights. While the game does have some existing databases in various repositories and websites, most were out of date and lacked apis, so I made a scraper to hit the Gamepress page for each operator and stored them in an instance hosted on Mongo Atlas and made it queryable."}
+      name={'RhodesAPI'}
+      desc={'A RESTful API for the gacha tower defense game Arknights. While the game does have some existing databases in various repositories and websites, most were out of date and lacked apis, so I made a scraper to hit the Gamepress page for each operator and stored them in an instance hosted on Mongo Atlas and made it queryable.'}
     />
     <ProjectCard
-      techs={["Typescript", "Node.js", "Discord.js", "MongoDB", "Docker"]}
-      live={"https://closurets.vercel.app/"}
-      url={"https://github.com/wesngu28/closurets"}
+      techs={['Typescript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']}
+      live={'https://closurets.vercel.app/'}
+      url={'https://github.com/wesngu28/closurets'}
       image={closure}
-      name={"Closure"}
-      desc={"A discord bot with both general and niche applications. Made to complement the RhodesAPI. Implements operator commands, as well as commands to get live status for youtubers. Can be configured to announce Youtube livestreams and uploads at a comparable time to Pingcord."}
+      name={'Closure'}
+      desc={'A discord bot with both general and niche applications. Made to complement the RhodesAPI. Implements operator commands, as well as commands to get live status for youtubers. Can be configured to announce Youtube livestreams and uploads at a comparable time to Pingcord.'}
     />
     <ProjectCard
-      techs={["Python", "Tkinter"]}
-      url={"https://github.com/wesngu28/Twitter-Translator"}
-      image={translator}
-      name={"Translatter"}
-      desc={"A little Tkinter or Pysimplegui based Python app that allows you to paste in a foreign-language twitter and receive five tweets in a specified time frame back and the rest of them in csv format."}
+      techs={['Typescript', 'React', 'Next.js']}
+      live={'https://holoboard.vercel.app/'}
+      url={'https://github.com/wesngu28/holoboard'}
+      image={holoboard}
+      name={'Holoboard'}
+      desc={'A web app to monitor the streamers of Hololive and Holostars english. The below icons will highlight and change opacity based on live status and get brighter the closer they are to becoming live. Was made to learn some Next 13.'}
     />
   </ul>
 </div>

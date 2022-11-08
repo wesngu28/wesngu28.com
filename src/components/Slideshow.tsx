@@ -32,10 +32,11 @@ export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
         &#8592;
       </p>
       <For each={photos}>
-        {(photo: string, i: Accessor<number>) =>
+        {(photo: string, i: Accessor<number>) => (
           <div
-            class={`flex flex-col justify-center ${photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
-              } m-auto relative ${active() === i() ? 'block animate-slideshow' : 'hidden'}`}
+            class={`flex flex-col justify-center ${
+              photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
+            } m-auto relative ${active() === i() ? 'block animate-slideshow' : 'hidden'}`}
           >
             <Show when={caption} fallback={null}>
               <div>
@@ -48,13 +49,9 @@ export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
                 </p>
               </div>
             </Show>
-            <img
-              alt={dynamicAlt}
-              src={photo}
-              class="object-contain"
-            />
+            <img alt={dynamicAlt} src={photo} class="object-contain" />
           </div>
-        }
+        )}
       </For>
       <p onClick={incrementImage} class="text-6xl text-[#6E6E6E]">
         &#8594;

@@ -1,13 +1,13 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from '@astrojs/image/components'
 
 export interface Props {
-    images: Array<ImageMetadata>
-    name: string
-    desc?: string
+  images: Array<ImageMetadata>
+  name: string
+  desc?: string
 }
 
-const { images, name, desc } = Astro.props;
+const { images, name, desc } = Astro.props
 
 let grid = 'grid-cols-1'
 
@@ -17,20 +17,23 @@ if (images.length > 2) {
 ---
 
 <li class="bg-[#21222a] m-4 w-[225px] h-[450px] rounded-2xl">
-    <div class={`relative h-[60%] grid ${grid}`}>
-      {images.map((arr) => {
+  <div class={`relative h-[60%] grid ${grid}`}>
+    {
+      images.map(arr => {
         return (
           <div class="m-2 relative">
             <span class="box-border flex justify-center overflow-hidden opacity-100 border-none m-0 p-0 absolute top-0 bottom-0 left-0 right-0">
-              <Image class="w-auto h-auto object-contain"
+              <Image
+                class="w-auto h-auto object-contain"
                 alt={`${name} logo`}
                 src={arr}
               />
             </span>
           </div>
         )
-      })}
-    </div>
-    <h2 class="text-2xl text-center">{name}</h2>
-    <p class="p-2 mt-2 text-sm text-center">{desc}</p>
-  </li>
+      })
+    }
+  </div>
+  <h2 class="text-2xl text-center">{name}</h2>
+  <p class="p-2 mt-2 text-sm text-center">{desc}</p>
+</li>

@@ -1,38 +1,43 @@
 ---
-import TopSVG from "./TopSVG.astro";
+import { Image } from '@astrojs/image/components'
+import TopSVG from './TopSVG.astro'
 
-const posts = (await Astro.glob("../pages/blog/*.{md,mdx}")).sort(
-    (a, b) =>
-        new Date(b.frontmatter.pubDate).valueOf() -
-        new Date(a.frontmatter.pubDate).valueOf()
-);
+const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+)
 ---
 
 <div class="w-[100vw] relative">
-    <TopSVG />
-    <h1 class="mt-11 text-center text-2xl p-4 font-bold">Skills</h1>
-    <ul class="flex items-center justify-center flex-wrap">
-        {
-            posts.map((post) => (
-                <li class="p-4 bg-[#21222a] m-4 text-center ">
-                    <a href={post.url}>
-                        <img src={post.frontmatter.heroImage} />
-                        <h2 class="text-3xl"> {post.frontmatter.title}</h2>
-                        <p class="text-sm mb-4">🕘 <time datetime={post.frontmatter.pubDate}>
-                            {new Date(
-                                post.frontmatter.pubDate
-                            ).toLocaleDateString("en-us", {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                            })}
-                        </time></p>
-                        <p>
-                           {post.frontmatter.description}
-                        </p>
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+  <TopSVG />
+  <h1 class="mt-11 text-center text-2xl p-4 font-bold">Posts</h1>
+  <ul class="flex items-center justify-center flex-wrap">
+    {
+      posts.map(post => (
+        <li class="p-4 bg-[#21222a] m-4 text-center ">
+          <a href={post.url}>
+            <Image
+              class="p-4"
+              alt={post.frontmatter.heroImageAlt}
+              height={360}
+              width={480}
+              src={post.frontmatter.heroImage}
+            />
+            <h2 class="text-3xl"> {post.frontmatter.title}</h2>
+            <p class="text-sm mb-4">
+              🕘{' '}
+              <time datetime={post.frontmatter.pubDate}>
+                {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </p>
+            <p>{post.frontmatter.description}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>

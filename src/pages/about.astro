@@ -1,21 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import About from "../components/About.astro";
-import Music from "../components/Music.astro";
-import Games from "../components/Games.astro";
-import Specs from "../components/Specs.astro";
-import Petfolio from "../components/Petfolio.astro";
+import Layout from '../layouts/Layout.astro'
+import About from '../components/About.astro'
+import Music from '../components/Music.astro'
+import Games from '../components/Games.astro'
+import Specs from '../components/Specs.astro'
+import Petfolio from '../components/Petfolio.astro'
 ---
 
-  <Layout title="Welcome to Astro.">
-    <div id="wrapper" class="flex flex-col justify-center items-center">
-        <About
-          header="Even More About Me"
-          paragraph1="If you clicked on this for whatever reason, have fun learning more about me than you should really know about me."
-        />
-        <Music />
-        <Games />
-        <Specs />
-        <Petfolio />
-      </div>
+<Layout title="About Me">
+  <div id="wrapper" class="flex flex-col justify-center items-center">
+    <About
+      header="Even More About Me"
+      paragraph1="If you clicked on this for whatever reason, have fun learning more about me than you should really know about me."
+    />
+    <Music />
+    <Games />
+    <Specs />
+    <Petfolio />
+  </div>
 </Layout>

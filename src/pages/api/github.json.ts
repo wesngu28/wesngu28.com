@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 
 export const get: APIRoute = async ({ request }) => {
-  const githubToken = await (import.meta.env.GITHUB_PERSONAL_TOKEN);
+  const githubToken = await import.meta.env.GITHUB_PERSONAL_TOKEN
   const url = new URL(request.url)
   const params = new URLSearchParams(url.search)
   const repoName = params.get('repo')
@@ -21,6 +21,6 @@ export const get: APIRoute = async ({ request }) => {
     languages[language] = 100 * (languages[language] / lines)
   })
   return {
-    body: JSON.stringify(languages)
+    body: JSON.stringify(languages),
   }
-}; 
+}

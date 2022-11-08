@@ -5,8 +5,7 @@ interface Props {
   prefetch: spotifyAPI
 }
 
-export default function NowPlaying({prefetch}: Props) {
-
+export default function NowPlaying({ prefetch }: Props) {
   const [data, setData] = createSignal<spotifyAPI>(prefetch)
 
   const fetchNewData = async () => {
@@ -17,8 +16,8 @@ export default function NowPlaying({prefetch}: Props) {
     return songJson
   }
 
-  createEffect(() =>{
-    let interval = setInterval(async () => setData(await fetchNewData()), (30000))
+  createEffect(() => {
+    let interval = setInterval(async () => setData(await fetchNewData()), 30000)
     return () => clearInterval(interval)
   })
 
@@ -41,7 +40,9 @@ export default function NowPlaying({prefetch}: Props) {
             : 'Getting song...'}
         </p>
         <p class="mt-5 m-auto text-sm font-bold">PLAYING FROM ALBUM</p>
-        <p class="m-auto mb-11">{data() ? trimText(data()!.album) : 'Getting album...'}</p>
+        <p class="m-auto mb-11">
+          {data() ? trimText(data()!.album) : 'Getting album...'}
+        </p>
         <a
           class="m-auto mb-11"
           target="_blank"

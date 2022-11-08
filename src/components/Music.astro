@@ -1,34 +1,34 @@
 ---
-import NowPlaying from "./NowPlaying";
-import ArtistCard from "./ArtistCard";
-import TopSVG from "./TopSVG.astro";
-import type { spotifyAPI } from "../models/spotifyAPI";
-import type { lastFMAPI } from "../models/lastFMAPI";
+import NowPlaying from './NowPlaying'
+import ArtistCard from './ArtistCard'
+import TopSVG from './TopSVG.astro'
+import type { spotifyAPI } from '../models/spotifyAPI'
+import type { lastFMAPI } from '../models/lastFMAPI'
 
-const songQuery = await fetch('http:localhost:3000/api/spotify.json')
+const songQuery = await fetch('http://localhost:3000/api/spotify.json')
 const songText = await songQuery.text()
 const songJson: spotifyAPI = await JSON.parse(songText)
 
-const artistQuery = await fetch('http:localhost:3000/api/lastfm.json')
+const artistQuery = await fetch('http://localhost:3000/api/lastfm.json')
 const artistText = await artistQuery.text()
 const artistJson: Array<lastFMAPI> = await JSON.parse(artistText)
 ---
 
 <div
-    class="mb-20 flex w-[100vw] justify-evenly items-center flex-col md:flex-row relative"
+  class="mb-20 flex w-[100vw] justify-evenly items-center flex-col md:flex-row relative"
 >
-    <TopSVG />
-    <div
-        class="mt-40 flex w-[75vw] justify-evenly items-center flex-col md:flex-row relative"
-    >
-        <NowPlaying client:idle prefetch={songJson}/>
-        <ul class="flex flex-wrap justify-center m-4">
-            <div>
-                <p class="text-center mt-11 mb-5">
-                    My Top Artists This Month
-                    <ArtistCard client:idle prefetch={artistJson} />
-                </p>
-            </div>
-        </ul>
-    </div>
+  <TopSVG />
+  <div
+    class="mt-40 flex w-[75vw] justify-evenly items-center flex-col md:flex-row relative"
+  >
+    <NowPlaying client:idle prefetch={songJson} />
+    <ul class="flex flex-wrap justify-center m-4">
+      <div>
+        <p class="text-center mt-11 mb-5">
+          My Top Artists This Month
+          <ArtistCard client:idle prefetch={artistJson} />
+        </p>
+      </div>
+    </ul>
+  </div>
 </div>

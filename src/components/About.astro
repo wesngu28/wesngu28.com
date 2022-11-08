@@ -1,43 +1,45 @@
 ---
-import { Image } from '@astrojs/image/components';
-import { Show } from 'solid-js';
+import { Image } from '@astrojs/image/components'
+import { Show } from 'solid-js'
 import grotesque from '../assets/grotesque.jpeg'
-import AboutNavigation from './AboutNavigation.astro';
-import NavLinkContainer from './NavLinkContainer.astro';
+import AboutNavigation from './AboutNavigation.astro'
+import NavLinkContainer from './NavLinkContainer.astro'
 
 export interface Props {
-    header: string
-    paragraph1: string
-    paragraph2?: string
-    image?: string
-    blog?: boolean
-    imageAlt?: string
-    imageAttr?: string
+  header: string
+  paragraph1: string
+  paragraph2?: string
+  image?: string
+  blog?: boolean
+  imageAlt?: string
+  imageAttr?: string
 }
 
-const { header, paragraph1, paragraph2, image, blog, imageAlt, imageAttr } = Astro.props;
+const { header, paragraph1, paragraph2, image, blog, imageAlt, imageAttr } = Astro.props
 ---
 
 <div class="md:flex justify-center items-center p-4 bg-[#1F2022] w-full relative">
-    <div class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col">
-      <h1 class="text-center text-3xl font-bold">{header}</h1>
-      <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph1}</p>
-      <Show when={paragraph2} fallback={null}>
-        <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph2}</p>
-      </Show>
-        <AboutNavigation />
+  <div
+    class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col"
+  >
+    <h1 class="text-center text-3xl font-bold">{header}</h1>
+    <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph1}</p>
+    <Show when={paragraph2} fallback={null}>
+      <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph2}</p>
+    </Show>
+    <AboutNavigation />
+  </div>
+  <div class="flex flex-col items-center">
+    <div class="w-3/5">
+      <Image
+        class={`p-4 ${blog ? 'rounded-none' : 'rounded-full'} mx-auto object-cover`}
+        alt={imageAlt ? imageAlt : 'me'}
+        title={imageAttr ? imageAttr : null}
+        width={image ? 720 : null}
+        height={image ? 360 : null}
+        src={image ? image : grotesque}
+      />
     </div>
-    <div class="flex flex-col items-center">
-      <div class="w-3/5">
-        <Image
-          class={`p-4 ${blog ? 'rounded-none' : 'rounded-full'} mx-auto object-cover`}
-          alt={imageAlt ? imageAlt : "me"}
-          title={imageAttr ? imageAttr: null}
-          width={image ? 720 : null}
-          height={image ? 360 : null}
-          src={image ? image : grotesque}
-        />
-      </div>
-      {!blog ? <NavLinkContainer /> : null }
-    </div>
+    {!blog ? <NavLinkContainer /> : null}
+  </div>
 </div>
