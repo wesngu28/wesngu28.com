@@ -1,7 +1,7 @@
 ---
 import Slideshow from '../components/Slideshow'
 import { Image } from '@astrojs/image/components'
-import dogsscuffed from '../../src/assets/dog/dogs.jpg'
+import dogsscuffed from '../assets/dogs.jpg'
 ---
 
 <div
@@ -22,12 +22,12 @@ import dogsscuffed from '../../src/assets/dog/dogs.jpg'
           <Slideshow
             client:visible
             photos={[
-              '../src/assets/dog/cami1.jpg',
-              '../src/assets/dog/cami2.jpg',
-              '../src/assets/dog/cami3.jpg',
-              '../src/assets/dog/cami4.jpg',
-              '../src/assets/dog/cami5.jpg',
-              '../src/assets/dog/cami6.jpg',
+              './dog/cami1.jpg',
+              './dog/cami2.jpg',
+              './dog/cami3.jpg',
+              './dog/cami4.jpg',
+              './dog/cami5.jpg',
+              './dog/cami6.jpg',
             ]}
             dynamicAlt={'Cami'}
           />
@@ -40,12 +40,12 @@ import dogsscuffed from '../../src/assets/dog/dogs.jpg'
           <Slideshow
             client:visible
             photos={[
-              '../src/assets/dog/xena1.jpg',
-              '../src/assets/dog/xena2.jpg',
-              '../src/assets/dog/xena3.jpg',
-              '../src/assets/dog/xena4.jpg',
-              '../src/assets/dog/xena5.jpg',
-              '../src/assets/dog/xena6.jpg',
+              './dog/xena1.jpg',
+              './dog/xena2.jpg',
+              './dog/xena3.jpg',
+              './dog/xena4.jpg',
+              './dog/xena5.jpg',
+              './dog/xena6.jpg',
             ]}
             dynamicAlt={'Xena'}
           />

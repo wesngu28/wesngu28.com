@@ -41,7 +41,7 @@ export default function ScrollyMap() {
       zoom: 16.5,
       pitch: 0,
       alt: 'bellevue college logo map marker',
-      marker: '../src/assets/map/bc-logo.jpg',
+      marker: './map/bc-logo.jpg',
     },
     {
       ref: uw1,
@@ -50,7 +50,7 @@ export default function ScrollyMap() {
       pitch: 45.0,
       style: 'mapbox://styles/wesngu028/cl8qbgdt6000b15t70lultgn5',
       alt: 'university of washington logo map marker',
-      marker: '../src/assets/map/uw-logo.png',
+      marker: './map/uw-logo.png',
     },
     {
       ref: clack1,
@@ -86,7 +86,7 @@ export default function ScrollyMap() {
         if (i === 6) {
           new Marker({
             element: (
-              <img alt="nhstc logo map marker" src="../src/assets/map/nhstc-marker.png" />
+              <img alt="nhstc logo map marker" src="./map/nhstc-marker.png" />
             ) as HTMLElement,
           })
             .setLngLat([-122.1800715, 47.5532877])
@@ -95,7 +95,7 @@ export default function ScrollyMap() {
             element: (
               <img
                 alt="target logo map marker"
-                src="../src/assets/map/target-marker.jpg"
+                src="./map/target-marker.jpg"
               />
             ) as HTMLElement,
           })
@@ -105,7 +105,7 @@ export default function ScrollyMap() {
             element: (
               <img
                 alt="amazon fresh logo map marker"
-                src="../src/assets/map/fresh-marker.png"
+                src="./map/fresh-marker.png"
               />
             ) as HTMLElement,
           })

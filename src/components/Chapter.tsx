@@ -9,7 +9,7 @@ const Chapter = ({ index, ref }: Props) => {
   const chapters = [
     {
       top: ['md:top-[30vh]', 'top-[30vh]'],
-      source: '../src/assets/map/flag.svg',
+      source: './map/flag.svg',
       alt: 'South Vietnamese flag',
       heading: 'Vietnam Origins',
       paragraph: [
@@ -18,7 +18,7 @@ const Chapter = ({ index, ref }: Props) => {
     },
     {
       top: ['md:top-[130vh]', 'top-[180vh]'],
-      source: '../src/assets/map/bham.jpg',
+      source: './map/bham.jpg',
       alt: 'bellingham from the water',
       heading: 'Bellingham',
       paragraph: [
@@ -27,7 +27,7 @@ const Chapter = ({ index, ref }: Props) => {
     },
     {
       top: ['md:top-[230vh]', 'top-[330vh]'],
-      source: '../src/assets/map/edhesive.png',
+      source: './map/edhesive.png',
       alt: 'screengrab from my pokemon game made in rpg maker',
       heading: 'High School Roots',
       duration: 'Sept 2015 -  June 2019',
@@ -39,7 +39,7 @@ const Chapter = ({ index, ref }: Props) => {
     },
     {
       top: ['md:top-[330vh]', 'top-[480vh]'],
-      source: '../src/assets/map/BC.jpg',
+      source: './map/BC.jpg',
       alt: 'r building on bellevue college campus',
       heading: 'Running Start',
       duration: 'Sept 2017 -  June 2019',
@@ -49,7 +49,7 @@ const Chapter = ({ index, ref }: Props) => {
     },
     {
       top: ['md:top-[430vh]', 'top-[630vh]'],
-      source: '../src/assets/map/uw.jpg',
+      source: './map/uw.jpg',
       alt: 'uw campus',
       heading: 'University of Washington',
       duration: 'Sept 2019 -  2022/2023',
@@ -60,7 +60,7 @@ const Chapter = ({ index, ref }: Props) => {
     },
     {
       top: ['md:top-[530vh]', 'top-[780vh]'],
-      source: '../src/assets/map/iwp.jpg',
+      source: './map/iwp.jpg',
       alt: 'logo of international wood products',
       heading: 'First Internship',
       duration: 'July 2022 -  September 2022',
@@ -101,9 +101,9 @@ const Chapter = ({ index, ref }: Props) => {
           <div>
             <Slideshow
               photos={[
-                '../src/assets/map/nhstc.png',
-                '../src/assets/map/target.jpg',
-                '../src/assets/map/fresh.png',
+                './map/nhstc.png',
+                './map/target.jpg',
+                './map/fresh.png',
               ]}
               caption={[
                 {
