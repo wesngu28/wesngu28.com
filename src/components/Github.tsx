@@ -11,7 +11,7 @@ export default function Github({ url, prefetch }: Props) {
 
   const fetchNewData = async () => {
     const linguist = await fetch(
-      `http://localhost:3000/api/github.json?repo=${url.replace(
+      `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url.replace(
         'https://github.com/wesngu28/',
         ''
       )}`

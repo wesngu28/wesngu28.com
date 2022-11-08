@@ -10,10 +10,9 @@ export interface Props {
   url: string
   live?: string
 }
-
 const { techs, image, name, desc, url, live } = Astro.props
 const linguist = await fetch(
-  `http://localhost:3000/api/github.json?repo=${url.replace(
+  `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url.replace(
     'https://github.com/wesngu28/',
     ''
   )}`

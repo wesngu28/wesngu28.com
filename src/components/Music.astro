@@ -5,11 +5,11 @@ import TopSVG from './TopSVG.astro'
 import type { spotifyAPI } from '../models/spotifyAPI'
 import type { lastFMAPI } from '../models/lastFMAPI'
 
-const songQuery = await fetch('http://localhost:3000/api/spotify.json')
+const songQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/spotify.json`)
 const songText = await songQuery.text()
 const songJson: spotifyAPI = await JSON.parse(songText)
 
-const artistQuery = await fetch('http://localhost:3000/api/lastfm.json')
+const artistQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`)
 const artistText = await artistQuery.text()
 const artistJson: Array<lastFMAPI> = await JSON.parse(artistText)
 ---
