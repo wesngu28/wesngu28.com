@@ -12,7 +12,6 @@ export default function NowPlaying({ prefetch }: Props) {
     const songQuery = await fetch('/api/spotify.json')
     const songText = await songQuery.text()
     const songJson: spotifyAPI = await JSON.parse(songText)
-    console.log(songJson)
     return songJson
   }
 

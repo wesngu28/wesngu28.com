@@ -39,7 +39,6 @@ export const get: APIRoute = async () => {
         img: artistResult.artists.items[0].images[2].url,
       })
     }
-    console.log(monthlyArtists)
     return {
       body: JSON.stringify(monthlyArtists),
     }
