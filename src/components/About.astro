@@ -11,9 +11,11 @@ export interface Props {
     paragraph2?: string
     image?: string
     blog?: boolean
+    imageAlt?: string
+    imageAttr?: string
 }
 
-const { header, paragraph1, paragraph2, image, blog } = Astro.props;
+const { header, paragraph1, paragraph2, image, blog, imageAlt, imageAttr } = Astro.props;
 ---
 
 <div class="md:flex justify-center items-center p-4 bg-[#1F2022] w-full relative">
@@ -29,7 +31,8 @@ const { header, paragraph1, paragraph2, image, blog } = Astro.props;
       <div class="w-3/5">
         <Image
           class={`p-4 ${blog ? 'rounded-none' : 'rounded-full'} mx-auto object-cover`}
-          alt="photo of me"
+          alt={imageAlt ? imageAlt : "me"}
+          title={imageAttr ? imageAttr: null}
           width={image ? 720 : null}
           height={image ? 360 : null}
           src={image ? image : grotesque}

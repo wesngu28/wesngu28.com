@@ -1,20 +1,32 @@
 ---
-import "../assets/base.css";
+import "../styles/base.css";
 import About from "../components/About.astro";
 import TopSVG from "../components/TopSVG.astro";
 import Layout from "./Layout.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from '@astrojs/image/components';
 export interface Props {
 	content: {
 		title: string;
 		description: string;
 		pubDate?: string;
 		updatedDate?: string;
-		heroImage?: string;
+		heroImage: string;
+		heroImageAlt: string;
+		heroImageAttr: string;
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: {
+		title,
+		description,
+		pubDate,
+		updatedDate,
+		heroImage,
+		heroImageAlt,
+		heroImageAttr,
+	},
 } = Astro.props;
 ---
 
@@ -24,55 +36,98 @@ const {
 		paragraph1={description}
 		image={heroImage}
 		blog={true}
+		imageAlt={heroImageAlt}
+		imageAttr={heroImageAttr}
 	/>
 	<div class="w-[100vw] relative flex items-center justify-center">
 		<TopSVG />
 		<article class="w-full md:w-[75vw] lg:w-[55vw]">
-			<h1 class="mt-11 text-center text-5xl p-4 font-bold">{title}</h1>
-			{pubDate && <p class="text-lg text-center m-2"><time>{pubDate}</time></p>}
+			<h1 class="mt-24 text-center text-5xl p-4 font-bold">{title}</h1>
+			<Image
+				alt={heroImageAlt}
+				title={heroImageAttr}
+				width={720}
+				height={360}
+				src={heroImage}
+				class="p-4 m-auto"
+			/>
+			{
+				pubDate && (
+					<p class="text-lg text-center m-2">
+						<time>{pubDate}</time>
+					</p>
+				)
+			}
 			{
 				updatedDate && (
-					<div>
+					<div class="text-">
 						Last updated on <time>{updatedDate}</time>
 					</div>
 				)
 			}
 			<hr />
-			<slot/>
+			<div class="blogpost">
+				<slot />
+			</div>
 		</article>
+	</div>
+	<div class="mt-24">
+		<Footer />
 	</div>
 </Layout>
 
 <style is:global>
-	h1, p, h2 {
+	.blogpost h1,
+	.blogpost p,
+	.blogpost h2,
+	.blogpost li {
+		font-family: "Lora", serif;
 		margin: 1.25rem;
 	}
 
-	ul {
+	.blogpost ul {
 		margin-top: 1.25rem;
 		margin-bottom: 1.25rem;
 		margin-left: 5.5rem;
 	}
 
-	h1 {
-		font-size: 2.25rem;
+	.blogpost h1 {
+		font-size: 2.5rem;
+		line-height: 100%;
+		margin-bottom: 30px;
+		font-weight: 800;
 	}
 
-	h2 {
-		font-size: 1.75rem;
-		line-height: 1.25rem;
+	.blogpost h2 {
+		font-size: 2rem;
+		font-weight: 600;
+		margin: 1rem;
+		line-height: 100%;
 	}
 
-	p, li { 
-		font-size: 1.25rem; 
-		line-height: 2;
+	.blogpost p,
+	.blogpost li {
+		font-size: 1.125rem;
+		line-height: 200%;
+		margin-bottom: 20px;
 	}
 
-	a {
+	.blogpost a {
+		color: bisque;
+	}
+
+	.blogpost a:hover {
 		text-decoration: underline;
 	}
 
-	ul {
+	.blogpost ul {
 		list-style: circle;
+	}
+
+	.blogpost img {
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
 	}
 </style>
