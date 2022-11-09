@@ -11,21 +11,23 @@ export interface Props {
   live?: string
 }
 const { techs, image, name, desc, url, live } = Astro.props
-const linguist = await fetch(
-  `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url.replace(
-    'https://github.com/wesngu28/',
-    ''
-  )}`
+
+const githubToken = await import.meta.env.GITHUB_PERSONAL_TOKEN
+const repoName = url.replace('https://github.com/wesngu28/', '')
+const response = await fetch(
+  `https://api.github.com/repos/wesngu28/${repoName}/languages`,
+  {
+    headers: {
+      authorization: `token ${githubToken}`,
+    },
+  }
 )
-const linguini = await linguist.text()
-const langs = await JSON.parse(linguini)
-const counts: Array<number> = Object.values(langs)
-const total = counts.reduce(
-  (previousValue: number, currentValue) => previousValue + currentValue,
-  0
-)
-Object.keys(langs).map(extension => {
-  langs[extension] = (langs[extension] / total) * 100
+
+const languages = await response.json()
+const langLines: Array<number> = Object.values(languages)
+const lines = langLines.reduce((a, b) => a + b, 0)
+Object.keys(languages).forEach(language => {
+  languages[language] = 100 * (languages[language] / lines)
 })
 ---
 
@@ -45,7 +47,7 @@ Object.keys(langs).map(extension => {
       />
     )
   }
-  <Github prefetch={langs} />
+  <Github prefetch={languages} />
   <div class={`pr-2 pl-2`}>
     <ul class={'flex mt-1 justify-center flex-wrap'}>
       {
