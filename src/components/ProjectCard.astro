@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
-import Github from './Github'
+import Github from './Github.astro'
 
 export interface Props {
   techs: string[]
@@ -45,7 +45,7 @@ Object.keys(langs).map(extension => {
       />
     )
   }
-  <Github url={url} prefetch={langs} client:idle />
+  <Github prefetch={langs} />
   <div class={`pr-2 pl-2`}>
     <ul class={'flex mt-1 justify-center flex-wrap'}>
       {

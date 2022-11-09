@@ -28,7 +28,7 @@ export default function NowPlaying() {
 
   return (
     <div class="bg-[#292C33] w-max p-4 flex items-center justify-center">
-      <div class="w-72 flex flex-col">
+      <div class="w-[20rem] flex flex-col">
         <p class="text-center">
           {data()
             ? data()!.recent

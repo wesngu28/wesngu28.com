@@ -1,6 +1,6 @@
 export interface lastFMAPI {
   name: string
-  playcount: number
+  playcount: string
   href: string
   img: string
 }
