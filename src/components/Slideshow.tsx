@@ -1,7 +1,6 @@
 import { Accessor, createSignal, For, Show } from 'solid-js'
 
 interface Props {
-  photos: string[]
   dynamicAlt: string
   caption?: Array<{
     location: string
@@ -10,12 +9,33 @@ interface Props {
   }>
 }
 
-export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
+export default function Slideshow({ dynamicAlt, caption }: Props) {
+  let photos;
+  if (dynamicAlt === 'Cami') {
+    photos = [
+      './dog/cami1.webp',
+      './dog/cami2.webp',
+      './dog/cami3.webp',
+      './dog/cami4.webp',
+      './dog/cami5.webp',
+      './dog/cami6.webp',
+    ]
+  }
+  if (dynamicAlt === 'Xena') {
+    photos = [
+      './dog/xena1.webp',
+      './dog/xena2.webp',
+      './dog/xena3.webp',
+      './dog/xena4.webp',
+      './dog/xena5.webp',
+      './dog/xena6.webp',
+    ]
+  }
   const [active, setActive] = createSignal(0)
 
   function decrementImage() {
     setActive(active() - 1)
-    if (active() === 0) {
+    if (active() <= 0) {
       return setActive(photos.length - 1)
     }
   }
@@ -32,7 +52,7 @@ export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
         &#8592;
       </p>
       <For each={photos}>
-        {(photo: string, i: Accessor<number>) => (
+        {(photo: string, i) => (
           <div
             class={`flex flex-col justify-center ${
               photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
@@ -49,7 +69,7 @@ export default function Slideshow({ photos, dynamicAlt, caption }: Props) {
                 </p>
               </div>
             </Show>
-            <img alt={dynamicAlt} src={photo} class="object-contain" />
+            <img loading='lazy' alt={dynamicAlt} src={photo} class="object-contain" />
           </div>
         )}
       </For>

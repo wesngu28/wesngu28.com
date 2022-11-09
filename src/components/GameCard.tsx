@@ -1,15 +1,16 @@
 import { createEffect, createSignal } from 'solid-js'
+import type { ImgHTMLAttributes } from '@astrojs/image/components'
 
 interface Props {
   name: string
   url: string
-  cover: string
-  stats: string
+  cover: {width: number, height: number, src: string}
+  stats: ImageMetadata
   delay?: string
 }
 
 interface skyrimProps {
-  stats: string
+  stats: {width: number, height: number, src: string}
 }
 
 export default function GameCard({ name, url, cover, stats, delay }: Props) {
@@ -53,14 +54,15 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
           <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
             <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
               <img
+                loading='lazy'
                 class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
                 onMouseEnter={() => setMoreInfo(true)}
                 onMouseLeave={() => setMoreInfo(false)}
-                src={cover}
+                src={cover.src}
                 title={name}
                 alt={`${name} header`}
-                width={'460px'}
-                height={'215px'}
+                width={cover.width}
+                height={cover.height}
               />
             </span>
           </span>
@@ -71,7 +73,7 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
               {name === 'Skyrim' ? (
                 <Skyrim stats={stats} />
               ) : (
-                <img class="m-auto" alt={`${name} stats`} src={stats} />
+                <img class="m-auto" alt={`${name} stats`} height={stats.height} width={stats.width} src={stats.src} />
               )}
             </div>
           )}
@@ -86,7 +88,7 @@ function Skyrim({ stats }: skyrimProps) {
     <>
       <p>Known colloquially as Mod Organizer 2.</p>
       <p>I have only ever finished this game once, as a Redguard sneak archer.</p>
-      <img alt={'steam skyrim stats'} src={stats} />
+      <img alt={'steam skyrim stats'} width={stats.width} height={stats.height} src={stats.src} />
 
       <table class="m-auto w-full bg-slate-800">
         <caption class="mt-5 font-bold">Elder Scrolls Favorites</caption>

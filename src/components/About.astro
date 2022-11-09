@@ -32,6 +32,7 @@ const { header, paragraph1, paragraph2, image, blog, imageAlt, imageAttr } = Ast
   <div class="flex flex-col items-center">
     <div class="w-3/5">
       <Image
+        loading={'eager'}
         class={`p-4 ${blog ? 'rounded-none' : 'rounded-full'} mx-auto object-cover`}
         alt={imageAlt ? imageAlt : 'me'}
         title={imageAttr ? imageAttr : null}
