@@ -106,23 +106,33 @@ export default function ScrollyMap() {
                 for (let i = 0; i < markers.length; i++) {
                     (markers[i] as HTMLElement).style.visibility = "hidden";
                 }
-                console.log(markers)
-                new Marker()
+                new Marker({
+                  element: (
+                    <img alt="nhstc logo map marker" src="./map/nhstc-marker.png" />
+                  ) as HTMLElement,
+                })
                   .setLngLat([-122.1800715, 47.5532877])
                   .addTo(map)
-                  .setPopup(
-                    new Popup({ offset: 25 }).setText(
-                      'Newport Hills Swim and Tennis Club'
-                    )
-                  )
-                new Marker()
+                new Marker({
+                  element: (
+                    <img
+                      alt="target logo map marker"
+                      src="./map/target-marker.jpg"
+                    />
+                  ) as HTMLElement,
+                })
                   .setLngLat([-122.1999175, 47.4968123])
                   .addTo(map)
-                  .setPopup(new Popup({ offset: 25 }).setText('Target in the Landing'))
-                new Marker()
+                new Marker({
+                  element: (
+                    <img
+                      alt="amazon fresh logo map marker"
+                      src="./map/fresh-marker.png"
+                    />
+                  ) as HTMLElement,
+                })
                   .setLngLat([-122.1733261, 47.575893])
                   .addTo(map)
-                  .setPopup(new Popup({ offset: 25 }).setText('Amazon Fresh Factoria'))
               } else {
                 let markers = document.getElementsByClassName("mapboxgl-marker");
                 for (let i = 0; i < markers.length; i++) {
