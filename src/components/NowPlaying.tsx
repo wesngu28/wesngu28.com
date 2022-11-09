@@ -1,3 +1,4 @@
+import { getImage } from '@astrojs/image'
 import { createEffect, createSignal } from 'solid-js'
 import type { spotifyAPI } from '../models/spotifyAPI'
 
@@ -12,6 +13,7 @@ export default function NowPlaying({ prefetch }: Props) {
     const songQuery = await fetch('/api/spotify.json')
     const songText = await songQuery.text()
     const songJson: spotifyAPI = await JSON.parse(songText)
+    songJson.albumImageUrlFmt = await getImage({src: songJson.albumImageUrl, width: 288, height: 288})
     return songJson
   }
 
@@ -50,7 +52,9 @@ export default function NowPlaying({ prefetch }: Props) {
         >
           <img
             alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
-            src={data() ? data()!.albumImageUrl : '../src/assets/spotify.svg'}
+            src={data() ? data()!.albumImageUrlFmt?.src! : '../src/assets/spotify.svg'}
+            width={288}
+            height={288}
           />
         </a>
         <p class="text-left font-bold">{data() ? data()!.title : 'Getting title...'}</p>

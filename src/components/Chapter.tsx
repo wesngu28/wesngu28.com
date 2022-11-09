@@ -100,11 +100,6 @@ const Chapter = ({ index, ref }: Props) => {
         chapters[index].top[0] === 'md:top-[630vh]' ? (
           <div>
             <Slideshow
-              photos={[
-                './map/nhstc.png',
-                './map/target.jpg',
-                './map/fresh.png',
-              ]}
               caption={[
                 {
                   location: 'Newport Hills Swim Club',

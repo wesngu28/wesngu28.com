@@ -21,7 +21,7 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
   const [moreInfo, setMoreInfo] = createSignal(false)
   const [visible, setVisible] = createSignal(false)
 
-  let listRef: HTMLLIElement | ((el: HTMLLIElement) => void) | undefined
+  let listRef: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
 
   createEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -38,8 +38,7 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
   })
 
   return (
-    <>
-      <li
+      <div
         ref={listRef}
         class={`${
           visible()
@@ -78,8 +77,7 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
             </div>
           )}
         </div>
-      </li>
-    </>
+      </div>
   )
 }
 

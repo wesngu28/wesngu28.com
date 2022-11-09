@@ -1,25 +1,21 @@
 ---
 import NowPlaying from './NowPlaying'
-import ArtistCard from './ArtistCard'
+import ArtistCard from './ArtistCard.astro'
 import TopSVG from './TopSVG.astro'
 import type { spotifyAPI } from '../models/spotifyAPI'
 import type { lastFMAPI } from '../models/lastFMAPI'
-import { Show } from 'solid-js'
 import { getImage } from '@astrojs/image'
 
 const songQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/spotify.json`)
 const songText = await songQuery.text()
 const songJson: spotifyAPI = await JSON.parse(songText)
+songJson.albumImageUrlFmt = await getImage({src: songJson.albumImageUrl, width: 288, height: 288})
 
 const artistQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`, {
   cache: 'no-cache'
 })
 const artistText = await artistQuery.text()
 const artistJson: Array<lastFMAPI> = await JSON.parse(artistText)
-const artistImages: astroHTML.JSX.ImgHTMLAttributes[] = []
-for (let i = 0 ; i < artistJson.length; i++) {
-  artistImages.push(await getImage({src: artistJson[i].img, width: 160, height: 160}))
-}
 ---
 
 <div
@@ -30,15 +26,13 @@ for (let i = 0 ; i < artistJson.length; i++) {
     class="mt-40 flex w-[75vw] justify-evenly items-center flex-col md:flex-row relative"
   >
     <NowPlaying client:idle prefetch={songJson} />
-    <ul class="flex flex-wrap justify-center m-4">
+    <div class="flex flex-wrap justify-center m-4">
       <div>
         <p class="text-center mt-11 mb-5">
           My Top Artists This Month
-          <Show when={artistJson} fallback={'Fuck you'}>
-            <ArtistCard client:idle prefetch={artistJson} imgattr={(artistImages as [{width: number, height: number, src: string}])} />
-          </Show>
+          <ArtistCard artists={artistJson} />
         </p>
       </div>
-    </ul>
+    </div>
   </div>
 </div>

@@ -74,7 +74,7 @@ for (let i = 0; i < games.length; i++) {
 <div class="w-[75vw] mt-11">
   <h1 class="text-center text-2xl mb-0">Games</h1>
   <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
-  <ul class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
+  <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
     {
       games.map((game, i) =>
         <GameCard
@@ -87,7 +87,7 @@ for (let i = 0; i < games.length; i++) {
         />
       )
     }
-  </ul>
+  </div>
 </div>
 
 <!-- https://cdn.akamai.steamstatic.com/steam/apps/489830/header.jpg?t=1650909796

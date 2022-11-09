@@ -1,4 +1,4 @@
-import { Accessor, createSignal, For, Show } from 'solid-js'
+import { createSignal, For, Show } from 'solid-js'
 
 interface Props {
   dynamicAlt: string
@@ -29,6 +29,13 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
       './dog/xena4.webp',
       './dog/xena5.webp',
       './dog/xena6.webp',
+    ]
+  }
+  if (dynamicAlt.includes('logo')) {
+    photos=[
+      './map/nhstc.png',
+      './map/target.jpg',
+      './map/fresh.png',
     ]
   }
   const [active, setActive] = createSignal(0)
@@ -69,7 +76,7 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
                 </p>
               </div>
             </Show>
-            <img loading='lazy' alt={dynamicAlt} src={photo} class="object-contain" />
+            <img loading='eager' alt={dynamicAlt} src={photo} class="object-contain" />
           </div>
         )}
       </For>
