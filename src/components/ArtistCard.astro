@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components'
 import type { lastFMAPI } from '../models/lastFMAPI'
 import type { Artist } from '../models/lastFMArtist'
 
@@ -16,7 +17,7 @@ const { artists } = Astro.props
     artists.map((artist: Artist) => {
       return <div class="flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg">
         <a target="_blank" href={artist.href} rel="noopener noreferrer">
-          <img
+          <Image
             class="m-auto"
             src={artist.img}
             width={160}
