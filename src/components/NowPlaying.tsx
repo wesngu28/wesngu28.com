@@ -1,12 +1,9 @@
 import { createEffect, createSignal } from 'solid-js'
 import type { spotifyAPI } from '../models/spotifyAPI'
 
-interface Props {
-  prefetch: spotifyAPI
-}
 
-export default function NowPlaying({ prefetch }: Props) {
-  const [data, setData] = createSignal<spotifyAPI>(prefetch)
+export default function NowPlaying() {
+  const [data, setData] = createSignal<spotifyAPI | null>(null)
 
   const fetchNewData = async () => {
     const songQuery = await fetch('/api/spotify.json')
@@ -15,7 +12,8 @@ export default function NowPlaying({ prefetch }: Props) {
     return songJson
   }
 
-  createEffect(() => {
+  createEffect(async() => {
+    setData (await fetchNewData())
     let interval = setInterval(async () => setData(await fetchNewData()), 30000)
     return () => clearInterval(interval)
   })
