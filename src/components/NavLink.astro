@@ -20,12 +20,18 @@ const { name, url, imgsrc } = Astro.props
       alt={`${name} logo`}
     />
   </div>
-  <a
-    target="_blank"
-    href={url}
-    rel="noopener noreferrer"
-    class="text-black md:text-xl hover:underline"
-  >
-    {name === 'email' ? 'wesngu028@gmail.com' : name === 'resume' ? 'resume' : 'wesngu28'}
-  </a>
+  {
+    name === 'email' ? (
+      <p class="text-black md:text-xl">wesngu028@gmail.com</p>
+    ) : (
+      <a
+        target="_blank"
+        href={url}
+        rel="noopener noreferrer"
+        class="text-black md:text-xl hover:underline"
+      >
+        {name === 'resume' ? 'resume' : 'wesngu28'}
+      </a>
+    )
+  }
 </li>
