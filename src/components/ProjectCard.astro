@@ -36,12 +36,16 @@ Object.keys(languages).forEach(language => {
     live ? (
       <a class="m-auto" target="_blank" href={live} rel="noopener noreferrer">
         <Image
+          loading={'lazy'}
+          format={'webp'}
           alt={`${name} screenshot or related content if no screenshot makes sense`}
           src={image}
         />
       </a>
     ) : (
       <Image
+        loading={'lazy'}
+        format={'webp'}
         alt={`${name} screenshot or related content if no screenshot makes sense`}
         src={image}
       />
