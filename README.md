@@ -12,6 +12,9 @@ This is a migration of a Next.js website [here](https://github.com/wesngu28/wesn
 
 #### Contents
 / - Index page, normal stuff you'd expect detailing skills and projects
+
 / - About page, extra fluff and Javascript practice for me
+
 / - Map page, custom implementation of a scrollytelling map with intersection observer, can be heavy on load
+
 / - Blog - just some stuff I want to write about
