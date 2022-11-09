@@ -49,7 +49,7 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
 
   function incrementImage() {
     setActive(active() + 1)
-    if (active() === photos.length - 1) {
+    if (active() === photos.length) {
       return setActive(0)
     }
   }

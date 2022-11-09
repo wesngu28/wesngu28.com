@@ -74,7 +74,7 @@ Projects I worked on directly after this course:
 - I created a web app that used the Youtube API and Holodex API to allow a user to favorite various virtual youtubers and track their activity. It stored all this information in local storage.
 - I turned my Spotify tkinter app into a [web app](https://github.com/wesngu28/searchify-flask) with Flask.
 
-![Mapping Terrorism](/first-post-images/mapping-wa.png)
+![Mapping Terrorism](/first-post-images/mapping-wa.jpg)
 
 Geography 458, Advanced Digital Geographies, was less influential for me; I took this after CSE 154 and was already locked in on front-end. However, I got a nice project and portfolio piece out of it, [Mapping Terrorism](https://github.com/wesngu28/mapping-terrorism). This web app was the first time I worked with the Mapbox library and its SDK for Javascript, and the first time I worked with scss/sass, and was also the first time I collaborated with a group on a git repository. My personal contributions to the web app were the html/css design of the website and the implementation of the map markers and popups, as well as the legend.
 

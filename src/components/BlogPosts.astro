@@ -18,6 +18,8 @@ const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
           <a href={post.url}>
             <Image
               class="p-4"
+              loading={'eager'}
+              format={'webp'}
               alt={post.frontmatter.heroImageAlt}
               height={360}
               width={480}
