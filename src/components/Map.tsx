@@ -1,5 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Map, Marker } from 'mapbox-gl'
+import { Map, Marker, Popup } from 'mapbox-gl'
 import Chapter from './Chapter'
 import { onMount } from 'solid-js'
 
@@ -79,44 +79,6 @@ export default function ScrollyMap() {
         interactive: false,
         accessToken: `${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`,
       })
-      mapChapter.forEach((chapter, i) => {
-        let marker = null
-        if (chapter.marker)
-          marker = (<img alt={chapter.alt} src={chapter.marker} />) as HTMLElement
-        if (i === 6) {
-          new Marker({
-            element: (
-              <img alt="nhstc logo map marker" src="./map/nhstc-marker.png" />
-            ) as HTMLElement,
-          })
-            .setLngLat([-122.1800715, 47.5532877])
-            .addTo(map)
-          new Marker({
-            element: (
-              <img
-                alt="target logo map marker"
-                src="./map/target-marker.jpg"
-              />
-            ) as HTMLElement,
-          })
-            .setLngLat([-122.1999175, 47.4968123])
-            .addTo(map)
-          new Marker({
-            element: (
-              <img
-                alt="amazon fresh logo map marker"
-                src="./map/fresh-marker.png"
-              />
-            ) as HTMLElement,
-          })
-            .setLngLat([-122.1733261, 47.575893])
-            .addTo(map)
-        } else {
-          new Marker({ element: marker as HTMLElement })
-            .setLngLat([chapter.center[0], chapter.center[1]])
-            .addTo(map)
-        }
-      })
       const observer = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
@@ -134,7 +96,47 @@ export default function ScrollyMap() {
                 duration: 8000,
                 essential: true,
               })
-              if (mapChapter[flyHere].style) map.setStyle(mapChapter[flyHere].style!)
+              let marker = null;
+              if (mapChapter[flyHere].marker)
+                marker = (
+                  <img loading="lazy" alt={mapChapter[flyHere].alt} src={mapChapter[flyHere].marker} />
+                ) as HTMLElement
+              if (flyHere === 6) {
+                let markers = document.getElementsByClassName("mapboxgl-marker");
+                for (let i = 0; i < markers.length; i++) {
+                    (markers[i] as HTMLElement).style.visibility = "hidden";
+                }
+                console.log(markers)
+                new Marker()
+                  .setLngLat([-122.1800715, 47.5532877])
+                  .addTo(map)
+                  .setPopup(
+                    new Popup({ offset: 25 }).setText(
+                      'Newport Hills Swim and Tennis Club'
+                    )
+                  )
+                new Marker()
+                  .setLngLat([-122.1999175, 47.4968123])
+                  .addTo(map)
+                  .setPopup(new Popup({ offset: 25 }).setText('Target in the Landing'))
+                new Marker()
+                  .setLngLat([-122.1733261, 47.575893])
+                  .addTo(map)
+                  .setPopup(new Popup({ offset: 25 }).setText('Amazon Fresh Factoria'))
+              } else {
+                let markers = document.getElementsByClassName("mapboxgl-marker");
+                for (let i = 0; i < markers.length; i++) {
+                    (markers[i] as HTMLElement).style.visibility = "hidden";
+                }
+                new Marker({ element: marker as HTMLElement })
+                  .setLngLat([mapChapter[flyHere].center[0], mapChapter[flyHere].center[1]])
+                  .addTo(map)
+              }
+              if (mapChapter[flyHere].style) {
+                map.setStyle(mapChapter[flyHere].style!)
+              } else {
+                map.setStyle('mapbox://styles/mapbox/streets-v11')
+              }
             } else {
               entry.target.classList.remove('opacity-100')
               entry.target.classList.remove('duration-1000')
