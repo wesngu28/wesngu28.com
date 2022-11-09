@@ -1,4 +1,3 @@
-import languageList from '../../languages.json'
 import { createEffect, createSignal, For, Show } from 'solid-js'
 
 interface Props {
@@ -8,6 +7,54 @@ interface Props {
 
 export default function Github({ url, prefetch }: Props) {
   const [data, setData] = createSignal<{ [key: string]: string }>(prefetch)
+
+  const langs: {[key:string]: {color: string}} = {
+    Astro: {
+      color: '#ff5a03',
+    },
+    CSS: {
+      color: '#563d7c',
+    },
+    Dockerfile: {
+      color: '#384d54',
+    },
+    HTML: {
+      color: '#e34c26',
+    },
+    Java: {
+      color: '#b07219',
+    },
+    JavaScript: {
+      color: '#f1e05a',
+    },
+    'Jupyter Notebook': {
+      color: '#DA5B0B',
+    },
+    Python: {
+      color: '#3572A5',
+    },
+    R: {
+      color: '#198CE7',
+    },
+    SCSS: {
+      color: '#c6538c',
+    },
+    Shell: {
+      color: '#89e051',
+    },
+    Svelte: {
+      color: '#ff3e00',
+    },
+    TeX: {
+      color: '#3D6117',
+    },
+    TypeScript: {
+      color: '#3178c6',
+    },
+    Vue: {
+      color: '#41b883',
+    },
+  }
 
   const fetchNewData = async () => {
     const linguist = await fetch(
@@ -43,8 +90,8 @@ export default function Github({ url, prefetch }: Props) {
               <span
                 title={lang}
                 style={`width: ${data()[lang]}%; background-color: ${
-                  (languageList as any)[lang].color
-                }; color: ${(languageList as any)[lang].color}`}
+                  langs[lang].color
+                }; color: ${langs[lang].color}`}
                 class={`inline-block bg-[#3178c6] text-[0.4rem]`}
                 data-view-component="true"
               >
