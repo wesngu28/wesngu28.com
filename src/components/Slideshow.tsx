@@ -1,4 +1,4 @@
-import { createSignal, For, Show } from 'solid-js'
+import { createSignal, For, onMount, Show } from 'solid-js'
 
 interface Props {
   dynamicAlt: string
@@ -10,7 +10,8 @@ interface Props {
 }
 
 export default function Slideshow({ dynamicAlt, caption }: Props) {
-  let photos;
+  let photos
+  let photoRef: HTMLDivElement | undefined
   if (dynamicAlt === 'Cami') {
     photos = [
       './dog/cami1.webp',
@@ -32,11 +33,7 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
     ]
   }
   if (dynamicAlt.includes('logo')) {
-    photos=[
-      './map/nhstc.png',
-      './map/target.jpg',
-      './map/fresh.png',
-    ]
+    photos = ['./map/nhstc.png', './map/target.jpg', './map/fresh.png']
   }
   const [active, setActive] = createSignal(0)
 
@@ -53,8 +50,15 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
       return setActive(0)
     }
   }
+
+  onMount(() => {
+    const loadTheseNow = photoRef?.querySelectorAll('img')
+    loadTheseNow?.forEach(photo => {
+      photo.loading = 'eager'
+    })
+  })
   return (
-    <div class="flex items-center justify-center">
+    <div ref={photoRef} class="flex items-center justify-center">
       <p onClick={decrementImage} class="text-6xl text-[#6E6E6E]">
         &#8592;
       </p>
@@ -76,7 +80,11 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
                 </p>
               </div>
             </Show>
-            <img loading='eager' alt={dynamicAlt} src={photo} class="object-contain" />
+            {i() === 0 ? (
+              <img loading="eager" alt={dynamicAlt} src={photo} class="object-contain" />
+            ) : (
+              <img loading="lazy" alt={dynamicAlt} src={photo} class="object-contain" />
+            )}
           </div>
         )}
       </For>
