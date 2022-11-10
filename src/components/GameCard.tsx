@@ -53,7 +53,6 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
         <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
           <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
             <img
-              loading="lazy"
               class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
               onMouseEnter={() => setMoreInfo(true)}
               onMouseLeave={() => setMoreInfo(false)}
