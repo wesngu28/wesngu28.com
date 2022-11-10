@@ -1,1 +1,10 @@
 .next
+languages.json
+package-lock.json
+package.json
+astro.config.mjs
+tailwind.config.cjs
+tsconfig.json
+*.md
+env.d.ts
+.vscode

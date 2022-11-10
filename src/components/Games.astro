@@ -76,16 +76,16 @@ for (let i = 0; i < games.length; i++) {
   <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
   <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
     {
-      games.map((game, i) =>
+      games.map((game, i) => (
         <GameCard
           client:visible
-          delay={game.name === 'Skyrim' ? '' : `lg:delay-[${i*100}ms]`}
+          delay={game.name === 'Skyrim' ? '' : `lg:delay-[${i * 100}ms]`}
           name={game.name}
           url={game.url}
-          cover={(game.cover as {width: number, height: number, src: string})}
-          stats={(game.stats)}
+          cover={game.cover as { width: number; height: number; src: string }}
+          stats={game.stats}
         />
-      )
+      ))
     }
   </div>
 </div>

@@ -4,13 +4,13 @@ import type { ImgHTMLAttributes } from '@astrojs/image/components'
 interface Props {
   name: string
   url: string
-  cover: {width: number, height: number, src: string}
+  cover: { width: number; height: number; src: string }
   stats: ImageMetadata
   delay?: string
 }
 
 interface skyrimProps {
-  stats: {width: number, height: number, src: string}
+  stats: { width: number; height: number; src: string }
 }
 
 export default function GameCard({ name, url, cover, stats, delay }: Props) {
@@ -38,46 +38,52 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
   })
 
   return (
+    <div
+      ref={listRef}
+      class={`${
+        visible()
+          ? `${delay} opacity-100 md:translate-x-0-all duration-1000`
+          : 'md:-translate-x-full  opacity-0'
+      } bg-[#21222a] hover:z-50 m-1 inline-block border-b-4`}
+    >
       <div
-        ref={listRef}
-        class={`${
-          visible()
-            ? `${delay} opacity-100 md:translate-x-0-all duration-1000`
-            : 'md:-translate-x-full  opacity-0'
-        } bg-[#21222a] hover:z-50 m-1 inline-block border-b-4`}
+        onClick={() => openNewTab(url)}
+        class="peer hover:scale-125 hover:cursor-pointer z-10 ease-out"
       >
-        <div
-          onClick={() => openNewTab(url)}
-          class="peer hover:scale-125 hover:cursor-pointer z-10 ease-out"
-        >
-          <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
-            <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
-              <img
-                loading='lazy'
-                class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
-                onMouseEnter={() => setMoreInfo(true)}
-                onMouseLeave={() => setMoreInfo(false)}
-                src={cover.src}
-                title={name}
-                alt={`${name} header`}
-                width={cover.width}
-                height={cover.height}
-              />
-            </span>
+        <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
+          <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
+            <img
+              loading="lazy"
+              class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
+              onMouseEnter={() => setMoreInfo(true)}
+              onMouseLeave={() => setMoreInfo(false)}
+              src={cover.src}
+              title={name}
+              alt={`${name} header`}
+              width={cover.width}
+              height={cover.height}
+            />
           </span>
-        </div>
-        <div class="absolute left-1/2 md:opacity-0 peer-hover:opacity-100 transition-opacity duration-500 z-50">
-          {moreInfo() && (
-            <div class="relative bg-[#6E644E] rounded-xl mt-11 p-2 -left-1/2 top-6 w-screen md:w-full">
-              {name === 'Skyrim' ? (
-                <Skyrim stats={stats} />
-              ) : (
-                <img class="m-auto" alt={`${name} stats`} height={stats.height} width={stats.width} src={stats.src} />
-              )}
-            </div>
-          )}
-        </div>
+        </span>
       </div>
+      <div class="absolute left-1/2 md:opacity-0 peer-hover:opacity-100 transition-opacity duration-500 z-50">
+        {moreInfo() && (
+          <div class="relative bg-[#6E644E] rounded-xl mt-11 p-2 -left-1/2 top-6 w-screen md:w-full">
+            {name === 'Skyrim' ? (
+              <Skyrim stats={stats} />
+            ) : (
+              <img
+                class="m-auto"
+                alt={`${name} stats`}
+                height={stats.height}
+                width={stats.width}
+                src={stats.src}
+              />
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 
@@ -86,7 +92,12 @@ function Skyrim({ stats }: skyrimProps) {
     <>
       <p>Known colloquially as Mod Organizer 2.</p>
       <p>I have only ever finished this game once, as a Redguard sneak archer.</p>
-      <img alt={'steam skyrim stats'} width={stats.width} height={stats.height} src={stats.src} />
+      <img
+        alt={'steam skyrim stats'}
+        width={stats.width}
+        height={stats.height}
+        src={stats.src}
+      />
 
       <table class="m-auto w-full bg-slate-800">
         <caption class="mt-5 font-bold">Elder Scrolls Favorites</caption>

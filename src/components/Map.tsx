@@ -96,15 +96,19 @@ export default function ScrollyMap() {
                 duration: 8000,
                 essential: true,
               })
-              let marker = null;
+              let marker = null
               if (mapChapter[flyHere].marker)
                 marker = (
-                  <img loading="lazy" alt={mapChapter[flyHere].alt} src={mapChapter[flyHere].marker} />
+                  <img
+                    loading="lazy"
+                    alt={mapChapter[flyHere].alt}
+                    src={mapChapter[flyHere].marker}
+                  />
                 ) as HTMLElement
               if (flyHere === 6) {
-                let markers = document.getElementsByClassName("mapboxgl-marker");
+                let markers = document.getElementsByClassName('mapboxgl-marker')
                 for (let i = 0; i < markers.length; i++) {
-                    (markers[i] as HTMLElement).style.visibility = "hidden";
+                  ;(markers[i] as HTMLElement).style.visibility = 'hidden'
                 }
                 new Marker({
                   element: (
@@ -115,10 +119,7 @@ export default function ScrollyMap() {
                   .addTo(map)
                 new Marker({
                   element: (
-                    <img
-                      alt="target logo map marker"
-                      src="./map/target-marker.jpg"
-                    />
+                    <img alt="target logo map marker" src="./map/target-marker.jpg" />
                   ) as HTMLElement,
                 })
                   .setLngLat([-122.1999175, 47.4968123])
@@ -134,12 +135,15 @@ export default function ScrollyMap() {
                   .setLngLat([-122.1733261, 47.575893])
                   .addTo(map)
               } else {
-                let markers = document.getElementsByClassName("mapboxgl-marker");
+                let markers = document.getElementsByClassName('mapboxgl-marker')
                 for (let i = 0; i < markers.length; i++) {
-                    (markers[i] as HTMLElement).style.visibility = "hidden";
+                  ;(markers[i] as HTMLElement).style.visibility = 'hidden'
                 }
                 new Marker({ element: marker as HTMLElement })
-                  .setLngLat([mapChapter[flyHere].center[0], mapChapter[flyHere].center[1]])
+                  .setLngLat([
+                    mapChapter[flyHere].center[0],
+                    mapChapter[flyHere].center[1],
+                  ])
                   .addTo(map)
               }
               if (mapChapter[flyHere].style) {

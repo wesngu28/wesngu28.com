@@ -12,14 +12,19 @@ const { title } = Astro.props
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora&display=swap">
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
       rel="stylesheet"
-      media="print" onload="this.media='all'"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript>
-      <link rel="stylesheet" href="(font CSS URL here)">
+      <link rel="stylesheet" href="(font CSS URL here)" />
     </noscript>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
