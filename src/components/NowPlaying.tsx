@@ -47,7 +47,7 @@ export default function NowPlaying() {
         >
           <img
             alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
-            src={data() ? data()!.albumImageUrl : '../src/assets/spotify.svg'}
+            src={data() ? data()!.albumImageUrl : './spotify.svg'}
             width={288}
             height={288}
           />
