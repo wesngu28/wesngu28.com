@@ -1,6 +1,6 @@
 ---
 import NowPlaying from './NowPlaying'
-import ArtistCard from './ArtistCard.astro'
+import ArtistCard from './ArtistCard'
 import TopSVG from './TopSVG.astro'
 ---
 
@@ -16,8 +16,10 @@ import TopSVG from './TopSVG.astro'
       <div>
         <p class="text-center mt-11 mb-5">
           My Top Artists This Month
-          <ArtistCard />
         </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 h-max">
+          <ArtistCard client:idle/>
+        </div>
       </div>
     </div>
   </div>

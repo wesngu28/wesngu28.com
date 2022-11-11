@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
-import Github from './Github.astro'
+import Github from './Github'
 
 export interface Props {
   techs: string[]
@@ -11,24 +11,6 @@ export interface Props {
   live?: string
 }
 const { techs, image, name, desc, url, live } = Astro.props
-
-const githubToken = await import.meta.env.GITHUB_PERSONAL_TOKEN
-const repoName = url.replace('https://github.com/wesngu28/', '')
-const response = await fetch(
-  `https://api.github.com/repos/wesngu28/${repoName}/languages`,
-  {
-    headers: {
-      authorization: `token ${githubToken}`,
-    },
-  }
-)
-
-const languages = await response.json()
-const langLines: Array<number> = Object.values(languages)
-const lines = langLines.reduce((a, b) => a + b, 0)
-Object.keys(languages).forEach(language => {
-  languages[language] = 100 * (languages[language] / lines)
-})
 ---
 
 <li class="p-4 bg-[#21222a] m-4 inline-block">
@@ -51,7 +33,7 @@ Object.keys(languages).forEach(language => {
       />
     )
   }
-  <Github prefetch={languages} />
+  <Github url={url} client:idle />
   <div class={`pr-2 pl-2`}>
     <ul class={'flex mt-1 justify-center flex-wrap'}>
       {
