@@ -56,6 +56,7 @@ export default function GameCard({ name, url, cover, stats, delay }: Props) {
               class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
               onMouseEnter={() => setMoreInfo(true)}
               onMouseLeave={() => setMoreInfo(false)}
+              loading='lazy'
               src={cover.src}
               title={name}
               alt={`${name} header`}
