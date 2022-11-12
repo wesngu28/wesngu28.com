@@ -14,11 +14,11 @@ import TopSVG from './TopSVG.astro'
     <NowPlaying client:idle />
     <div class="flex flex-wrap justify-center m-4">
       <div>
-        <p class="text-center mt-11 mb-5">
-          My Top Artists This Month
-        </p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 h-max">
-          <ArtistCard client:idle/>
+        <p class="text-center mt-11 mb-5">My Top Artists This Month</p>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 h-max"
+        >
+          <ArtistCard client:idle />
         </div>
       </div>
     </div>

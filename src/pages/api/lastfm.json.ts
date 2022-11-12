@@ -5,11 +5,11 @@ import type { Artist, topArtist } from '../../models/lastFMArtist'
 interface lastfmAPI {
   topartists: {
     artist: Array<topArtist>
-    'attr': {
-      user: string,
-      totalPages: string,
-      page: string,
-      total: string,
+    attr: {
+      user: string
+      totalPages: string
+      page: string
+      total: string
       perPage: string
     }
   }
@@ -18,7 +18,7 @@ interface lastfmAPI {
 export const get: APIRoute = async () => {
   try {
     const lastfmKey = await import.meta.env.LASTFM_API_KEY
-    let artists: lastfmAPI | {message: string} = { message: ' run'}
+    let artists: lastfmAPI | { message: string } = { message: ' run' }
     while (Object.keys(artists).includes('message')) {
       const response = await fetch(
         `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=scrambledeggdog&period=1month&limit=8&api_key=${lastfmKey}&format=json`
@@ -26,12 +26,14 @@ export const get: APIRoute = async () => {
       artists = await response.json()
     }
 
-    const monthlyArtistsName = (artists as lastfmAPI).topartists.artist.map((artist: topArtist) => {
-      return {
-        name: artist.name,
-        playcount: artist.playcount,
+    const monthlyArtistsName = (artists as lastfmAPI).topartists.artist.map(
+      (artist: topArtist) => {
+        return {
+          name: artist.name,
+          playcount: artist.playcount,
+        }
       }
-    })
+    )
 
     const { access_token } = await getAccessToken()
 
@@ -59,6 +61,6 @@ export const get: APIRoute = async () => {
       body: JSON.stringify(monthlyArtists),
     }
   } catch (err: any) {
-    return { body: JSON.stringify({error: err.message}) }
+    return { body: JSON.stringify({ error: err.message }) }
   }
 }

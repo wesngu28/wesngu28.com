@@ -4,11 +4,11 @@ interface Props {
   url: string
 }
 
-const fetchLanguages = async(url: string) => {
+const fetchLanguages = async (url: string) => {
   const linguist = await fetch(
     `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url}`
   )
-  const langs: {[key: string]: number} = await JSON.parse(await linguist.text())
+  const langs: { [key: string]: number } = await JSON.parse(await linguist.text())
   const total = Object.values(langs).reduce(
     (previousValue: number, currentValue) => previousValue + currentValue,
     0
@@ -20,10 +20,9 @@ const fetchLanguages = async(url: string) => {
 }
 
 export default function Github({ url }: Props) {
-
   const [data] = createResource(() => fetchLanguages(url))
 
-  const langs: {[key:string]: {color: string}} = {
+  const langs: { [key: string]: { color: string } } = {
     Astro: {
       color: '#ff5a03',
     },
