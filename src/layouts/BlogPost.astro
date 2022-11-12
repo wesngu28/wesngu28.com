@@ -5,6 +5,7 @@ import TopSVG from '../components/TopSVG.astro'
 import Layout from './Layout.astro'
 import Footer from '../components/Footer.astro'
 import { Image } from '@astrojs/image/components'
+import AboutNavigation from '../components/AboutNavigation.astro'
 export interface Props {
   content: {
     title: string
@@ -72,6 +73,9 @@ const {
         <slot />
       </div>
     </article>
+  </div>
+  <div class="m-2 flex items-center justify-center">
+    <AboutNavigation />
   </div>
   <div class="mt-24">
     <Footer />
