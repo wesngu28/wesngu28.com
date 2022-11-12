@@ -94,6 +94,19 @@ Some other cool things about Solid are the provided For and Show components whic
 
 After adding Solid, I was able to shed the dependency on react, react-dom, react-intersection-observer, and react-mapbox-gl. It took a while, but I was able to convert my intersection observer code and even the entire map to a more close to vanilla implementation, but in Solid.
 
+Some caveats I encountered was actually in trying to get rid of as much Solid/React components as possible. My last.fm and github code, which require API clals to their respective parent services, could either have ran on the server or on the client. 
+
+- If I chose to run it on the server, it would only be a matter of having it sit in the frontmatter of an Astro component. The problem with this approach is that it would add between 1-3 seconds on navigation and load, which was unacceptable to me. 
+
+- If I ran it on the client, I would have loading states on the page, which isn't too appealing. It would also cause unnecessary client-side javascript where I could just do it on the server.
+
+I decided to have it run on the client, but now I had two choices. 
+
+1. Deal with Vanilla javascript and have it compile in a client-side script with Astro
+2. Use SolidJS for JSX and comfortable syntax, but accept I will ship unnecessary Javascript.
+
+I chose the latter for now, but I might experiment with getting the former to work. A possible answer to the loading state is to have another component occupy the initial viewport so the loading elements are pushed further down, but I'm not sure what else I need to give away about me. Movies? TV shows?
+
 ## Blog
 
 It wouldn't be an Astro website without a blog, right? A blog is one of the starter templates that Astro provides as well as is the official tutorial on their website. I wanted a blog, and now that I was using Astro, it only felt right to make one.
@@ -128,14 +141,15 @@ Obligatory stack links:
     margin: 1.25rem;
   }
 
-  li {
-    list-style-type: disc;
+  ol {
+    list-style-type: decimal;
   }
 
   ul {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
     margin-left: 5.5rem;
+    list-style-type: disc;
   }
 
   h1 {
