@@ -1,32 +1,27 @@
-import { createSignal, For, onMount, Show } from 'solid-js'
+import { createResource, For, Show } from 'solid-js'
 
 interface Props {
   url: string
 }
 
+const fetchLanguages = async(url: string) => {
+  const linguist = await fetch(
+    `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url}`
+  )
+  const langs: {[key: string]: number} = await JSON.parse(await linguist.text())
+  const total = Object.values(langs).reduce(
+    (previousValue: number, currentValue) => previousValue + currentValue,
+    0
+  )
+  Object.keys(langs).map(extension => {
+    langs[extension] = (langs[extension] / total) * 100
+  })
+  return langs
+}
+
 export default function Github({ url }: Props) {
 
-  const [data, setData] = createSignal<{ [key: string]: string } | null>(null)
-
-  onMount(async () => {
-    const linguist = await fetch(
-      `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url.replace(
-        'https://github.com/wesngu28/',
-        ''
-      )}`
-    )
-    const linguini = await linguist.text()
-    const langs = await JSON.parse(linguini)
-    const counts: Array<number> = Object.values(langs)
-    const total = counts.reduce(
-      (previousValue: number, currentValue) => previousValue + currentValue,
-      0
-    )
-    Object.keys(langs).map(extension => {
-      langs[extension] = (langs[extension] / total) * 100
-    })
-    setData(langs)
-  })
+  const [data] = createResource(() => fetchLanguages(url))
 
   const langs: {[key:string]: {color: string}} = {
     Astro: {

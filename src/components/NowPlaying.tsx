@@ -1,19 +1,16 @@
-import { createEffect, createSignal } from 'solid-js'
+import { createEffect, createResource, createSignal } from 'solid-js'
 import type { spotifyAPI } from '../models/spotifyAPI'
 
+const fetchNewData = async () => {
+  const songQuery = await fetch('/api/spotify.json')
+  const songJson: spotifyAPI = await JSON.parse(await songQuery.text())
+  return songJson
+}
+
 export default function NowPlaying() {
-  const [data, setData] = createSignal<spotifyAPI | null>(null)
-
-  const fetchNewData = async () => {
-    const songQuery = await fetch('/api/spotify.json')
-    const songText = await songQuery.text()
-    const songJson: spotifyAPI = await JSON.parse(songText)
-    return songJson
-  }
-
+  const [data, { refetch }] = createResource(fetchNewData)
   createEffect(async () => {
-    setData(await fetchNewData())
-    let interval = setInterval(async () => setData(await fetchNewData()), 30000)
+    let interval = setInterval(async () => refetch(), 30000)
     return () => clearInterval(interval)
   })
 

@@ -33,7 +33,7 @@ const { techs, image, name, desc, url, live } = Astro.props
       />
     )
   }
-  <Github url={url} client:idle />
+  <Github url={url.replace('https://github.com/wesngu28/', '')} client:idle />
   <div class={`pr-2 pl-2`}>
     <ul class={'flex mt-1 justify-center flex-wrap'}>
       {
