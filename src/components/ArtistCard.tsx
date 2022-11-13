@@ -20,7 +20,7 @@ export default function ArtistCard() {
           <For each={Array(8).fill(0)}>
             {i => (
               <div class="flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg">
-                <img src={'../../src/assets/placeholder.jpg'} />
+                <img src={'./placeholder.jpg'} />
               </div>
             )}
           </For>
