@@ -8,14 +8,14 @@ const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 )
 ---
 
-<div class="w-[100vw] relative">
+<div class="mb-16 w-[100vw] relative">
   <TopSVG />
   <h1 class="mt-11 text-center text-2xl p-4 font-bold">Posts</h1>
   <ul class="flex items-center justify-center flex-wrap">
     {
       posts.map(post => (
-        <li class="p-4 bg-[#21222a] m-4 text-center ">
-          <a href={post.url}>
+        <li class="p-4 bg-[#21222a] m-4 text-center">
+          <a href={post.url} class="max-w-[480px] inline-block">
             <Image
               class="p-4"
               loading={'eager'}
