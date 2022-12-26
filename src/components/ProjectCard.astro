@@ -10,6 +10,54 @@ export interface Props {
   url: string
   live?: string
 }
+
+const langs: { [key: string]: { color: string } } = {
+  Astro: {
+    color: '#ff5a03',
+  },
+  CSS: {
+    color: '#563d7c',
+  },
+  Dockerfile: {
+    color: '#384d54',
+  },
+  HTML: {
+    color: '#e34c26',
+  },
+  Java: {
+    color: '#b07219',
+  },
+  JavaScript: {
+    color: '#f1e05a',
+  },
+  'Jupyter Notebook': {
+    color: '#DA5B0B',
+  },
+  Python: {
+    color: '#3572A5',
+  },
+  R: {
+    color: '#198CE7',
+  },
+  SCSS: {
+    color: '#c6538c',
+  },
+  Shell: {
+    color: '#89e051',
+  },
+  Svelte: {
+    color: '#ff3e00',
+  },
+  TeX: {
+    color: '#3D6117',
+  },
+  TypeScript: {
+    color: '#3178c6',
+  },
+  Vue: {
+    color: '#41b883',
+  },
+}
 const { techs, image, name, desc, url, live } = Astro.props
 ---
 
@@ -33,13 +81,25 @@ const { techs, image, name, desc, url, live } = Astro.props
       />
     )
   }
-  <Github url={url.replace('https://github.com/wesngu28/', '')} client:idle />
+  <Github
+    langs={langs}
+    url={url.replace('https://github.com/wesngu28/', '')}
+    client:idle
+  />
   <div class={`pr-2 pl-2`}>
     <ul class={'flex mt-1 justify-center flex-wrap'}>
       {
         techs.map((arr, i) => {
-          return (
-            <li class="m-2 p-1 bg-[beige] text-black rounded-lg">
+          let color = ''
+          if (Object.keys(langs).includes(arr)) {
+            color = langs[arr].color
+          }
+          return color ? (
+          <li style={`background-color: ${color};`} class={`m-2 p-1 text-black rounded-lg`}>
+              <p>{arr}</p>
+            </li>
+          ) : (
+            <li class={`m-2 p-1 bg-[beige] text-black rounded-lg`}>
               <p>{arr}</p>
             </li>
           )
