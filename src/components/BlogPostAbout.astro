@@ -1,6 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components'
 import Navbar from './Navbar.astro'
+import Sidebar from './Sidebar.astro'
 export interface Props {
   header: string
   paragraph1: string
@@ -11,8 +12,11 @@ export interface Props {
 const { header, paragraph1, image, imageAlt, imageAttr } = Astro.props
 ---
 
-<div class="md:flex flex-col bg-[#1F2022] w-full relative">
+<div class="md:flex flex-col bg-[#1F2022] w-full relative justify-center">
   <Navbar />
+  <div class="md:absolute hidden md:block md:left-0">
+    <Sidebar />
+  </div>
   <div class="justify-center items-center p-4 md:flex relative">
     <div
     class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col"
