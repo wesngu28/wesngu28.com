@@ -16,7 +16,6 @@ My first experience with computer programming came in an intro to programming co
 
 AP Computer Science was quite tough for me. It was my teacher's first time teaching the course, and not to place blame elsewhere, but his knowledge of the content wasn't very strong, so I frequently had to rely on others in the class and documentation. With a focus on Java and object-oriented programming principles and algorithms, I found it dificult to stay motivated and concentrated and fell behind in the course. I spent a lot of time in the course just goofing around with a friend for most of each class.
 
-![Pokemon Edhesive](/map/edhesive.png)
 The highlight of the course was being able to create a Pokemon fangame for my final project with RPG Maker XP, a game development program using Ruby with a powerful and well-developed library for Pokemon games called [Pokemon Essentials](https://github.com/Maruno17/pokemon-essentials). All of these factors combined meant that the project didn't really involve much coding, but nevertheless, I learned a lot about design principles, collaboration, and a bit of Ruby as well.
 
 To round out this era of my programming career, I took the equivalent of UW's CS 142 and 143 at Bellevue College, called CS 210 and 211. I did pretty well in CS210, and my prior experience in AP Computer Science really helped. This carried over into the next course, but the pace was much more fast and difficult. I was holding a good grade until the last week, where I missed a few lectures, and these lectures ultimately comprised around 50% of the final.
@@ -53,8 +52,6 @@ I also made two other projects as a result of taking this class, these being att
 
 - I was hyped and on a high of being able to authenticate with Spotify, so I used parts of the edm Spotify model and new code to write a Python script that told the user information about a song's features and a playlist's song content and then created an [interface for the script with Tkinter](https://github.com/wesngu28/SpotifyPlaylistInfo).
 
-![Twitter Translator](/blog/first-post/aqua.png)
-
 - I then took a step in a different direction with my next project, this one being a [GUI app with Tkinter](https://github.com/wesngu28/Twitter-Translator) (and pysimplegui) to translate a twitter's account non-english tweets into English. The use case for myself I envisioned was translating Hololive twitter accounts to English. This was honestly quite fun and made use of the Twint library (which I had to fork and make a combination of fixes to) as well as a library to translate the tweets to English after converting them to a dataframe.
 
 Both of these projects used a graphical user interface, something that would push me into having a desire to develop applications and programs with a graphical medium.
@@ -73,8 +70,6 @@ Projects I worked on directly after this course:
 
 - I created a web app that used the Youtube API and Holodex API to allow a user to favorite various virtual youtubers and track their activity. It stored all this information in local storage.
 - I turned my Spotify tkinter app into a [web app](https://github.com/wesngu28/searchify-flask) with Flask.
-
-![Mapping Terrorism](/blog/first-post/mapping-wa.jpg)
 
 Geography 458, Advanced Digital Geographies, was less influential for me; I took this after CSE 154 and was already locked in on front-end. However, I got a nice project and portfolio piece out of it, [Mapping Terrorism](https://github.com/wesngu28/mapping-terrorism). This web app was the first time I worked with the Mapbox library and its SDK for Javascript, and the first time I worked with scss/sass, and was also the first time I collaborated with a group on a git repository. My personal contributions to the web app were the html/css design of the website and the implementation of the map markers and popups, as well as the legend.
 
@@ -95,11 +90,11 @@ With a few projects under my belt, I decided to go about and make my own persona
 Having a website to act as a portfolio for my projects led to a waterfall of new projects and self-teaching (chronology):
 
 - I used Typescript and enquirer to write a [script](https://github.com/wesngu28/stargazing) that allowed you to enter your package.json or requirements.txt and star the repositories you have yet to star. This project was the first time I uploaded anything to NPM.
-  ![Observatory](/blog/first-post/observatory.png)
+
 - I converted the above script to a web app with Next.js and Tailwind and hosted it on Vercel.
 - My first real project with Svelte and SvelteKit. It is no secret the Russell Wilson trade was a bad deal for Denver, and as a Seahawks fan, I wanted to visualize how bad it was, so I made a [dashboard](https://github.com/wesngu28/lets-ride).
 - After Svelte and React, I had a weird desire to learn another framework. I have played League since 2012, so I naturally gravitated to it when deciding to make another project. Using Riot's Data Dragon API, I made a simple champion lookup and skin browser called [Champion Viewer](https://github.com/wesngu28/simple-champion-viewer), using Vue and Nuxt for the first time. Honestly, this might be the last project I make with Vue, but I had a lot of fun nevertheless.
-  ![Rustboro](/blog/first-post/rustboro.png)
+
 - After this, I went back to Svelte and SvelteKit to revamp my pokemon randomizer app that I made in CSE 154. My initial plan was just to show more information about the Pokemon, but I decided to go deeper and added a game in which you had to guess which two Pokemon had the highest stats. To facilitate this, I brought in a CockroachDB database with Prisma as an ORM to store all the Pokemon responses.
 - Vercel released Next.js 13 shortly after I finished the above project, introducing support for React Server Components. To learn it, I decided to make a mini-project with Next 13, this being [Holoboard](https://github.com/wesngu28/holoboard), a substantial remake of my fourth CSE 154 project.
 

@@ -15,6 +15,15 @@ console.log(posts)
       posts.map(post => (
         <li class="p-4 bg-[#21222a] m-4 text-center">
           <a href={`/blog/${post.slug}`} class="max-w-[480px] inline-block">
+            <Image
+              class="p-4"
+              loading={'eager'}
+              format={'webp'}
+              alt={post.data.heroImageAlt}
+              height={360}
+              width={480}
+              src={post.data.heroImage}
+            />
             <h2 class="text-3xl"> {post.data.title}</h2>
             <p class="text-sm mb-4">
               🕘{' '}
