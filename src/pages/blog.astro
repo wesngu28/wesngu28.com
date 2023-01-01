@@ -1,19 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import About from '../components/About.astro'
+import Base from '../layouts/Base.astro'
 import BlogPosts from '../components/BlogPosts.astro'
-import Footer from '../components/Footer.astro'
 ---
 
-<Layout title="My Blog">
-  <div id="wrapper" class="flex flex-col justify-center items-center">
-    <About
-      header="Just Some Thoughts"
-      paragraph1="Why does this blog exist in the first place? Well, I just wanted a place to be able to type out some thoughts and feelings I have bubbled up inside on various topics, as well as document my projects and things I've learned."
-    />
+<Base title="My Blog">
     <BlogPosts />
-    <div class="mt-11">
-      <Footer />
-    </div>
-  </div>
-</Layout>
+</Base>

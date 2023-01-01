@@ -1,11 +1,9 @@
 ---
 import '../styles/base.css'
-import About from '../components/About.astro'
-import TopSVG from '../components/TopSVG.astro'
-import Layout from './Layout.astro'
 import Footer from '../components/Footer.astro'
 import { Image } from '@astrojs/image/components'
-import AboutNavigation from '../components/AboutNavigation.astro'
+import MapLayout from './MapLayout.astro'
+import BlogPostAbout from '../components/BlogPostAbout.astro'
 export interface Props {
   content: {
     title: string
@@ -17,7 +15,7 @@ export interface Props {
     heroImageAttr: string
   }
 }
-
+import '@fontsource/lora';
 const {
   content: {
     title,
@@ -31,17 +29,15 @@ const {
 } = Astro.props
 ---
 
-<Layout title={title}>
-  <About
+<MapLayout title={title}>
+  <BlogPostAbout
     header={title}
     paragraph1={description}
     image={heroImage}
-    blog={true}
     imageAlt={heroImageAlt}
     imageAttr={heroImageAttr}
   />
   <div class="w-[100vw] mb-12 relative flex items-center justify-center">
-    <TopSVG />
     <article class="w-full md:w-[75vw] lg:w-[55vw]">
       <h1 class="mt-24 text-center text-5xl p-4 font-bold">{title}</h1>
       <Image
@@ -69,15 +65,10 @@ const {
         )
       }
       <hr />
-      <div class="blogpost">
-        <slot />
-      </div>
+      <slot />
     </article>
   </div>
-  <div class="m-2 flex items-center justify-center">
-    <AboutNavigation />
-  </div>
-  <div class="mt-24">
+  <div class="relative">
     <Footer />
   </div>
-</Layout>
+</MapLayout>

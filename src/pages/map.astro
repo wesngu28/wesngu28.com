@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import MapLayout from '../layouts/MapLayout.astro'
 import Map from '../components/Map'
 import MapHeader from '../components/MapHeader.astro'
 ---
 
-<Layout title="My Map">
+<MapLayout title="My Map">
   <div class="h-[1030vh] md:h-[700vh]">
     <MapHeader />
     <Map client:load />
   </div>
-</Layout>
+</MapLayout>
