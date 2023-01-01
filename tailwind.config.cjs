@@ -1,14 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
+  darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    fontFamily: {
+      'karla': ['Karla', 'sans-serif']
+    },
     extend: {
-      width: {
-        '75v': '75vh',
+      screens: {
+        'ultrawide': '1921px',
+        'tiny': '400px',
+        'hoverable': {'raw': '(hover: hover)'},
       },
       animation: {
         slideshow: 'slideshow 1s ease-out',
-        spinonce: 'spin 1s linear once',
       },
       keyframes: {
         slideshow: {
@@ -22,5 +28,10 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
 }

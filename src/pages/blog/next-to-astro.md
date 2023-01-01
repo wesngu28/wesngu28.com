@@ -94,13 +94,13 @@ Some other cool things about Solid are the provided For and Show components whic
 
 After adding Solid, I was able to shed the dependency on react, react-dom, react-intersection-observer, and react-mapbox-gl. It took a while, but I was able to convert my intersection observer code and even the entire map to a more close to vanilla implementation, but in Solid.
 
-Some caveats I encountered was actually in trying to get rid of as much Solid/React components as possible. My last.fm and github code, which require API clals to their respective parent services, could either have ran on the server or on the client. 
+Some caveats I encountered was actually in trying to get rid of as much Solid/React components as possible. My last.fm and github code, which require API clals to their respective parent services, could either have ran on the server or on the client.
 
-- If I chose to run it on the server, it would only be a matter of having it sit in the frontmatter of an Astro component. The problem with this approach is that it would add between 1-3 seconds on navigation and load, which was unacceptable to me. 
+- If I chose to run it on the server, it would only be a matter of having it sit in the frontmatter of an Astro component. The problem with this approach is that it would add between 1-3 seconds on navigation and load, which was unacceptable to me.
 
 - If I ran it on the client, I would have loading states on the page, which isn't too appealing. It would also cause unnecessary client-side javascript where I could just do it on the server.
 
-I decided to have it run on the client, but now I had two choices. 
+I decided to have it run on the client, but now I had two choices.
 
 1. Deal with Vanilla javascript and have it compile in a client-side script with Astro
 2. Use SolidJS for JSX and comfortable syntax, but accept I will ship unnecessary Javascript.
@@ -129,71 +129,3 @@ Obligatory stack links:
 2. [Tailwind](https://tailwindcss.com/)
 3. [SolidJS](https://www.solidjs.com/)
 4. [Mapbox](https://docs.mapbox.com/mapbox-gl-js/api/)
-
-<style>
-  h1,
-  p,
-  h2,
-  .astro-code,
-  ol,
-  li {
-    font-family: 'Lora', serif;
-    margin: 1.25rem;
-  }
-
-  ol {
-    list-style-type: decimal;
-  }
-
-  ul {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    margin-left: 5.5rem;
-    list-style-type: disc;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    line-height: 100%;
-    margin-bottom: 30px;
-    font-weight: 800;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 1rem;
-    line-height: 100%;
-  }
-
-  p,
-  li {
-    font-size: 1.125rem;
-    line-height: 200%;
-    margin-bottom: 20px;
-  }
-
-  a {
-    color: bisque;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  ul {
-    list-style: circle;
-  }
-
-  img {
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .code {
-    background-color: black;
-    padding: 0.25rem;
-  }
-</style>
