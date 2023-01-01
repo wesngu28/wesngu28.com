@@ -4,6 +4,8 @@ import image from '@astrojs/image';
 import solidJs from '@astrojs/solid-js';
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
+import compress from "astro-compress";
+import prefetch from '@astrojs/prefetch';
 
 // https://astro.build/config
 
@@ -16,7 +18,15 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp'
     }),
     solidJs(),
-    sitemap()
+    sitemap(),
+    compress({
+			css: true,
+			html: true,
+			img: false,
+			js: true,
+			svg: true,
+		}),
+    prefetch()
   ],
   site: 'https://wesngu28.com/',
   adapter: vercel(),
