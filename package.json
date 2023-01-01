@@ -12,18 +12,25 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "dependencies": {
-    "@astrojs/image": "^0.11.0",
-    "@astrojs/solid-js": "^1.2.2",
-    "@astrojs/tailwind": "^2.1.1",
+    "@astrojs/image": "^0.12.1",
+    "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/solid-js": "^1.2.3",
+    "@astrojs/tailwind": "^2.1.3",
     "@astrojs/vercel": "^2.3.3",
-    "astro": "^1.6.4",
+    "@fontsource/karla": "^4.5.10",
+    "@fontsource/lora": "^4.5.12",
+    "@nanostores/solid": "^0.3.2",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "astro": "^1.7.0",
     "mapbox-gl": "^2.10.0",
+    "nanostores": "^0.7.1",
     "query-string": "^7.1.1",
     "sharp": "^0.31.1",
-    "solid-js": "^1.6.1",
-    "tailwindcss": "^3.2.1"
+    "solid-js": "^1.6.6",
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "@types/mapbox-gl": "^2.7.7",
     "@types/node": "^18.11.7",
     "prettier": "^2.7.1",

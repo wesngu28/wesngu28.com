@@ -10,9 +10,14 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  integrations: [tailwind(), image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }), solidJs(), sitemap()],
+  integrations: [
+    tailwind(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp'
+    }),
+    solidJs(),
+    sitemap()
+  ],
   site: 'https://wesngu28.com/',
   adapter: vercel(),
   server: {
