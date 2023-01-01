@@ -16,10 +16,17 @@ const { header } = Astro.props
       <AboutHome />
     : header === 'About Me' ?
       <AboutMe />
-    :
+    : header === 'My Blog' ?
+    <h1 class="text-6xl font-bold m-4 mb-8">
+      My Blog
+    </h1>
     <p class="m-4 text-xl">
       Why does this blog exist in the first place? Well, I just wanted a place to be able to type out some thoughts and feelings
       I have bubbled up inside on various topics, as well as document my projects and things I've learned.
-    </p>}
+    </p> :
+    <h1 class="text-6xl font-bold m-4 mb-8">
+      My Projects
+    </h1>
+    }
   </div>
 </div>

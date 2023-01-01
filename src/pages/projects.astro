@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro'
+import ProjectDeck from '../components/ProjectDeck.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import personalWebsite from '../assets/projects/personal-web.png'
+import translator from '../assets/projects/translator.png'
+import wc from '../assets/projects/translator.png'
+import recipe from '../assets/projects/food.png'
+import info from '../assets/projects/info.png'
+import trade from '../assets/projects/trade.png'
+import concert from '../assets/projects/conert.png'
+---
+
+<Base title="Projects">
+  <div class="grid xs:grid-cols-2 grid-cols-1 place-items-center">
+    <ProjectCard
+      techs={['TypeScript', 'Tailwind', 'React', 'Next.js', 'Python', 'R']}
+      live={'https://qatarwcplayers.vercel.app/'}
+      url={'https://github.com/wesngu28/world-cup-players'}
+      image={wc}
+      name={'Qatar 2022 Player Map'}
+      desc={'This project maps the birthplaces of all the players at Qatar 2022, as well as other data visualizations.'}
+    />
+    <ProjectCard
+      techs={['TypeScript', 'Tailwind', 'React', 'Next.js']}
+      live={'https://co2x5.vercel.app/'}
+      url={'https://github.com/wesngu28/recipe-blog'}
+      image={recipe}
+      name={'co2x5 Recipe Blog'}
+      desc={"A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account."}
+    />
+    <ProjectCard
+      techs={['R', 'Python', 'SCSS', 'Shiny']}
+      live={'https://p11bc.shinyapps.io/socmed/'}
+      url={'https://github.com/info201b-au2022/social-media-stress'}
+      image={info}
+      name={'Social Media Stress'}
+      desc={"A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles."}
+    />
+    <ProjectCard
+      techs={['Svelte', 'Tailwind', 'SvelteKit', 'Typescript']}
+      live={'https://letsride.vercel.app/'}
+      url={'https://github.com/wesngu28/lets-ride'}
+      image={trade}
+      name={"Let's Ride Dashboard"}
+      desc={'Dashboard I made to display some of the relevant information regarding the Russell Wilson trade.'}
+    />
+    <ProjectCard
+      techs={['Python', 'Tkinter']}
+      url={'https://github.com/wesngu28/Twitter-Translator'}
+      image={translator}
+      name={'Twitter Translator'}
+      desc={'A Python GUI that requests user input for a twitter profile and translate their tweets to English.'}
+    />
+    <ProjectCard
+      techs={['Python', 'Jupyter Notebook', 'SKLearn']}
+      url={'https://github.com/wesngu28/edm-prediction-model'}
+      image={translator}
+      name={'EDM Prediction Model'}
+      desc={'A model that predicts the genre of an EDM song after being trained on playlist songs. First project.'}
+    />
+  </div>
+</Base>

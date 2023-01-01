@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       screens: {
         'ultrawide': '1921px',
+        'xs': '550px',
         'tiny': '400px',
         'hoverable': {'raw': '(hover: hover)'},
       },

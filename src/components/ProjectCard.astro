@@ -33,6 +33,9 @@ const langs: { [key: string]: { color: string } } = {
   'Jupyter Notebook': {
     color: '#DA5B0B',
   },
+  "Markdown": {
+    "color": "#083fa1",
+  },
   Python: {
     color: '#3572A5',
   },
@@ -66,6 +69,7 @@ const { techs, image, name, desc, url, live } = Astro.props
     live ? (
       <a target="_blank" href={live} rel="noopener noreferrer">
         <Image
+          class="hover:scale-105 hover:cursor-pointer z-10 ease-out duration-500"
           loading={'lazy'}
           format={'webp'}
           alt={`${name} screenshot or related content if no screenshot makes sense`}
@@ -83,7 +87,7 @@ const { techs, image, name, desc, url, live } = Astro.props
   }
   <Github
     langs={langs}
-    url={url.replace('https://github.com/wesngu28/', '')}
+    url={url.replace('https://github.com/wesngu28/', '').replace('https://github.com/info201b-au2022/', '')}
     client:idle
   />
   <div class={`pr-2 pl-2 mb-5`}>
