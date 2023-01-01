@@ -1,0 +1,30 @@
+---
+import { Image } from "@astrojs/image/components";
+import grotesque from '../assets/grotesque.jpeg'
+import NowPlaying from "./NowPlaying";
+---
+
+<h1 class="text-6xl font-bold m-4 mb-8">
+  Even More About Me
+</h1>
+<div class="lg:flex items-center m-8">
+  <Image
+    loading={'eager'}
+    format={'webp'}
+    class={`p-4 rounded-full`}
+    alt={'me'}
+    width={240}
+    height={240}
+    src={grotesque}
+  />
+  <NowPlaying client:idle/></div>
+<p class="m-4 text-xl">
+  In my free time, I enjoy listening to music, particularly progressive house and j-rock. I also enjoy playing games,
+  including modding games like Skyrim. Some of my favorite content creators are Fireship and Northernlion, and I enjoy
+  watching vtubers. In addition to these hobbies, I have two dogs that I enjoy spending time with. Overall, I am
+  always looking for new and interesting ways to entertain myself and expand my interests.
+</p>
+<p class="m-4 text-xl">
+  This page was mainly made for fun to help me learn React (when the website was using Next.js), SolidJS, and Astro.
+  I learned a lot implementing the Spotify and Last.FM sections in particular.
+</p>
