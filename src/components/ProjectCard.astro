@@ -61,10 +61,10 @@ const langs: { [key: string]: { color: string } } = {
 const { techs, image, name, desc, url, live } = Astro.props
 ---
 
-<li class="p-4 bg-[#21222a] m-4 inline-block">
+<li class="p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-auto 2xl:w-3/4">
   {
     live ? (
-      <a class="m-auto" target="_blank" href={live} rel="noopener noreferrer">
+      <a target="_blank" href={live} rel="noopener noreferrer">
         <Image
           loading={'lazy'}
           format={'webp'}
@@ -86,31 +86,33 @@ const { techs, image, name, desc, url, live } = Astro.props
     url={url.replace('https://github.com/wesngu28/', '')}
     client:idle
   />
-  <div class={`pr-2 pl-2`}>
-    <ul class={'flex mt-1 justify-center flex-wrap'}>
-      {
-        techs.map((arr, i) => {
-          let color = ''
-          if (Object.keys(langs).includes(arr)) {
-            color = langs[arr].color
-          }
-          return color ? (
-          <li style={`background-color: ${color};`} class={`m-2 p-1 text-black rounded-lg`}>
-              <p>{arr}</p>
-            </li>
-          ) : (
-            <li class={`m-2 p-1 bg-[beige] text-black rounded-lg`}>
-              <p>{arr}</p>
-            </li>
-          )
-        })
-      }
-    </ul>
-    <a target="_blank" href={url} rel="noopener noreferrer">
-      <h2 class="hover:underline m-2 text-center font-bold text-lg">
-        {name}
-      </h2>
-    </a>
-    <p>{desc}</p>
+  <div class={`pr-2 pl-2 mb-5`}>
+    <div class="mt-4">
+      <a target="_blank" href={url} rel="noopener noreferrer">
+        <h2 class="hover:underline m-2 text-left font-bold text-2xl">
+          {name}
+        </h2>
+      </a>
+      <p class="m-2 h-24 lg:text-sm ultrawide:text-base">{desc}</p>
+    </div>
   </div>
+  <ul class={'grid mt-1 grid-cols-3'}>
+    {
+      techs.map(arr => {
+        let color = ''
+        if (Object.keys(langs).includes(arr)) {
+          color = langs[arr].color
+        }
+        return color ? (
+        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg`}>
+            <p class="text-xs">{arr}</p>
+          </li>
+        ) : (
+          <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
+            <p class="text-xs">{arr}</p>
+          </li>
+        )
+      })
+    }
+  </ul>
 </li>

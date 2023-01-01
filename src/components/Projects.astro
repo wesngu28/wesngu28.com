@@ -11,28 +11,28 @@ import lux from '../assets/projects/champview.png'
 import ProjectCard from './ProjectCard.astro'
 ---
 
-<div class="w-[85vw] mt-11">
-  <h1 class="text-center font-bold text-2xl p-2">Projects</h1>
+<div class="w-[100vw] tiny:w-full mt-11">
+  <h1 class="text-center font-bold text-2xl p-2">🎨 Projects 🖨️</h1>
   <p class="m-auto sm:w-96 break-normal text-center">
     I like to make projects that are personal to me so I feel more engaged with my
     learning. Here are some of the ones I have worked on recently!
   </p>
-  <ul class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <ul class="mt-5 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 place-items-center">
     <ProjectCard
       techs={['TypeScript', 'Tailwind', 'Astro', 'React', 'SolidJS', 'Mapbox']}
       live={'https://wesngu28.com'}
       url={'https://github.com/wesngu28/wesngu28.com'}
       image={personalWebsite}
       name={'Personal Website'}
-      desc={'This portfolio/website. I learned a lot about through this project, especially with Tailwind and meta frameworks. I have an older version with Next.js but converted it to Astro/SolidJS for fun and also to try and reduce Javascript.'}
+      desc={'I built this portfolio/website using Astro, SolidJS, and Tailwind. This project helped me improve my web development skills.'}
     />
     <ProjectCard
-      techs={['JavaScript', 'Mapbox', 'SCSS']}
+      techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
       live={'https://wesngu28.github.io/mapping-terrorism/'}
       url={'https://github.com/wesngu28/mapping-terrorism'}
       image={mappingTerrorism}
       name={'Mapping Terrorism'}
-      desc={'A website dashboard that visualizes the data from the University of Maryland Global Terrorism Database. Made as a group project for Geography 458 with the University of Washington. Was responsible for the design and structure of the website and the icons on the map.'}
+      desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
     />
     <ProjectCard
       techs={['TypeScript', 'Node.js', 'Tailwind', 'React', 'Next.js']}
@@ -40,7 +40,7 @@ import ProjectCard from './ProjectCard.astro'
       url={'https://github.com/wesngu28/observatory'}
       image={observatory}
       name={'Observatory'}
-      desc={'A web app to complement a CLI I made. Input your package.json or requirements.txt dependency file, and the backend will parse the relevant github repositories and display a table of the ones you have yet to star. You can click to star or unstar the repos from that table.'}
+      desc={'Web app that helps you manage GitHub stars for JS and Python projects, showing you a list of repositories that you haven\'t starred.'}
     />
     <ProjectCard
       techs={['TypeScript', 'Svelte', 'Prisma', 'PostgreSQL', 'CockroachDB']}
@@ -48,7 +48,7 @@ import ProjectCard from './ProjectCard.astro'
       url={'https://github.com/wesngu28/rustboro'}
       image={glaceon}
       name={'Rustboro'}
-      desc={'First real web project I made that has since been reforged in SvelteKit. Allows you to search for a specific pokemon or query six random pokemon. Also has a challenge feature, in which you must choose the Pokemon that has the higher of the specified stat.'}
+      desc={'This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.'}
     />
     <ProjectCard
       techs={['TypeScript', 'Python', 'React', 'Next.js', 'Flask']}
@@ -56,22 +56,22 @@ import ProjectCard from './ProjectCard.astro'
       url={'https://github.com/wesngu28/searchify'}
       image={searchify}
       name={'Searchify'}
-      desc={'A website that allows you to paste in a Spotify artist, track, playlist, or album, and get some information about them and also receive a table with YouTube links of the songs inside of it or recommendations. Also allows for you to login and get information about your listening habits.'}
+      desc={'This website allows you to search Spotify artists, tracks, playlists, or albums, and get recommendations. You can also log in to learn about your listening habits.'}
     />
     <ProjectCard
-      techs={['TypeScript', 'Vue', 'Nuxt.js']}
+      techs={['TypeScript', 'Vue', 'Nuxt.js', 'CSS']}
       live={'https://simplechampview.vercel.app/'}
       url={'https://github.com/wesngu28/simple-champion-viewer'}
       image={lux}
       name={'Champ Viewer'}
-      desc={'A web app that allows you to query a champion and get their skins and spells, as well as other tidbits. Can be intensive for slower networks and is defaulted to Lux. Was made to learn a bit of Vue since I wanted to experience it a bit and got some Nuxt as a side dish.'}
+      desc={'A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.'}
     />
     <ProjectCard
       techs={['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Svelte']}
       url={'https://github.com/wesngu28/rhodesapi'}
       image={rhodes}
       name={'RhodesAPI'}
-      desc={'A RESTful API for the tower defense game Arknights. While the game does have some databases in repositories and websites, most were out of date and lacked apis, so I made a scraper to hit the Gamepress page for each operator and and made it queryable. Includes a documentation website made with Svelte.'}
+      desc={'A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.'}
     />
     <ProjectCard
       techs={['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']}
@@ -79,15 +79,15 @@ import ProjectCard from './ProjectCard.astro'
       url={'https://github.com/wesngu28/closurets'}
       image={closure}
       name={'Closure'}
-      desc={'A discord bot with both general and niche applications. Made to complement the RhodesAPI. Implements operator commands, as well as commands to get live status for youtubers. Can be configured to announce Youtube livestreams and uploads at a comparable time to Pingcord.'}
+      desc={'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'}
     />
     <ProjectCard
-      techs={['TypeScript', 'React', 'Next.js']}
+      techs={['TypeScript', 'React', 'Next.js', 'CSS']}
       live={'https://holoboard.vercel.app/'}
       url={'https://github.com/wesngu28/holoboard'}
       image={holoboard}
       name={'Holoboard'}
-      desc={'A web app to monitor the streamers of Hololive and Holostars english. The below icons will highlight and change opacity based on live status and get brighter the closer they are to becoming live. Was made to learn some Next 13.'}
+      desc={'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'}
     />
   </ul>
 </div>

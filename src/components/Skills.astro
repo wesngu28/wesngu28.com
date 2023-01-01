@@ -2,18 +2,20 @@
 import SkillCard from './SkillCard.astro'
 import mongo from '../assets/skills/mongo.png'
 import redis from '../assets/skills/redis.png'
-import cockroach from '../assets/skills/cockroach.png'
+import markdown from '../assets/skills/markdown.png'
 import flask from '../assets/skills/flask.png'
 import python from '../assets/skills/python.png'
+import sql from '../assets/skills/sql.png'
 import nuxt from '../assets/skills/nuxt.png'
 import next from '../assets/skills/next.png'
 import vue from '../assets/skills/vue.png'
+import vite from '../assets/skills/vite.png'
 import svelte from '../assets/skills/svelte.png'
 import react from '../assets/skills/react.png'
 import node from '../assets/skills/node.png'
 import ts from '../assets/skills/ts.png'
 import js from '../assets/skills/js.png'
-import tailwind from '../assets/skills/tailwind.png'
+import windows from '../assets/skills/windows.png'
 import bootstrap from '../assets/skills/bootstrap.png'
 import sass from '../assets/skills/sass.png'
 import css from '../assets/skills/css.png'
@@ -22,37 +24,34 @@ import opensuse from '../assets/skills/opensuse.png'
 import docker from '../assets/skills/docker.png'
 import git from '../assets/skills/git.png'
 import linux from '../assets/skills/linux.png'
-import TopSVG from './TopSVG.astro'
 ---
 
-<div class="w-[100vw] relative">
-  <TopSVG />
-  <h1 class="mt-11 text-center text-2xl p-4 font-bold">Skills</h1>
-  <ul class="flex flex-wrap justify-center p-4">
+<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center">
+  <h1 class="mt-11 text-center text-2xl p-4 font-bold">⚙️ Skills ✏️</h1>
+  <ul class="grid md:grid-cols-1 lg:grid-cols-2 ultrawide:grid-cols-4 gap-4">
     <SkillCard
-      images={[linux, git, opensuse, docker]}
-      name={'Tools and Systems'}
+      images={[linux, git, opensuse, docker, windows, markdown]}
+      name={['Linux', 'Git', 'OpenSuse', 'Docker', 'Windows', 'Markdown']}
+      grid={'grid grid-cols-3'}
       desc={'Operating systems and tools that help me run services and start new projects.'}
     />
     <SkillCard
-      images={[html, css, bootstrap, sass, tailwind]}
-      name={'HTML and CSS'}
+      images={[html, css, bootstrap, sass, js, ts]}
+      grid={'grid grid-cols-3'}
+      name={['HTML', 'CSS', 'Bootstrap', 'Sass', 'Javascript', 'Typescript']}
       desc={'The building blocks of the internet. CSS enhanced by Bootstrap, Sass, and Tailwind.'}
     />
     <SkillCard
-      images={[js, ts, node, svelte, react, next, vue, nuxt]}
-      name={'Javascript'}
+      images={[svelte, react, next, vue, nuxt, vite]}
+      name={['Svelte', 'React', 'Next.js', 'Vue', 'Nuxt.js', 'Vite']}
+      grid={'grid grid-cols-3'}
       desc={'The various flavors of Javascript, its frameworks, bundlers (Vite), and everything in-between.'}
     />
     <SkillCard
-      images={[python, flask]}
-      name={'Python'}
+      images={[node, python, flask, sql, mongo, redis]}
+      name={['Node.js', 'Python', 'Flask', 'SQL', 'MongoDB', 'Redis']}
+      grid={'grid grid-cols-3'}
       desc={'The language of data and AI. I have also used Jupyter and the ML libaries to some extent.'}
-    />
-    <SkillCard
-      images={[mongo, redis, cockroach]}
-      name={'Databases'}
-      desc={'Storage of data in the backend. I have worked with Postgres but have not used it in a project.'}
     />
   </ul>
 </div>

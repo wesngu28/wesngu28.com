@@ -3,38 +3,31 @@ import { Image } from '@astrojs/image/components'
 
 export interface Props {
   images: Array<ImageMetadata>
-  name: string
+  name: string[]
+  grid: string
   desc?: string
 }
 
-const { images, name, desc } = Astro.props
+const { images, name, desc, grid } = Astro.props
 
-let grid = 'grid-cols-1'
-
-if (images.length > 2) {
-  grid = 'grid-cols-2'
-}
 ---
 
-<li class="bg-[#21222a] m-4 w-[225px] h-[450px] rounded-2xl">
-  <div class={`relative h-[60%] grid ${grid}`}>
+<li class="border bg-[#21222a] p-4 m-4 rounded-2xl flex items-center justify-center">
+  <div class={` ${grid}`}>
     {
-      images.map(arr => {
+      images.map((arr, i) => {
         return (
-          <div class="m-2 relative">
-            <span class="box-border flex justify-center overflow-hidden opacity-100 border-none m-0 p-0 absolute top-0 bottom-0 left-0 right-0">
-              <Image
+          <div class="m-2 lg:p-2 ultrawide:p-0 relative flex items-center justify-center">
+            <Image
                 class="w-auto h-auto object-contain"
-                alt={`${name} logo`}
+                alt={`${name[i]} logo`}
                 src={arr}
                 format={'webp'}
+                title={name[i]}
               />
-            </span>
           </div>
         )
       })
     }
   </div>
-  <h2 class="text-2xl text-center">{name}</h2>
-  <p class="p-2 mt-2 text-sm text-center">{desc}</p>
 </li>
