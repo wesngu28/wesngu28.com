@@ -32,8 +32,5 @@ export default defineConfig({
   adapter: vercel(),
   server: {
     port: 3000
-  },
-  experimental: {
-    contentCollections: true
   }
 });
