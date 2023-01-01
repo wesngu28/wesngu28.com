@@ -14,44 +14,40 @@ export default function NowPlaying() {
     return () => clearInterval(interval)
   })
 
-  const trimText = (text: string) => {
-    if (text.length > 34) {
-      text = text.substring(0, 34)
-      return `${text}...`
-    }
-    return text
-  }
-
   return (
-    <div class="bg-[#292C33] w-max p-4 flex items-center justify-center">
-      <div class="w-[20rem] flex flex-col">
-        <p class="text-center">
+    <div>
+          <div>
+    <p class="text-center">
           {data()
             ? data()!.recent
-              ? 'Recently Played on Spotify'
-              : 'Currently Live on Spotify'
-            : 'Getting song...'}
+            ? 'Recently Played on Spotify'
+            : 'Currently Live on Spotify'
+            : 'Getting song...'
+          }
         </p>
-        <p class="mt-5 m-auto text-sm font-bold">PLAYING FROM ALBUM</p>
-        <p class="m-auto mb-11">
-          {data() ? trimText(data()!.album) : 'Getting album...'}
-        </p>
+    </div>
+          <div class='flex w-max h-[96px]'>
         <a
-          class="m-auto mb-11"
+          class="m-auto"
           target="_blank"
           href={data() ? data()!.songUrl : ''}
           rel="noopener noreferrer"
         >
-          <img
-            alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
-            src={data() ? data()!.albumImageUrl : './spotify.svg'}
-            width={288}
-            height={288}
-          />
+        <img
+          alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
+          src={data() ? data()!.albumImageUrl : './spotify.svg'}
+          width={96}
+          height={96}
+        />
         </a>
-        <p class="text-left font-bold">{data() ? data()!.title : 'Getting title...'}</p>
-        <p>{data() ? data()!.artist : 'Getting artists...'}</p>
-      </div>
+        <div class="m-4">
+          <div>
+            <p class="text-left font-bold">{data() ? data()!.title : 'Getting title...'}</p>
+            <p>{data() ? data()!.artist : 'Getting artists...'}</p>
+          </div>
+          <audio class="sm:block hidden" controls></audio>
+        </div>
+    </div>
     </div>
   )
 }

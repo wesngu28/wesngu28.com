@@ -1,17 +1,10 @@
 ---
-import NowPlaying from './NowPlaying'
 import ArtistCard from './ArtistCard'
-import TopSVG from './TopSVG.astro'
 ---
 
 <div
-  class="mb-20 flex w-[100vw] justify-evenly items-center flex-col md:flex-row relative"
+  class="my-40 flex w-full justify-evenly items-center flex-col lg:flex-row relative"
 >
-  <TopSVG />
-  <div
-    class="mt-40 flex w-[75vw] justify-evenly items-center flex-col md:flex-row relative"
-  >
-    <NowPlaying client:idle />
     <div class="flex flex-wrap justify-center m-4">
       <div>
         <p class="text-center mt-11 mb-5">My Top Artists This Month</p>
@@ -22,5 +15,4 @@ import TopSVG from './TopSVG.astro'
         </div>
       </div>
     </div>
-  </div>
 </div>

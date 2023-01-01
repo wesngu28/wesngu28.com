@@ -58,16 +58,16 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
     })
   })
   return (
-    <div ref={photoRef} class="flex items-center justify-center">
-      <p onClick={decrementImage} class="text-6xl text-[#6E6E6E]">
+    <div ref={photoRef} class="bg-[#1F2022] flex items-center justify-center p-4 m-4">
+      <button onClick={decrementImage} class="arrow flex items-center justify-center">
         &#8592;
-      </p>
+      </button>
       <For each={photos}>
         {(photo: string, i) => (
           <div
             class={`flex flex-col justify-center ${
               photos.length === 6 ? 'h-96 md:h-1/2 w-[200px] md:w-1/2' : null
-            } m-auto relative ${active() === i() ? 'block animate-slideshow' : 'hidden'}`}
+            } relative ${active() === i() ? 'block animate-slideshow' : 'hidden'}`}
           >
             <Show when={caption} fallback={null}>
               <div>
@@ -88,9 +88,9 @@ export default function Slideshow({ dynamicAlt, caption }: Props) {
           </div>
         )}
       </For>
-      <p onClick={incrementImage} class="text-6xl text-[#6E6E6E]">
+      <button onClick={incrementImage} class="arrow flex items-center justify-center">
         &#8594;
-      </p>
+      </button>
     </div>
   )
 }

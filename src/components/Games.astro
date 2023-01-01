@@ -1,99 +1,186 @@
 ---
 import { getImage } from '@astrojs/image'
-import type { ImgHTMLAttributes } from '@astrojs/image/components'
-import GameCard from './GameCard'
-
-import skyrimStats from '../assets/games/Skyrim.jpg'
-import hoi4Stats from '../assets/games/Hearts of Iron IV.jpg'
-import sapStats from '../assets/games/Super Auto Pets.jpg'
-import leagueStats from '../assets/games/League of Legends.jpg'
-import sc2Stats from '../assets/games/Starcraft 2.jpg'
-import civStats from '../assets/games/Civilization V.jpg'
-import akStats from '../assets/games/Arknights.jpg'
-import alStats from '../assets/games/Azur Lane.jpg'
-const games = [
+import { Image } from '@astrojs/image/components'
+import tes5 from "../assets/gamecover/Skyrim.jpg"
+import hoi4 from "../assets/gamecover/Hearts of Iron IV.jpg"
+import lol from "../assets/gamecover/League of Legends.jpg"
+import sap from "../assets/gamecover/Super Auto Pets.jpg"
+import sc2 from "../assets/gamecover/Starcraft 2.jpg"
+import civ from "../assets/gamecover/Civilization V.jpg"
+import ak from "../assets/gamecover/Arknights.jpg"
+import al from "../assets/gamecover/Azur Lane.jpg"
+import type { Game } from '../models/game'
+const games: Array<Game> = [
   {
-    name: 'Skyrim',
-    url: 'https://elderscrolls.bethesda.net/en/skyrim',
-    cover: {} as ImgHTMLAttributes,
-    stats: skyrimStats,
+    name: "Skyrim",
+    url: "https://elderscrolls.bethesda.net/en/skyrim",
+    img: tes5,
+    description: "While I was aware of Skyrim for a long time, I never really ever considered playing it, as I was a League of Legends exclusive player for a long time. However, a streamer that I watched was really into it and eventually coerced me into playing the game. Ever since then, I've been hooked, and have immersed myself  in the lore of Nirn. I've only ever beaten the game once, as a female Redguard Archer. I spend more time in Mod Organizer 2 than I do actually playing the game."
   },
   {
-    name: 'Hearts of Iron IV',
-    url: 'https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about',
-    cover: {} as ImgHTMLAttributes,
-    stats: hoi4Stats,
+    name: "Hearts of Iron IV",
+    img: hoi4,
+    url: "https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about"
   },
   {
-    name: 'Super Auto Pets',
-    url: 'https://teamwoodgames.com/',
-    cover: {} as ImgHTMLAttributes,
-    stats: sapStats,
+    name: "Super Auto Pets",
+    url: "https://teamwoodgames.com/",
+    img: sap,
+    description: "A cute autobattler with emoji animals, I was drawn to Super Auto Pets through Northernlion's content. I watched him for a long time playing the game before I got into it, and I mainly got into it due to a game drought while I was living in Clackamas for my internship."
   },
   {
-    name: 'League of Legends',
-    url: 'https://www.leagueoflegends.com/en-us/',
-    cover: {} as ImgHTMLAttributes,
-    stats: leagueStats,
+    name: "League of Legends",
+    url: "https://www.leagueoflegends.com/en-us/",
+    img: lol,
+    description: "A game that I have been playing since I was ten years old, League of Legends has been very influential in my interests, the people I am friends with, and who I am today."
   },
   {
-    name: 'Starcraft 2',
-    url: 'https://starcraft2.com/en-us/',
-    cover: {} as ImgHTMLAttributes,
-    stats: sc2Stats,
+    name: "Starcraft 2",
+    url: "https://starcraft2.com/en-us/",
+    img: sc2,
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
   },
   {
-    name: 'Civilization V',
-    url: 'https://civilization.com/civilization-5/',
-    cover: {} as ImgHTMLAttributes,
-    stats: civStats,
+    name: "Civilization V",
+    url: "https://civilization.com/civilization-5/",
+    img: civ
   },
   {
-    name: 'Arknights',
-    url: 'https://www.arknights.global/',
-    cover: {} as ImgHTMLAttributes,
-    stats: akStats,
+    name: "Arknights",
+    url: "https://www.arknights.global/",
+    img: ak,
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
   },
   {
-    name: 'Azur Lane',
-    url: 'https://azurlane.yo-star.com/#/',
-    cover: {} as ImgHTMLAttributes,
-    stats: alStats,
-  },
+    name: "Azur Lane",
+    url: "https://azurlane.yo-star.com/#/",
+    img: al,
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
+  }
 ]
-
-for (let i = 0; i < games.length; i++) {
-  games[i].cover = await getImage({
-    src: `./gamecover/${games[i].name}.jpg`,
-    width: 460,
-    height: 215,
-  })
-}
+const game: Array<Game> = games
+import arknights from "../assets/games/Arknights.jpg"
 ---
 
-<div class="w-[75vw] mt-11">
+<div class="w-[75vw] md:w-full mb-40">
   <h1 class="text-center text-2xl mb-0">Games</h1>
   <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
   <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
     {
-      games.map((game, i) => (
-        <GameCard
-          client:visible
-          delay={game.name === 'Skyrim' ? '' : `lg:delay-[${i * 100}ms]`}
-          name={game.name}
-          url={game.url}
-          cover={game.cover as { width: number; height: number; src: string }}
-          stats={game.stats}
-        />
+      game.map((game) => (
+        <div class={`bg-[#21222a] hover:z-50 m-1 inline-block border-b-4 clienthide`}>
+          <div class={`${game.description ? 'hover:scale-125 hover:cursor-pointer z-10 ease-out' : 'null'}`}>
+            <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
+              <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
+                <Image
+                  class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
+                  loading="lazy"
+                  src={game.img!.src}
+                  alt={`${game.name} header`}
+                  width={460}
+                  height={215}
+                />
+              </span>
+            </span>
+          </div>
+        </div>
       ))
     }
   </div>
+  <div class="hidden hoverable:block desc m-4 w-full">
+    <h2 class="text-center text-2xl">Featured Game: Arknights</h2>
+    <div class="w-full flex flex-col justify-center">
+      <p class="p-4">The data insights team is responsible for development of data analytics & data-empowered platform capabilities across global e-commerce.  Our mission is to empower our users to leverage and extract actionable insights from data to maximize their potential and efficiency on the global e-commerce platform.  In essence, we want to extract facts, attribute causes and predict the future from oceans of data; and our fundamental goals are to reflect business impact, leverage data to support key decisions by lowering decision making complexity and optimizing decision making efficacy and efficiency. </p>
+      <Image class="p-4 m-auto object-contain" src={arknights} alt={'Arknights profile'} />
+    </div>
+  </div>
 </div>
 
-<!-- https://cdn.akamai.steamstatic.com/steam/apps/489830/header.jpg?t=1650909796
-https://cdn.akamai.steamstatic.com/steam/apps/394360/header.jpg?t=1661438345
-https://cdn.akamai.steamstatic.com/steam/apps/1714040/header.jpg?t=1660917023
-https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/0d441de75945e5acbc865406fc9a2559.png
-https://o.aolcdn.com/hss/storage/midas/87ef85574244b74f1d251b63a07b7abb/203880681/starcraftii-logo.jpg
-https://cdn.akamai.steamstatic.com/steam/apps/8930/header.jpg?t=1579731804
-https://www.gameuidatabase.com/uploads/Arknights01252021-022418-77137.jpg -->
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      } else {
+        entry.target.classList.remove('show')
+      }
+    })
+  })
+  const games = document.querySelectorAll('.clienthide')
+  games.forEach(game => observer.observe(game))
+  import type { Game } from '../models/game'
+  const gameList: Array<Game> = [
+  {
+    name: "Skyrim",
+    url: "https://elderscrolls.bethesda.net/en/skyrim",
+    description: "While I was aware of Skyrim for a long time, I never really ever considered playing it, as I was a League of Legends exclusive player for a long time. However, a streamer that I watched was really into it and eventually coerced me into playing the game. Ever since then, I've been hooked, and have immersed myself  in the lore of Nirn. I've only ever beaten the game once, as a female Redguard Archer. I spend more time in Mod Organizer 2 than I do actually playing the game."
+  },
+  {
+    name: "Hearts of Iron IV",
+    url: "https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about"
+  },
+  {
+    name: "Super Auto Pets",
+    url: "https://teamwoodgames.com/",
+    description: "A cute autobattler with emoji animals, I was drawn to Super Auto Pets through Northernlion's content. I watched him for a long time playing the game before I got into it, and I mainly got into it due to a game drought while I was living in Clackamas for my internship."
+  },
+  {
+    name: "League of Legends",
+    url: "https://www.leagueoflegends.com/en-us/",
+    description: "A game that I have been playing since I was ten years old, League of Legends has been very influential in my interests, the people I am friends with, and who I am today."
+  },
+  {
+    name: "Starcraft 2",
+    url: "https://starcraft2.com/en-us/",
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
+  },
+  {
+    name: "Civilization V",
+    url: "https://civilization.com/civilization-5/"
+  },
+  {
+    name: "Arknights",
+    url: "https://www.arknights.global/",
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
+  },
+  {
+    name: "Azur Lane",
+    url: "https://azurlane.yo-star.com/#/",
+    description: "RTS has been a genre that I love but am terrible at, ever since I was five and watched my Dad play through the Reign of Chaos and Frozen Throne campaigns. Wings of Liberty was the first game that my dad ever purchased me. Nowadays, I mainly play co-op, and it is sad to see Blizzard shelve the game mode."
+  }
+]
+
+  const images = document.querySelectorAll('.clienthide img')
+  async function mouseOver(event: Event) {
+    const image = event.target as HTMLImageElement
+    const description = gameList.filter(game => image.alt.includes(game.name))
+    if (description[0].description) {
+      const desc = document.querySelector('.desc p')!
+      const descimg: HTMLImageElement = document.querySelector('.desc img')!
+      const img = await import(`../assets/games/${description[0].name}.jpg`)
+      descimg.src = img.default.src
+      desc.textContent = description[0].description
+    }
+  }
+  images.forEach(image => {
+    image.addEventListener('mouseenter', mouseOver)
+  })
+</script>
+
+<style>
+  .clienthide {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  @media (prefers-reduced-motion) {
+    .clienthide {
+      transition: none;
+    }
+  }
+</style>

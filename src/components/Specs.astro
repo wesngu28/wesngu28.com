@@ -1,108 +1,41 @@
-<div class="mt-11 bg-[#1F2022] ml-4 mr-4 w-[75vw] rounded-3xl">
-  <h1 class="text-center text-3xl">my systems</h1>
-  <p class="text-center">We do not talk about the power draw.</p>
-  <div class="md:flex justify-center items-center">
-    <div class="p-4 w-[75vw]">
-      <div class="p-4 text-left text-xl leading-8">
-        <p>
-          Laptop:{' '}
-          <span class="text-green-300 ml-4 inline-block">
-            HP Pavillion 15z-cw100 (openSuse Tumbleweed)
-          </span>
-        </p>
-      </div>
-      <div class="p-4 text-left text-xl leading-8">
-        <p>
-          Development PC:{' '}
-          <span class="text-green-300 ml-4 inline-block">
-            Dell Optiplex 3040 (openSuse Tumbleweed)
-          </span>
-        </p>
-      </div>
-      <div class="p-4 text-left text-xl leading-8">
-        <p>
-          General PC:{' '}
-          <span class="text-blue-300 ml-4 inline-block">Windows 10</span>
-        </p>
-        <ul class="list-disc">
-          <li class="ml-10">CPU: &nbsp; Ryzen 7 5600x</li>
-          <li class="ml-10">Motherboard: &nbsp; MSI B450 Tomahawk</li>
-          <li class="ml-10">Memory: &nbsp; Corsair Vengeance 32GB DDDR-3200</li>
-          <li class="ml-10">
-            Storage:
-            <ul class="list-disc">
-              <li class="ml-10">Primary SSD: &nbsp; Samsung 970 Evo 1TB</li>
-              <li class="ml-10">Secondary SSD: &nbsp; Adata SU630 480GB</li>
-              <li class="ml-10">Bulk: &nbsp; Western Digital 1TB 7200RPM</li>
-            </ul>
-          </li>
-          <li class="ml-10">GPU: &nbsp; Sapphire Radeon RX 5700XT (blower 😭 )</li>
-          <li class="ml-10">
-            Power Supply: &nbsp; EVGA 210-GQ 850W 80+ Gold Semi-modular
-          </li>
-          <li class="ml-10">Case: &nbsp; NZXT H500</li>
-        </ul>
-      </div>
-      <div class="p-4 text-left text-xl leading-8">
-        <p>Displays</p>
-        <ol class="list-decimal">
-          <li class="ml-10">&nbsp; Alienware 3423dw</li>
-          <li class="ml-10">&nbsp; Dell 2007wfp</li>
-          <li class="ml-10">&nbsp; Wixamit 10.1 inch</li>
-          <li class="ml-10">&nbsp; Acer XV272U</li>
-          <li class="ml-10">&nbsp; LG 27MP35HQ</li>
-        </ol>
-      </div>
+---
+import { Image } from '@astrojs/image/components'
+import curr from "../assets/parts.jpg"
+import suse from "../assets/suse.png"
+import debian from "../assets/debian.png"
+import wind from "../assets/skills/windows.png"
+---
+
+<div class="my-40 w-full flex flex-col items-center text-center">
+  <h1 class="text-3xl">my systems</h1>
+  <p>We do not talk about the power draw. I love my 3423dw.</p>
+  <div class="my-5 flex justify-center">
+    <Image class="m-auto" width={320} height={200} aspectRatio="320:200" alt="OpenSuse" src={suse} />
+    <div class="bg-slate-700 opacity-75 m-2 p-2">
+      <p class="text-green-300 inline-block">openSuse Tumbleweed</p>
+      <h2 class="mb-4 text-xl mr-auto">HP Pavillion 15z-cw100</h2>
+      <p class="mb-4">Laptop</p>
+      <h2 class="mb-4 text-xl mr-auto">Dell Optiplex 3040</h2>
+      <p class="mb-4">Productivity</p>
     </div>
-    <div class="p-4 w-[75vw]">
-      <div class="p-4 text-left text-xl leading-8">
-        <p>
-          Home Server:{' '}
-          <span class="text-red-300 ml-4 inline-block"> Dell Precision 5810 Debian</span>
-        </p>
-        <ul>
-          <li class="ml-10">Jellyfin</li>
-          <li class="ml-10">Overleaf</li>
-          <li class="ml-10">Code Server</li>
-          <li class="ml-10">Syncthing</li>
-          <li class="ml-10">and more...</li>
-        </ul>
-      </div>
-      <div class="p-4 text-left text-xl leading-8">
-        <p>Mobile Devices</p>
-        <ul class="list-disc">
-          <li class="ml-10">Phone: &nbsp; OnePlus 9 Pro</li>
-          <li class="ml-10">Tablet: &nbsp; Samsung Galaxy Tab S7</li>
-        </ul>
-      </div>
-      <div class="p-4 text-left text-xl leading-8">
-        <p>Accessories</p>
-        <ul class="list-disc">
-          <li class="ml-10">Router: &nbsp; Dell Optiplex 5010 pfSense</li>
-          <li class="ml-10">WAP: &nbsp; Tp-Link EAP610, Ubiquity Long Range</li>
-          <li class="ml-10">Modem: &nbsp; Motorola MB8600</li>
-          <li class="ml-10">
-            Mice:
-            <ul class="list-disc">
-              <li class="ml-10">General Mouse: &nbsp; Logitech G502</li>
-              <li class="ml-10">Mobile Mouse: &nbsp; Logitech M330 x3</li>
-            </ul>
-          </li>
-          <li class="ml-10">
-            Keyboard: &nbsp; Leopold FC660M Black 65%{' '}
-            <span class="text-red-400">(reds)</span>
-          </li>
-          <li class="ml-10">
-            Headphones:
-            <ul class="list-disc">
-              <li class="ml-10">General Headphones: &nbsp; Beyerdynamic DT 770 Pro</li>
-              <li class="ml-10">Mobile Headphones: &nbsp; Bose QC35 II</li>
-              <li class="ml-10">Earpods: &nbsp; OnePlus Buds Pro</li>
-            </ul>
-          </li>
-          <li class="ml-10">Speakers: &nbsp; Logitech-X-530 5.1</li>
-        </ul>
-      </div>
+  </div>
+  <div class="my-5 flex justify-center">
+    <div class="bg-slate-700 opacity-75 m-2 p-2">
+      <h2 class="mb-4 text-xl mr-auto">Dell Precision 5810</h2>
+      <p class="text-red-300 inline-block">Debian</p>
+      <p>Home Server</p>
+      <ul>
+        <li class="ml-10">Jellyfin</li>
+        <li class="ml-10">Overleaf</li>
+        <li class="ml-10">Code Server</li>
+        <li class="ml-10">Syncthing</li>
+        <li class="ml-10">and more...</li>
+      </ul>
     </div>
+    <Image class="m-auto" aspectRatio="162:200" height={200} alt="Debian" src={debian} />
+  </div>
+  <div class="my-5 lg:flex lg:justify-center items-center">
+    <Image class="m-auto" aspectRatio="1:1" height={200} alt="Windows" src={wind} />
+    <Image class="m-auto" aspectRatio="342:400" height={400} alt="Current" src={curr} />
   </div>
 </div>
