@@ -1,5 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Map, Marker, Popup } from 'mapbox-gl'
+import { Map, Marker } from 'mapbox-gl'
 import Chapter from './Chapter'
 import { onMount } from 'solid-js'
 
@@ -11,8 +11,7 @@ export default function ScrollyMap() {
   let uw1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
   let rs1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
   let clack1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
-  let otherCareer1: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
-  const refs = [vietnam1, bham1, hazen1, uw1, rs1, clack1, otherCareer1]
+  const refs = [vietnam1, bham1, hazen1, uw1, rs1, clack1]
 
   const mapChapter = [
     {
@@ -59,13 +58,6 @@ export default function ScrollyMap() {
       pitch: 60.5,
       bearing: 30,
     },
-    {
-      ref: otherCareer1,
-      center: [-122.1800715, 47.5832877],
-      zoom: 11.0,
-      pitch: 0.5,
-      bearing: 0,
-    },
   ]
 
   onMount(() => {
@@ -110,30 +102,6 @@ export default function ScrollyMap() {
                 for (let i = 0; i < markers.length; i++) {
                   ;(markers[i] as HTMLElement).style.visibility = 'hidden'
                 }
-                new Marker({
-                  element: (
-                    <img alt="nhstc logo map marker" src="./map/nhstc-marker.png" />
-                  ) as HTMLElement,
-                })
-                  .setLngLat([-122.1800715, 47.5532877])
-                  .addTo(map)
-                new Marker({
-                  element: (
-                    <img alt="target logo map marker" src="./map/target-marker.jpg" />
-                  ) as HTMLElement,
-                })
-                  .setLngLat([-122.1999175, 47.4968123])
-                  .addTo(map)
-                new Marker({
-                  element: (
-                    <img
-                      alt="amazon fresh logo map marker"
-                      src="./map/fresh-marker.png"
-                    />
-                  ) as HTMLElement,
-                })
-                  .setLngLat([-122.1733261, 47.575893])
-                  .addTo(map)
               } else {
                 let markers = document.getElementsByClassName('mapboxgl-marker')
                 for (let i = 0; i < markers.length; i++) {
@@ -184,7 +152,6 @@ export default function ScrollyMap() {
       <div class="h-[100vh] w-full fixed top-0 bottom-0 left-0 right-0">
         <div ref={mapContainer} class="h-full"></div>
       </div>
-      //{' '}
     </>
   )
 }

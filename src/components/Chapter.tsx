@@ -1,9 +1,8 @@
-import Slideshow from './Slideshow'
-
 interface Props {
   index: number
   ref: HTMLDivElement | ((el: HTMLDivElement) => void) | undefined
 }
+
 const chapters = [
   {
     top: ['md:top-[30vh]', 'top-[30vh]'],
@@ -66,11 +65,7 @@ const chapters = [
       'During the summer of 2022, I got my first internship at the IT department for a lumber company called International Wood Products down in Clackamas, Oregon.',
       'I learned a wide variety of things during this internship. Aside from setting up company computers and laptops, I helped to configure the company network through switch and access point configurations, managed Active Directory and exchange, as well as email servers.',
     ],
-  },
-  {
-    top: ['md:top-[630vh]', 'top-[930vh]'],
-    heading: 'Other Work',
-  },
+  }
 ]
 
 const Chapter = ({ index, ref }: Props) => {
@@ -78,7 +73,7 @@ const Chapter = ({ index, ref }: Props) => {
     <div
       id={String(index)}
       ref={ref}
-      class={`rounded-3xl bg-[#1F2022] text-white z-10 absolute mb-11 ${chapters[index].top[1]} ${chapters[index].top[0]} md:p-4 md:w-1/4 h-max rounded`}
+      class={`rounded-3xl bg-[#1F2022] text-white z-10 absolute ${chapters[index].top[1]} ${chapters[index].top[0]} md:p-4 md:w-[35%] h-max rounded`}
     >
       <h2 class="text-center text-2xl font-bold">{chapters[index].heading}</h2>
       {chapters[index].duration ? (
@@ -86,40 +81,13 @@ const Chapter = ({ index, ref }: Props) => {
       ) : null}
       {chapters[index].source ? (
         <div class="p-4 flex justify-center">
-          <img alt={chapters[index].alt} src={chapters[index].source!} />
+          <img class={"w-1/2 h-1/2"} alt={chapters[index].alt} src={chapters[index].source!} />
         </div>
       ) : null}
       <div>
-        {chapters[index].paragraph
-          ? chapters[index].paragraph!.map(text => {
-              return <p class="p-4 text-left text-sm md:text-lg leading-8">{text}</p>
-            })
-          : null}
-        {chapters[index].top[1] === 'top-[930vh]' ||
-        chapters[index].top[0] === 'md:top-[630vh]' ? (
-          <div>
-            <Slideshow
-              caption={[
-                {
-                  location: 'Newport Hills Swim Club',
-                  duration: 'Mar 2018 - Sep 2020',
-                  title: 'Lifeguard',
-                },
-                {
-                  location: 'Target',
-                  duration: 'Oct 2020 - Jan 2021',
-                  title: 'Fulfillment Expert',
-                },
-                {
-                  location: 'Amazon Fresh',
-                  duration: 'May 2021 -  Jul 2022',
-                  title: 'Overnight Associate',
-                },
-              ]}
-              dynamicAlt="logos of newport hills swim club, target, and amazon fresh respectively"
-            />
-          </div>
-        ) : null}
+        {chapters[index].paragraph!.map(text => {
+              return <p class="p-4 text-left text-sm md:text-base leading-8">{text}</p>
+            })}
       </div>
     </div>
   )
