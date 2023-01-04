@@ -1,15 +1,15 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { langs } from '../utils/LanguageList'
+import Github from './Github'
 import Navbar from './Navbar.astro'
 import Sidebar from './Sidebar.astro'
 export interface Props {
   header: string
   paragraph1: string
-  image: string
-  imageAlt: string
-  imageAttr: string
+  repository?: string
+  techs?: string[]
 }
-const { header, paragraph1, image, imageAlt, imageAttr } = Astro.props
+const { header, paragraph1, repository, techs } = Astro.props
 ---
 
 <div class="md:flex flex-col bg-[#1F2022] w-full relative justify-center">
@@ -19,24 +19,47 @@ const { header, paragraph1, image, imageAlt, imageAttr } = Astro.props
   </div>
   <div class="justify-center items-center p-4 md:flex relative">
     <div
-    class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col"
-  >
-    <h1 class="text-center text-4xl font-bold">{header}</h1>
-    <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph1}</p>
-  </div>
-  <div class="flex flex-col items-center">
-    <div class="w-3/5">
-      <Image
-        loading={'eager'}
-        format={'webp'}
-        class={`p-4 'rounded-none'mx-auto object-cover`}
-        alt={imageAlt}
-        title={imageAttr}
-        width={image}
-        height={image}
-        src={image}
-      />
+      class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col"
+    >
+      <h1 class="text-center text-4xl font-bold">{header}</h1>
+      <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph1}</p>
+      {
+        repository && (
+          <>
+            <Github
+              langs={langs}
+              url={repository
+                .replace('https://github.com/wesngu28/', '')
+                .replace('https://github.com/info201b-au2022/', '')}
+              client:idle
+            />
+            <ul class={'flex mt-4'}>
+              {techs &&
+                techs.map(arr => {
+                  let color = ''
+                  if (Object.keys(langs).includes(arr)) {
+                    color = langs[arr].color
+                  }
+                  return color ? (
+                    <li
+                      style={`background-color: ${color};`}
+                      class={`m-1 p-1 text-black rounded-lg`}
+                    >
+                      <p class="text-xs">{arr}</p>
+                    </li>
+                  ) : (
+                    <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
+                      <p class="text-xs">{arr}</p>
+                    </li>
+                  )
+                })}
+            </ul>
+          </>
+        )
+      }
     </div>
   </div>
+  <div class="md:absolute block md:hidden md:left-0">
+    <Sidebar />
   </div>
 </div>

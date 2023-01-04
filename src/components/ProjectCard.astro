@@ -1,6 +1,14 @@
 ---
 import { Image } from '@astrojs/image/components'
 import Github from './Github'
+import github from '../assets/github.png'
+import extern from '../assets/external-link.png'
+import { langs } from "../utils/LanguageList"
+
+const posts = (await Astro.glob('../pages/projects/*.{md,mdx}')).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+)
 
 export interface Props {
   techs: string[]
@@ -11,92 +19,53 @@ export interface Props {
   live?: string
 }
 
-const langs: { [key: string]: { color: string } } = {
-  Astro: {
-    color: '#ff5a03',
-  },
-  CSS: {
-    color: '#563d7c',
-  },
-  Dockerfile: {
-    color: '#384d54',
-  },
-  HTML: {
-    color: '#e34c26',
-  },
-  Java: {
-    color: '#b07219',
-  },
-  JavaScript: {
-    color: '#f1e05a',
-  },
-  'Jupyter Notebook': {
-    color: '#DA5B0B',
-  },
-  "Markdown": {
-    "color": "#083fa1",
-  },
-  Python: {
-    color: '#3572A5',
-  },
-  R: {
-    color: '#198CE7',
-  },
-  SCSS: {
-    color: '#c6538c',
-  },
-  Shell: {
-    color: '#89e051',
-  },
-  Svelte: {
-    color: '#ff3e00',
-  },
-  TeX: {
-    color: '#3D6117',
-  },
-  TypeScript: {
-    color: '#3178c6',
-  },
-  Vue: {
-    color: '#41b883',
-  },
-}
 const { techs, image, name, desc, url, live } = Astro.props
 ---
 
-<li class="p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-auto 2xl:w-3/4">
-  {
-    live ? (
-      <a target="_blank" href={live} rel="noopener noreferrer">
-        <Image
-          class="hover:scale-105 hover:cursor-pointer z-10 ease-out duration-500"
-          loading={'lazy'}
-          format={'webp'}
-          alt={`${name} screenshot or related content if no screenshot makes sense`}
-          src={image}
-        />
-      </a>
-    ) : (
-      <Image
-        loading={'lazy'}
-        format={'webp'}
-        alt={`${name} screenshot or related content if no screenshot makes sense`}
-        src={image}
-      />
-    )
-  }
+<li
+  class="p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-auto 2xl:w-3/4"
+>
+  <Image
+    loading={'lazy'}
+    format={'webp'}
+    class="hover:scale-105 z-10 ease-out duration-500"
+    alt={`${name} screenshot or related content if no screenshot makes sense`}
+    src={image}
+  />
   <Github
     langs={langs}
-    url={url.replace('https://github.com/wesngu28/', '').replace('https://github.com/info201b-au2022/', '')}
+    url={url
+      .replace('https://github.com/wesngu28/', '')
+      .replace('https://github.com/info201b-au2022/', '')}
     client:idle
   />
   <div class={`pr-2 pl-2 mb-5`}>
     <div class="mt-4">
-      <a target="_blank" href={url} rel="noopener noreferrer">
-        <h2 class="hover:underline m-2 text-left font-bold text-2xl">
-          {name}
-        </h2>
-      </a>
+      <div class="flex justify-between items-center mb-4 w-full">
+        <a target="_blank" href={url} rel="noopener noreferrer">
+          <h2 class="hover:underline m-2 text-left font-bold text-2xl">
+            {name}
+          </h2>
+        </a>
+        <div class="flex items-center">
+          <a
+          target="_blank"
+          href={url}
+          rel="noopener noreferrer"
+          class="text-black md:text-xl hover:underline m-1"
+        >
+          <Image width={30} height={30} alt="external link" src={github} />
+        </a>
+          {live && <a
+            target="_blank"
+            href={live}
+            rel="noopener noreferrer"
+            class="text-black md:text-xl hover:underline m-1"
+          >
+            <Image alt="external link" src={extern} />
+          </a> }
+        </div>
+      </div>
       <p class="m-2 h-24 lg:text-sm ultrawide:text-base">{desc}</p>
     </div>
   </div>
@@ -108,7 +77,10 @@ const { techs, image, name, desc, url, live } = Astro.props
           color = langs[arr].color
         }
         return color ? (
-        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg`}>
+          <li
+            style={`background-color: ${color};`}
+            class={`m-1 p-1 text-black rounded-lg`}
+          >
             <p class="text-xs">{arr}</p>
           </li>
         ) : (
