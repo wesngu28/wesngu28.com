@@ -1,5 +1,5 @@
 ---
-import Slideshow from '../components/Slideshow'
+import Slideshow from '../components/Slideshow.astro'
 import { Image } from '@astrojs/image/components'
 import dogsscuffed from '../assets/dogs.jpg'
 
@@ -29,16 +29,16 @@ const xena = [
       <Image class={"w-full h-full"} alt="my dogs, cami and xena" src={dogsscuffed} />
     </div>
     <div class="mp-4 text-left text-xl leading-8 mb-4">
-      <div class="flex text-center">
+      <div class="lg:flex text-center">
         <div class="mt-4 p-4">
           <p class="font-bold">Cami</p>
           <p>Chihuahua-Dachshund</p>
-          <Slideshow client:visible dynamicAlt={'Cami'} />
+          <Slideshow images={cami} dynamicAlt={'Cami'} />
         </div>
         <div class="mt-4 p-4">
           <p class="font-bold">Xena</p>
           <p>Mixed Labrador</p>
-          <Slideshow client:visible dynamicAlt={'Xena'} />
+          <Slideshow images={xena} dynamicAlt={'Xena'} />
         </div>
       </div>
     </div>

@@ -1,0 +1,53 @@
+---
+import { Image } from '@astrojs/image/components'
+export interface Props {
+  images: string[]
+  dynamicAlt: string
+}
+
+const { images, dynamicAlt } = Astro.props
+---
+
+<div class="bg-[#1F2022] justify-center p-4 m-4 flex items-center slideshow">
+  <p class="clicks arrow flex items-center justify-center">&#8592;</p>
+  {
+    images.map(image => {
+      return (
+        <Image
+          class={`${dynamicAlt} hidden`}
+          src={image}
+          height={'617px'}
+          width={'300px'}
+          alt={dynamicAlt}
+        />
+      )
+    })
+  }
+  <p class="clicks arrow flex items-center justify-center">&#8594;</p>
+</div>
+
+<script>
+  const slideshows = document.querySelectorAll('.slideshow')
+  for (let i = 0; i < slideshows.length; i++) {
+    const figures = Array.from(slideshows[i].querySelectorAll('.slideshow img'))
+    const camiArr = figures as HTMLImageElement[]
+    camiArr?.forEach(pic => {
+      pic.loading = 'eager'
+    })
+    camiArr[0].style.display = 'block'
+    let activeSlide = 0
+    const buttons = slideshows[i].querySelectorAll('.clicks')
+    buttons[0].addEventListener('click', () => {
+      displaySlide(--activeSlide)
+    })
+    buttons[1].addEventListener('click', () => {
+      displaySlide(++activeSlide)
+    })
+    function displaySlide(index: number) {
+      activeSlide = (index + camiArr.length) % camiArr.length
+      camiArr.forEach(figure => (figure.style.display = 'none'))
+      camiArr[activeSlide].style.display = 'block'
+      camiArr[activeSlide].classList.add('animate-slideshow')
+    }
+  }
+</script>
