@@ -6,6 +6,7 @@ interface Props {
 }
 
 const fetchLanguages = async (url: string) => {
+
   const linguist = await fetch(
     `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url}`
   )

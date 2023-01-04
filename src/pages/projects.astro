@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro'
 import ProjectDeck from '../components/ProjectDeck.astro'
 import ProjectCard from '../components/ProjectCard.astro'
-import personalWebsite from '../assets/projects/personal-web.png'
+import gamehunter from '../assets/projects/gamehunter.png'
 import translator from '../assets/projects/translator.png'
 import wc from '../assets/projects/wcpng.png'
 import recipe from '../assets/projects/food.png'
@@ -13,6 +13,14 @@ import concert from '../assets/projects/conert.png'
 
 <Base title="Projects">
   <div class="grid xs:grid-cols-2 grid-cols-1 place-items-center">
+    <ProjectCard
+      techs={['TypeScript', 'React', 'Next.js', 'Cypress', 'CSS']}
+      live={'https://gameinfohunter.netlify.app'}
+      url={'https://github.com/wesngu28/game-hunter'}
+      image={gamehunter}
+      name={'Game Hunter'}
+      desc={'Combines aspects from Steam, Twitch, and IsThereAnyDeal APIs to show info for a queried game.'}
+    />
     <ProjectCard
       techs={['TypeScript', 'Tailwind', 'React', 'Next.js', 'Python', 'R']}
       live={'https://qatarwcplayers.vercel.app/'}

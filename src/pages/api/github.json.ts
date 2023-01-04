@@ -9,7 +9,7 @@ export const get: APIRoute = async ({ request }) => {
   if(repoName?.includes('stress')) {
     author = 'info201b-au2022'
   }
-  console.log(`https://api.github.com/repos/${author}/${repoName}/languages`,)
+
   const response = await fetch(
     `https://api.github.com/repos/${author}/${repoName}/languages`,
     {

@@ -8,8 +8,8 @@ export interface Props {
   content: {
     title: string
     description: string
-    pubDate?: string
-    updatedDate?: string
+    repository: string
+    techs: string[]
     heroImage: string
     heroImageAlt: string
     heroImageAttr: string
@@ -21,14 +21,16 @@ const {
   content: {
     title,
     description,
-    pubDate,
-    updatedDate,
+    techs,
+    repository,
     heroImage,
     heroImageAlt,
     heroImageAttr,
   },
 } = Astro.props
 
+const dynamicImage = await import(`../assets/projects/${heroImage}.png`)
+console.log(dynamicImage)
 ---
 
 <MapLayout title={title}>
@@ -36,6 +38,8 @@ const {
     <BlogPostAbout
     header={title}
     paragraph1={description}
+    repository={repository}
+    techs={techs}
   />
   <div class="w-[100vw] mb-12 relative flex items-center justify-center">
     <article class="w-full md:w-[75vw] lg:w-[55vw]">
@@ -44,27 +48,12 @@ const {
         format={'webp'}
         loading={'eager'}
         title={heroImageAttr}
-        width={720}
-        height={360}
-        src={heroImage}
+        class="w-full md:w-[75vw] lg:w-[55vw]"
+        src={dynamicImage.default}
         class="p-4 m-auto"
       />
-      {
-        pubDate && (
-          <p class="text-lg text-center m-2">
-            <time>{pubDate}</time>
-          </p>
-        )
-      }
-      {
-        updatedDate && (
-          <div class="text-">
-            Last updated on <time>{updatedDate}</time>
-          </div>
-        )
-      }
       <hr />
-      <div class="prose prose-2xl prose-invert max-w-none p-6">
+      <div class="prose prose-xl prose-invert max-w-none p-6">
         <slot />
       </div>
     </article>
