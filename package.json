@@ -20,12 +20,9 @@
     "@astrojs/vercel": "^2.4.0",
     "@fontsource/karla": "^4.5.10",
     "@fontsource/lora": "^4.5.12",
-    "@nanostores/solid": "^0.3.2",
     "astro": "^1.8.0",
     "astro-compress": "^1.1.24",
     "mapbox-gl": "^2.11.1",
-    "nanostores": "^0.7.1",
-    "query-string": "^8.1.0",
     "sharp": "^0.31.3",
     "solid-js": "^1.6.6",
     "tailwindcss": "^3.2.4"
