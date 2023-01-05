@@ -1,0 +1,29 @@
+---
+import { langs } from '../utils/LanguageList'
+
+export interface Props {
+  techs: string[]
+}
+
+const { techs } = Astro.props
+---
+
+<ul class={'grid mt-1 grid-cols-3'}>
+  {
+    techs.map(arr => {
+      let color = ''
+      if (Object.keys(langs).includes(arr)) {
+        color = langs[arr].color
+      }
+      return color ? (
+        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg`}>
+          <p class="text-xs">{arr}</p>
+        </li>
+      ) : (
+        <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
+          <p class="text-xs">{arr}</p>
+        </li>
+      )
+    })
+  }
+</ul>

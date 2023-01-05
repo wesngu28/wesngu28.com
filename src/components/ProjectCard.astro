@@ -3,12 +3,8 @@ import { Image } from '@astrojs/image/components'
 import Github from './Github'
 import github from '../assets/github.png'
 import extern from '../assets/external-link.png'
-import { langs } from "../utils/LanguageList"
-
-const posts = (await Astro.glob('../pages/projects/*.{md,mdx}')).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-)
+import Techbar from './Techbar.astro'
+import { langs } from '../utils/LanguageList'
 
 export interface Props {
   techs: string[]
@@ -17,28 +13,25 @@ export interface Props {
   desc: string
   url: string
   live?: string
+  md?: string
 }
 
-const { techs, image, name, desc, url, live } = Astro.props
+const { techs, image, name, desc, url, live, md } = Astro.props
 ---
 
 <li
   class="p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-auto 2xl:w-3/4"
 >
-  <Image
-    loading={'lazy'}
-    format={'webp'}
-    class="hover:scale-105 z-10 ease-out duration-500"
-    alt={`${name} screenshot or related content if no screenshot makes sense`}
-    src={image}
-  />
-  <Github
-    langs={langs}
-    url={url
-      .replace('https://github.com/wesngu28/', '')
-      .replace('https://github.com/info201b-au2022/', '')}
-    client:idle
-  />
+  <a href={`/projects/${md}`}>
+    <Image
+      loading={'lazy'}
+      format={'webp'}
+      class="hover:scale-105 z-10 ease-out duration-500"
+      alt={`${name} screenshot or related content if no screenshot makes sense`}
+      src={image}
+    />
+  </a>
+  <Github langs={langs} url={url} client:idle />
   <div class={`pr-2 pl-2 mb-5`}>
     <div class="mt-4">
       <div class="flex justify-between items-center mb-4 w-full">
@@ -49,46 +42,29 @@ const { techs, image, name, desc, url, live } = Astro.props
         </a>
         <div class="flex items-center">
           <a
-          target="_blank"
-          href={url}
-          rel="noopener noreferrer"
-          class="text-black md:text-xl hover:underline m-1"
-        >
-          <Image width={30} height={30} alt="external link" src={github} />
-        </a>
-          {live && <a
             target="_blank"
-            href={live}
+            href={url}
             rel="noopener noreferrer"
             class="text-black md:text-xl hover:underline m-1"
           >
-            <Image alt="external link" src={extern} />
-          </a> }
+            <Image width={30} height={30} alt="external link" src={github} />
+          </a>
+          {
+            live && (
+              <a
+                target="_blank"
+                href={live}
+                rel="noopener noreferrer"
+                class="text-black md:text-xl hover:underline m-1"
+              >
+                <Image alt="external link" src={extern} />
+              </a>
+            )
+          }
         </div>
       </div>
       <p class="m-2 h-24 lg:text-sm ultrawide:text-base">{desc}</p>
     </div>
   </div>
-  <ul class={'grid mt-1 grid-cols-3'}>
-    {
-      techs.map(arr => {
-        let color = ''
-        if (Object.keys(langs).includes(arr)) {
-          color = langs[arr].color
-        }
-        return color ? (
-          <li
-            style={`background-color: ${color};`}
-            class={`m-1 p-1 text-black rounded-lg`}
-          >
-            <p class="text-xs">{arr}</p>
-          </li>
-        ) : (
-          <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
-            <p class="text-xs">{arr}</p>
-          </li>
-        )
-      })
-    }
-  </ul>
+  <Techbar techs={techs} />
 </li>

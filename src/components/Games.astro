@@ -141,12 +141,12 @@ import arknights from "../assets/games/Arknights.jpg"
   async function mouseOver(event: Event) {
     const image = event.target as HTMLImageElement
     const description = gameList.filter(game => image.alt.includes(game.name))
-    if (description[0].description) {
-      const desc = document.querySelector('.desc p')!
+    if (description[0]) {
       const descimg: HTMLImageElement = document.querySelector('.desc img')!
-      const img = await import(`../assets/games/${description[0].name}.jpg`)
-      descimg.src = img.default.src
-      desc.textContent = description[0].description
+      if(description[0].name !== 'Hearts of Iron IV' || 'Civilization V') {
+        const img = await import(`../assets/games/${description[0].name}.jpg`)
+        if(img) descimg.src = img.default.src
+      }
     }
   }
   images.forEach(image => {

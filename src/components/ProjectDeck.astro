@@ -1,85 +1,38 @@
 ---
 import ProjectCard from './ProjectCard.astro'
-import personalWebsite from '../assets/projects/personal-web.png'
-import rhodes from '../assets/projects/rhodes.png'
-import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
-import closure from '../assets/projects/closure.png'
-import searchify from '../assets/projects/searchify.png'
-import holoboard from '../assets/projects/holoboard.png'
-import observatory from '../assets/projects/observatory.png'
-import glaceon from '../assets/projects/pokemon.png'
-import lux from '../assets/projects/champview.png'
+
+interface frontmatter {
+  layout: string
+  title: string
+  description: string
+  repository: string
+  techs: string[]
+  heroImage: string | any
+  heroImageAlt: string
+  content: [boolean, number]
+}
+
+const posts: frontmatter[] = (await Astro.glob('../pages/projects/*.{md,mdx}'))
+  .sort(
+    (a, b) =>
+      new Date(a.frontmatter.content[1]).valueOf() -
+      new Date(b.frontmatter.content[1]).valueOf()
+  )
+  .map(post => post.frontmatter)
 ---
 
-<ProjectCard
-  techs={['TypeScript', 'Tailwind', 'Astro', 'React', 'SolidJS', 'Mapbox']}
-  live={'https://wesngu28.com'}
-  url={'https://github.com/wesngu28/wesngu28.com'}
-  image={personalWebsite}
-  name={'Personal Website'}
-  desc={'I built this portfolio/website using Astro, SolidJS, and Tailwind. This project helped me improve my web development skills.'}
-/>
-<ProjectCard
-  techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
-  live={'https://wesngu28.github.io/mapping-terrorism/'}
-  url={'https://github.com/wesngu28/mapping-terrorism'}
-  image={mappingTerrorism}
-  name={'Mapping Terrorism'}
-  desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Node.js', 'Tailwind', 'React', 'Next.js']}
-  live={'https://observatories.vercel.app/'}
-  url={'https://github.com/wesngu28/observatory'}
-  image={observatory}
-  name={'Observatory'}
-  desc={"Web app that helps you manage GitHub stars for JS and Python projects, showing you a list of repositories that you haven't starred."}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Svelte', 'Prisma', 'PostgreSQL', 'CockroachDB']}
-  live={'https://rustboro.vercel.app/'}
-  url={'https://github.com/wesngu28/rustboro'}
-  image={glaceon}
-  name={'Rustboro'}
-  desc={'This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Python', 'React', 'Next.js', 'Flask']}
-  live={'https://searchifyy.vercel.app/'}
-  url={'https://github.com/wesngu28/searchify'}
-  image={searchify}
-  name={'Searchify'}
-  desc={'This website allows you to search Spotify artists, tracks, playlists, or albums, and get recommendations. You can also log in to learn about your listening habits.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Vue', 'Nuxt.js', 'CSS']}
-  live={'https://simplechampview.vercel.app/'}
-  url={'https://github.com/wesngu28/simple-champion-viewer'}
-  image={lux}
-  name={'Champ Viewer'}
-  desc={'A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Svelte']}
-  live={'https://rhodesapi.vercel.app/'}
-  url={'https://github.com/wesngu28/rhodesapi'}
-  image={rhodes}
-  name={'RhodesAPI'}
-  desc={'A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']}
-  live={'https://closurets.vercel.app/'}
-  url={'https://github.com/wesngu28/closurets'}
-  image={closure}
-  name={'Closure'}
-  desc={'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'}
-/>
-<ProjectCard
-  techs={['TypeScript', 'React', 'Next.js', 'CSS']}
-  live={'https://holoboard.vercel.app/'}
-  url={'https://github.com/wesngu28/holoboard'}
-  image={holoboard}
-  name={'Holoboard'}
-  desc={'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'}
-/>
+{
+  posts.map(async post => {
+    const dynamicImage = await import(`../assets/projects/${post.heroImage}.png`)
+    return (
+      <ProjectCard
+        techs={post.techs}
+        live={'https://wesngu28.com'}
+        url={post.repository}
+        image={dynamicImage.default}
+        name={post.title}
+        desc={post.description}
+      />
+    )
+  })
+}

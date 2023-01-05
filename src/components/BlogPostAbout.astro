@@ -3,6 +3,7 @@ import { langs } from '../utils/LanguageList'
 import Github from './Github'
 import Navbar from './Navbar.astro'
 import Sidebar from './Sidebar.astro'
+import Techbar from './Techbar.astro'
 export interface Props {
   header: string
   paragraph1: string
@@ -26,34 +27,8 @@ const { header, paragraph1, repository, techs } = Astro.props
       {
         repository && (
           <>
-            <Github
-              langs={langs}
-              url={repository
-                .replace('https://github.com/wesngu28/', '')
-                .replace('https://github.com/info201b-au2022/', '')}
-              client:idle
-            />
-            <ul class={'flex mt-4'}>
-              {techs &&
-                techs.map(arr => {
-                  let color = ''
-                  if (Object.keys(langs).includes(arr)) {
-                    color = langs[arr].color
-                  }
-                  return color ? (
-                    <li
-                      style={`background-color: ${color};`}
-                      class={`m-1 p-1 text-black rounded-lg`}
-                    >
-                      <p class="text-xs">{arr}</p>
-                    </li>
-                  ) : (
-                    <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
-                      <p class="text-xs">{arr}</p>
-                    </li>
-                  )
-                })}
-            </ul>
+            <Github langs={langs} url={repository} client:idle />
+            {techs && <Techbar techs={techs} />}
           </>
         )
       }

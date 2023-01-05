@@ -2,13 +2,14 @@ import { createResource, For, Show } from 'solid-js'
 
 interface Props {
   url: string
-  langs: {[key: string]: { color: string }}
+  langs: { [key: string]: { color: string } }
 }
 
 const fetchLanguages = async (url: string) => {
-
   const linguist = await fetch(
-    `${import.meta.env.PUBLIC_URL}/api/github.json?repo=${url}`
+    `${import.meta.env.PUBLIC_URL}/api/github.json?author=${
+      url.match('https://github.com/([^/]*)/')![1]
+    }&repo=${url.match(/\/([^/]*)$/)![1]}`
   )
   const langs: { [key: string]: number } = await JSON.parse(await linguist.text())
   const total = Object.values(langs).reduce(
