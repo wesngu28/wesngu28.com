@@ -3,10 +3,12 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'Personal Website'
 description: 'I built this portfolio/website using Astro, SolidJS, and Tailwind. This project helped me improve my web development skills.'
 repository: 'https://github.com/wesngu28/wesngu28.com'
+live: 'https://wesngu28.com/'
 techs: ['TypeScript', 'Tailwind', 'Astro', 'SolidJS', 'Mapbox']
 heroImage: 'personal-web'
 heroImageAlt: 'Seattle'
 content: [true, 1]
+md: 'portfolio'
 ---
 
 Over the summer, while at my internship, I wanted to work on a portfolio website to showcase my skills. I poured much time into researching options and getting inspiration, before finally deciding to start working on it, choosing Next.js and Tailwand as my main stack. Since then, it evolved and changed with me as I've improved as a developer, and is currently going to the moon with Astro.

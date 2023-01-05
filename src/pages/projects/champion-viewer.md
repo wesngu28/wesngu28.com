@@ -3,11 +3,12 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'Champ Viewer'
 description: 'A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.'
 repository: 'https://github.com/wesngu28/simple-champion-viewer'
-live: ''
+live: 'https://simplechampview.vercel.app/'
 techs: ['TypeScript', 'Vue', 'Nuxt.js', 'CSS']
 heroImage: 'champview'
 heroImageAlt: 'Champ Viewer'
 content: [true, 5]
+md: 'champion-viewer'
 ---
 
 Champion Viewer is a web app that allows you to input champions and then go through their skins, abilities, and see various information from them. The information is generated through Riot Games's Data Dragon API for general League of Legends content.

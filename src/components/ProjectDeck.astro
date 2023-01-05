@@ -10,6 +10,8 @@ interface frontmatter {
   heroImage: string | any
   heroImageAlt: string
   content: [boolean, number]
+  live: string
+  md: string
 }
 
 const posts: frontmatter[] = (await Astro.glob('../pages/projects/*.{md,mdx}'))
@@ -27,11 +29,12 @@ const posts: frontmatter[] = (await Astro.glob('../pages/projects/*.{md,mdx}'))
     return (
       <ProjectCard
         techs={post.techs}
-        live={'https://wesngu28.com'}
         url={post.repository}
         image={dynamicImage.default}
         name={post.title}
         desc={post.description}
+        live={post.live}
+        md={post.md}
       />
     )
   })

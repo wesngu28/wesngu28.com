@@ -3,10 +3,12 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'Mapping Terrorism'
 description: 'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'
 repository: 'https://github.com/wesngu28/mapping-terrorism'
+live: 'https://wesngu28.github.io/mapping-terrorism/'
 techs: ['JavaScript', 'Mapbox', 'SCSS', 'Figma']
 heroImage: 'mapping-terrorism'
 heroImageAlt: 'Mapping Terrorism'
 content: [true, 3]
+md: 'mapping-terrorism'
 ---
 
 This project was made as a part of Geography 458, Advanced Digital Geographies, at the University of Washington.

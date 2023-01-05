@@ -4,9 +4,11 @@ title: 'RhodesAPI'
 description: 'A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.'
 repository: 'https://github.com/wesngu28/rhodesapi'
 techs: ['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Svelte']
+live: 'https://rhodesapi.vercel.app/'
 heroImage: 'rhodes'
 heroImageAlt: 'UW quad'
 content: [true, 2]
+md: 'rhodesapi'
 ---
 
 I created a RESTful API for Arknights that provides information about operators, including their combat details and skins. Not only does the API include information about operator stats and skins, but it also includes a recruitment system similar to the one in the game, allowing users to search for specific operator combinations based on their in-game roles. I also created a documentation website using Svelte to showcase the API.

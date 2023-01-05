@@ -3,10 +3,12 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'Searchify'
 description: 'This website allows you to search Spotify artists, tracks, playlists, or albums, and get recommendations. You can also log in to learn about your listening habits.'
 repository: 'https://github.com/wesngu28/searchify'
+live: 'https://searchifyy.vercel.app/'
 techs: ['TypeScript', 'Python', 'React', 'Next.js', 'Flask']
 heroImage: 'searchify'
 heroImageAlt: 'Searchify'
 content: [true, 4]
+md: 'searchify'
 ---
 
 This is a webapp that implements the Spotify oauth flow to allow you to login through your Spotify account. You can then input Spotify tracks, albums, artists, and playlists to view brief statistics, get Youtube links, and recommendations, as well as get your top played artists and songs when logged in.

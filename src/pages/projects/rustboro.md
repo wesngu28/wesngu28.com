@@ -3,10 +3,12 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'Rustboro'
 description: 'This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.'
 repository: 'https://github.com/wesngu28/rustboro'
+live: 'https://rustboro.vercel.app/'
 techs: ['TypeScript', 'Svelte', 'Prisma', 'PostgreSQL', 'CockroachDB']
 heroImage: 'pokemon'
 heroImageAlt: 'Rustboro'
 content: [true, 4]
+md: 'rustboro'
 ---
 
 This is a project that features a queryable Pokedex that allows you to view information about various Pokemon and their forms. Additionally, it implements a game in which two Pokemon and a stat are presented to you, and it is your job to pick the one that has the higher stat. It is actually a quite challenging game and may get you angry at Game Freak.

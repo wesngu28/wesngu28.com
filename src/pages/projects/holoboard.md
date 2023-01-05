@@ -4,9 +4,11 @@ title: 'Holoboard'
 description: 'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'
 repository: 'https://github.com/wesngu28/holoboard'
 techs: ['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']
+live: 'https://holoboard.vercel.app/'
 heroImage: 'holoboard'
 heroImageAlt: 'Holoboard'
 content: [true, 8]
+md: 'holoboard'
 ---
 
 Third-party viewer and live tracker for the Hololive and Holostars English members. When one of them are live, their icon will light up and you can click on it to get the current stream in the iframe.

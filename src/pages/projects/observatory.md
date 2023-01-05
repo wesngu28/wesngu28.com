@@ -4,9 +4,11 @@ title: 'Observatory'
 description: 'Web app that helps you manage GitHub stars for JS and Python projects, showing you a list of repositories that you have yet to star.'
 repository: 'https://github.com/wesngu28/observatory'
 techs: ['TypeScript', 'Node.js', 'Tailwind', 'React', 'Next.js']
+live: 'https://observatories.vercel.app/'
 heroImage: 'observatory'
 heroImageAlt: 'Observatory from unsplash'
 content: [true, 6]
+md: 'observatory'
 ---
 
 This is a web app that allows you to login through Github and feed it a requirements.txt (Python) or package.json (Javascript) file. The app will then parse the file and query the Github API on your behalf, and return you a list of repositories you have yet to star, where you are then able to star each repository.
