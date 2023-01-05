@@ -1,16 +1,23 @@
 ---
 import { Image } from '@astrojs/image/components'
-import curr from "../assets/parts.jpg"
-import suse from "../assets/suse.png"
-import debian from "../assets/debian.png"
-import wind from "../assets/skills/windows.png"
+import curr from '../assets/parts.jpg'
+import suse from '../assets/suse.png'
+import debian from '../assets/debian.png'
+import wind from '../assets/skills/windows.png'
 ---
 
 <div class="my-40 w-full flex flex-col items-center text-center">
   <h1 class="text-3xl">my systems</h1>
   <p>We do not talk about the power draw. I love my 3423dw.</p>
   <div class="my-5 flex justify-center">
-    <Image class="m-auto" width={320} height={200} aspectRatio="320:200" alt="OpenSuse" src={suse} />
+    <Image
+      class="m-auto"
+      width={320}
+      height={200}
+      aspectRatio="320:200"
+      alt="OpenSuse"
+      src={suse}
+    />
     <div class="bg-slate-700 opacity-75 m-2 p-2">
       <p class="text-green-300 inline-block">openSuse Tumbleweed</p>
       <h2 class="mb-4 text-xl mr-auto">HP Pavillion 15z-cw100</h2>

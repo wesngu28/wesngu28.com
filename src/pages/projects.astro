@@ -14,6 +14,23 @@ import concert from '../assets/projects/conert.png'
 <Base title="Projects">
   <div class="grid xs:grid-cols-2 grid-cols-1 place-items-center">
     <ProjectCard
+      techs={[
+        'TypeScript',
+        'React',
+        'Tailwind',
+        'Next.js',
+        'Python',
+        'R',
+        'Kotlin',
+        'Spring',
+      ]}
+      live={'https://gameinfohunter.netlify.app'}
+      url={'https://github.com/kyleung1/WebdevEvaluator'}
+      image={concert}
+      name={'Web Tech Evaluator'}
+      desc={'Collaborated on fullstack project, making the Kotlin backend.'}
+    />
+    <ProjectCard
       techs={['TypeScript', 'React', 'Next.js', 'Cypress', 'CSS']}
       live={'https://gameinfohunter.netlify.app'}
       url={'https://github.com/wesngu28/game-hunter'}
@@ -43,7 +60,7 @@ import concert from '../assets/projects/conert.png'
       url={'https://github.com/info201b-au2022/social-media-stress'}
       image={info}
       name={'Social Media Stress'}
-      desc={"A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles."}
+      desc={'A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles.'}
     />
     <ProjectCard
       techs={['Svelte', 'Tailwind', 'SvelteKit', 'Typescript']}

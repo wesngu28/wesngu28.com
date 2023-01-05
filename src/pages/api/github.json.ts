@@ -5,10 +5,7 @@ export const get: APIRoute = async ({ request }) => {
   const url = new URL(request.url)
   const params = new URLSearchParams(url.search)
   const repoName = params.get('repo')
-  let author = 'wesngu28'
-  if(repoName?.includes('stress')) {
-    author = 'info201b-au2022'
-  }
+  const author = params.get('author')
 
   const response = await fetch(
     `https://api.github.com/repos/${author}/${repoName}/languages`,

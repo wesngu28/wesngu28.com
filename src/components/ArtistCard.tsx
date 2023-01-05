@@ -11,7 +11,6 @@ async function fetchData() {
 
 export default function ArtistCard() {
   const [data] = createResource(fetchData)
-
   return (
     <>
       <Show

@@ -20,6 +20,9 @@ export const langs: { [key: string]: { color: string } } = {
   'Jupyter Notebook': {
     color: '#DA5B0B',
   },
+  Kotlin: {
+    color: '#A97BFF',
+  },
   Markdown: {
     color: '#083fa1',
   },
@@ -37,9 +40,6 @@ export const langs: { [key: string]: { color: string } } = {
   },
   Svelte: {
     color: '#ff3e00',
-  },
-  TeX: {
-    color: '#3D6117',
   },
   TypeScript: {
     color: '#3178c6',

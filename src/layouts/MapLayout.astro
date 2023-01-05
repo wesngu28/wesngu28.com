@@ -1,17 +1,19 @@
 ---
-import Head from '../components/Head.astro';
+import Head from '../components/Head.astro'
 import '../styles/base.css'
 export interface Props {
   title: string
 }
-import '@fontsource/karla';
+import '@fontsource/karla'
 const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <Head title={title} />
-  <body class="font-karla bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen" >
+  <body
+    class="font-karla bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen"
+  >
     <slot />
   </body>
 </html>

@@ -12,54 +12,43 @@ export interface Props {
     techs: string[]
     heroImage: string
     heroImageAlt: string
-    heroImageAttr: string
   }
 }
-import '@fontsource/lora';
+import '@fontsource/lora'
 
 const {
-  content: {
-    title,
-    description,
-    techs,
-    repository,
-    heroImage,
-    heroImageAlt,
-    heroImageAttr,
-  },
+  content: { title, description, techs, repository, heroImage, heroImageAlt },
 } = Astro.props
 
 const dynamicImage = await import(`../assets/projects/${heroImage}.png`)
-console.log(dynamicImage)
 ---
 
 <MapLayout title={title}>
   <div class="flex flex-col justify-center items-center h-full w-full">
     <BlogPostAbout
-    header={title}
-    paragraph1={description}
-    repository={repository}
-    techs={techs}
-  />
-  <div class="w-[100vw] mb-12 relative flex items-center justify-center">
-    <article class="w-full md:w-[75vw] lg:w-[55vw]">
-      <Image
-        alt={heroImageAlt}
-        format={'webp'}
-        loading={'eager'}
-        title={heroImageAttr}
-        class="w-full md:w-[75vw] lg:w-[55vw]"
-        src={dynamicImage.default}
-        class="p-4 m-auto"
-      />
-      <hr />
-      <div class="prose prose-xl prose-invert max-w-none p-6">
-        <slot />
-      </div>
-    </article>
-  </div>
-  <div class="relative">
-    <Footer />
-  </div>
+      header={title}
+      paragraph1={description}
+      repository={repository}
+      techs={techs}
+    />
+    <div class="w-[100vw] mb-12 relative flex items-center justify-center">
+      <article class="w-full md:w-[75vw] lg:w-[55vw]">
+        <Image
+          alt={heroImageAlt}
+          format={'webp'}
+          loading={'eager'}
+          class="w-full md:w-[75vw] lg:w-[55vw]"
+          src={dynamicImage.default}
+          class="p-4 m-auto"
+        />
+        <hr />
+        <div class="prose prose-xl prose-invert max-w-none p-6">
+          <slot />
+        </div>
+      </article>
+    </div>
+    <div class="relative">
+      <Footer />
+    </div>
   </div>
 </MapLayout>
