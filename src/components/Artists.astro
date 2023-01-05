@@ -1,0 +1,77 @@
+---
+import { Image } from '@astrojs/image/components'
+import placeholder from '../assets/placeholder.jpg'
+import ArtistCard from './ArtistCard'
+---
+
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<div
+  class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg"
+>
+  <Image alt="placeholder" src={placeholder} width={160!} height={160} />
+</div>
+<ArtistCard client:load />
+
+<style>
+  .hiddens {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+</style>
+
+<script>
+  const placeholders = document.querySelectorAll('.placeholder')
+  const intervalId = setInterval(() => {
+    const artists = document.querySelectorAll('.artist')
+    if (artists.length > 0) {
+      placeholders.forEach(placeholder => {
+        placeholder.classList.add('hiddens')
+      })
+      setTimeout(() => {
+        placeholders.forEach(placeholder => {
+          placeholder.remove()
+        })
+        clearInterval(intervalId)
+        artists.forEach(artist => {
+          artist.classList.remove('hidden')
+          artist.classList.add('animate-slideshow')
+        })
+        return
+      }, 1000)
+    }
+  }, 100)
+</script>

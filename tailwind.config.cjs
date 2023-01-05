@@ -16,6 +16,7 @@ module.exports = {
       },
       animation: {
         slideshow: 'slideshow 1s ease-out',
+        slideshowslower: 'slideshow 2s ease-out',
       },
       keyframes: {
         slideshow: {
