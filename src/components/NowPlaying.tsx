@@ -16,38 +16,39 @@ export default function NowPlaying() {
 
   return (
     <div>
-          <div>
-    <p class="text-center">
+      <div>
+        <p class="text-center">
           {data()
             ? data()!.recent
-            ? 'Recently Played on Spotify'
-            : 'Currently Live on Spotify'
-            : 'Getting song...'
-          }
+              ? 'Recently Played on Spotify'
+              : 'Currently Live on Spotify'
+            : 'Getting song...'}
         </p>
-    </div>
-          <div class='flex w-max h-[96px]'>
+      </div>
+      <div class="flex w-max h-[96px]">
         <a
           class="m-auto"
           target="_blank"
           href={data() ? data()!.songUrl : ''}
           rel="noopener noreferrer"
         >
-        <img
-          alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
-          src={data() ? data()!.albumImageUrl : './spotify.svg'}
-          width={96}
-          height={96}
-        />
+          <img
+            alt={`album cover of ${data() ? data()!.album : 'loading album'}}`}
+            src={data() ? data()!.albumImageUrl : './spotify.svg'}
+            width={96}
+            height={96}
+          />
         </a>
         <div class="m-4">
           <div>
-            <p class="text-left font-bold">{data() ? data()!.title : 'Getting title...'}</p>
+            <p class="text-left font-bold">
+              {data() ? data()!.title : 'Getting title...'}
+            </p>
             <p>{data() ? data()!.artist : 'Getting artists...'}</p>
           </div>
           <audio class="sm:block hidden" controls></audio>
         </div>
-    </div>
+      </div>
     </div>
   )
 }

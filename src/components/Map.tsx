@@ -97,23 +97,14 @@ export default function ScrollyMap() {
                     src={mapChapter[flyHere].marker}
                   />
                 ) as HTMLElement
-              if (flyHere === 6) {
-                let markers = document.getElementsByClassName('mapboxgl-marker')
-                for (let i = 0; i < markers.length; i++) {
-                  ;(markers[i] as HTMLElement).style.visibility = 'hidden'
-                }
-              } else {
-                let markers = document.getElementsByClassName('mapboxgl-marker')
-                for (let i = 0; i < markers.length; i++) {
-                  ;(markers[i] as HTMLElement).style.visibility = 'hidden'
-                }
-                new Marker({ element: marker as HTMLElement })
-                  .setLngLat([
-                    mapChapter[flyHere].center[0],
-                    mapChapter[flyHere].center[1],
-                  ])
-                  .addTo(map)
+              let markers = document.getElementsByClassName('mapboxgl-marker')
+              for (let i = 0; i < markers.length; i++) {
+                ;(markers[i] as HTMLElement).style.visibility = 'hidden'
               }
+              new Marker({ element: marker as HTMLElement })
+                .setLngLat([mapChapter[flyHere].center[0], mapChapter[flyHere].center[1]])
+                .addTo(map)
+
               if (mapChapter[flyHere].style) {
                 map.setStyle(mapChapter[flyHere].style!)
               } else {

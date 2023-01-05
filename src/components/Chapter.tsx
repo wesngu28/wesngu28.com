@@ -9,18 +9,16 @@ const chapters = [
     source: './map/flag.svg',
     alt: 'South Vietnamese flag',
     heading: 'Vietnam Origins',
-    paragraph: [
+    paragraph:
       'Both my parents and their families came to the United States following the fall of the South Vietnamese government to flee communism. I am the first on my paternal side of the family to be born in the United States.',
-    ],
   },
   {
     top: ['md:top-[130vh]', 'top-[180vh]'],
     source: './map/bham.jpg',
     alt: 'bellingham from the water',
     heading: 'Bellingham',
-    paragraph: [
+    paragraph:
       'I was born in Bellingham, a relatively large and beautiful city in Northern Washington between Vancouver and Seattle. I moved down to the Renton area at age 5.',
-    ],
   },
   {
     top: ['md:top-[230vh]', 'top-[330vh]'],
@@ -28,11 +26,8 @@ const chapters = [
     alt: 'screengrab from my pokemon game made in rpg maker',
     heading: 'High School Roots',
     duration: 'Sept 2015 -  June 2019',
-    paragraph: [
-      'My first exposure to computer science came in AP Computer Science at Hazen High School. My first language was Java and while I did not perform the best in class, I pushed forward to receive a 4 on the AP test.',
-      'A project that I made during my time in the course was a game using the RPG Maker XP engine and Pokemon Essentials that made use of many custom scripts in Ruby, but I sadly lost the files when resetting my Surface laptop.',
-      'After taking this class, I knew that I wanted to work in software development.',
-    ],
+    paragraph:
+      'I took AP Computer Science in high school and learned Java. I made a game using RPG Maker XP and Pokemon Essentials with custom scripts in Ruby. This experience made me want to pursue a career in software development.',
   },
   {
     top: ['md:top-[330vh]', 'top-[480vh]'],
@@ -40,9 +35,8 @@ const chapters = [
     alt: 'r building on bellevue college campus',
     heading: 'Running Start',
     duration: 'Sept 2017 -  June 2019',
-    paragraph: [
+    paragraph:
       'Further exposure to computer science and programming occured while I was doing the Running Start program offered in Washington State, a program that enabled high schoolers to be dually enrolled in a participating community college. Here, I took Computer Science I and II (142/143 at UW).',
-    ],
   },
   {
     top: ['md:top-[430vh]', 'top-[630vh]'],
@@ -50,10 +44,8 @@ const chapters = [
     alt: 'uw campus',
     heading: 'University of Washington',
     duration: 'Sept 2019 -  2022/2023',
-    paragraph: [
-      'Entering university, I made the ill-advised decision to not put CS, CE, or informatics on my application to the University of Washington, instead opting for an open major.',
-      'Despite this, I found that I loved the university, the campus, and its atmosphere. Instead of transferring, I chose to join the growing Geography Data Science program, where I could learn new skills and also supplement it with my own self-learning.',
-    ],
+    paragraph:
+      'I originally applied to the University of Washington with an open major instead of trying for a closed one (stupid  decision), but later discovered the Geography Data Science program and decided to pursue it instead. I enjoy the university, campus, and atmosphere and have been supplementing my studies with self-learning.',
   },
   {
     top: ['md:top-[530vh]', 'top-[780vh]'],
@@ -61,14 +53,12 @@ const chapters = [
     alt: 'logo of international wood products',
     heading: 'First Internship',
     duration: 'July 2022 -  September 2022',
-    paragraph: [
-      'During the summer of 2022, I got my first internship at the IT department for a lumber company called International Wood Products down in Clackamas, Oregon.',
-      'I learned a wide variety of things during this internship. Aside from setting up company computers and laptops, I helped to configure the company network through switch and access point configurations, managed Active Directory and exchange, as well as email servers.',
-    ],
-  }
+    paragraph:
+      'I interned at International Wood Products in the summer of 2022, working in their IT department. I gained experience in setting up company computers and laptops, configuring the company network, and managing Active Directory and exchange. I also worked with email servers',
+  },
 ]
 
-const Chapter = ({ index, ref }: Props) => {
+export default function Chapter({ index, ref }: Props) {
   return (
     <div
       id={String(index)}
@@ -81,16 +71,16 @@ const Chapter = ({ index, ref }: Props) => {
       ) : null}
       {chapters[index].source ? (
         <div class="p-4 flex justify-center">
-          <img class={"w-1/2 h-1/2"} alt={chapters[index].alt} src={chapters[index].source!} />
+          <img
+            class={'w-1/2 h-1/2'}
+            alt={chapters[index].alt}
+            src={chapters[index].source!}
+          />
         </div>
       ) : null}
-      <div>
-        {chapters[index].paragraph!.map(text => {
-              return <p class="p-4 text-left text-sm md:text-base leading-8">{text}</p>
-            })}
-      </div>
+      <p class="p-4 text-left text-sm md:text-base leading-8">
+        {chapters[index].paragraph}
+      </p>
     </div>
   )
 }
-
-export default Chapter
