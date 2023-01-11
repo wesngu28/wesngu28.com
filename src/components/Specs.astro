@@ -6,10 +6,14 @@ import debian from '../assets/debian.png'
 import wind from '../assets/skills/windows.png'
 ---
 
-<div class="my-40 w-full flex flex-col items-center text-center">
+<div class="mb-40 w-full flex flex-col items-center text-center">
   <h1 class="text-3xl">my systems</h1>
   <p>We do not talk about the power draw. I love my 3423dw.</p>
-  <div class="my-5 flex justify-center">
+  <div class="my-5 lg:flex lg:justify-center items-center">
+    <Image class="m-auto" aspectRatio="1:1" height={200} alt="Windows" src={wind} />
+    <Image class="m-auto" aspectRatio="342:400" height={400} alt="Current" src={curr} />
+  </div>
+  <div class="my-5 tiny:flex justify-center">
     <Image
       class="m-auto"
       width={320}
@@ -40,9 +44,5 @@ import wind from '../assets/skills/windows.png'
       </ul>
     </div>
     <Image class="m-auto" aspectRatio="162:200" height={200} alt="Debian" src={debian} />
-  </div>
-  <div class="my-5 lg:flex lg:justify-center items-center">
-    <Image class="m-auto" aspectRatio="1:1" height={200} alt="Windows" src={wind} />
-    <Image class="m-auto" aspectRatio="342:400" height={400} alt="Current" src={curr} />
   </div>
 </div>

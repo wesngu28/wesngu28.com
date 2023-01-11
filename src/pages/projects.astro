@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro'
-import ProjectDeck from '../components/ProjectDeck.astro'
+import gwen from '../assets/projects/gwen.png'
 import ProjectCard from '../components/ProjectCard.astro'
 import gamehunter from '../assets/projects/gamehunter.png'
 import translator from '../assets/projects/translator.png'
@@ -14,6 +14,14 @@ import concert from '../assets/projects/conert.png'
 <Base title="Projects">
   <div class="grid xs:grid-cols-2 grid-cols-1 place-items-center">
     <ProjectCard
+      techs={['Javascript', 'Svelte', 'Tailwind', 'Supabase']}
+      live={'https://gwen.vercel.app'}
+      url={'https://github.com/wesngu28/seamstress'}
+      image={gwen}
+      name={'Gwen'}
+      desc={'SvelteKit url shortener with a Supabase backend that works with and without login.'}
+    />
+    <ProjectCard
       techs={[
         'TypeScript',
         'React',
@@ -24,7 +32,7 @@ import concert from '../assets/projects/conert.png'
         'Kotlin',
         'Spring',
       ]}
-      live={'https://gameinfohunter.netlify.app'}
+      live={'https://webdev-evaluator.vercel.app/'}
       url={'https://github.com/kyleung1/WebdevEvaluator'}
       image={concert}
       name={'Web Tech Evaluator'}
