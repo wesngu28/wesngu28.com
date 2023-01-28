@@ -12,6 +12,7 @@ module.exports = {
         'ultrawide': '1921px',
         'xs': '550px',
         'tiny': '400px',
+        'project': '830px',
         'hoverable': {'raw': '(hover: hover)'},
       },
       animation: {

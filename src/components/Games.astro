@@ -81,7 +81,6 @@ import arknights from "../assets/games/Arknights.jpg"
     }
   </div>
   <div class="hidden hoverable:block desc m-4 w-full">
-    <h2 class="text-center text-2xl">Featured Game: Arknights</h2>
     <div class="w-full flex flex-col justify-center">
       <Image class="p-4 m-auto object-contain" src={arknights} alt={'Arknights profile'} />
     </div>
@@ -145,6 +144,7 @@ import arknights from "../assets/games/Arknights.jpg"
       if(description[0].name !== 'Hearts of Iron IV' || 'Civilization V') {
         const img = await import(`../assets/games/${description[0].name}.jpg`)
         if(img) descimg.src = img.default.src
+        descimg.alt = img.default.alt
       }
     }
   }
