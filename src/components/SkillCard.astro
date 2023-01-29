@@ -5,14 +5,15 @@ export interface Props {
   images: Array<ImageMetadata>
   name: string[]
   grid: string
-  desc?: string
+  heading: string
+  desc: string
 }
 
-const { images, name, desc, grid } = Astro.props
+const { images, name, heading, desc, grid } = Astro.props
 ---
 
-<li class="border bg-[#21222a] p-4 m-4 rounded-2xl flex items-center justify-center">
-  <div class={` ${grid}`}>
+<li class="border bg-[#21222a] relative p-4 m-4 rounded-2xl w-[300px] lg:w-[350px] h-[300px] xl-w-auto  group flex items-center justify-center hover:scale-105 hover:z-50 ease-out duration-500">
+  <div class={`${grid} group-hover:hidden`}>
     {
       images.map((arr, i) => {
         return (
@@ -28,5 +29,10 @@ const { images, name, desc, grid } = Astro.props
         )
       })
     }
+  </div>
+  <div class="absolute items-center justify-center hidden group-hover:flex flex-col group-hover:relative group-hover:p-1">
+    <h2 class="text-2xl font-bold mb-4">{heading}</h2>
+    <p>{desc}
+    </p>
   </div>
 </li>
