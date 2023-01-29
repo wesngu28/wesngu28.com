@@ -7,7 +7,7 @@ live: 'https://wesngu28.github.io/mapping-terrorism/'
 techs: ['JavaScript', 'Mapbox', 'SCSS', 'Figma']
 heroImage: 'mapping-terrorism'
 heroImageAlt: 'Mapping Terrorism'
-content: [true, 3]
+content: [true, 5]
 md: 'mapping-terrorism'
 ---
 

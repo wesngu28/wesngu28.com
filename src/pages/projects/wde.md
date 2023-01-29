@@ -1,5 +1,20 @@
 ---
 layout: '../../layouts/ProjectPost.astro'
+title: 'Web Dev Evaluator'
+description: 'A collaborative full-stack React and Rust project to view Twitter sentiments on a variety of web technologies. Still under development.'
+repository: 'https://github.com/kyleung1/WebdevEvaluator'
+techs: ['TypeScript', 'React', 'Tailwind', 'Next.js', 'Python', 'Rust']
+live: 'https://webdev-evaluator.vercel.app/'
+heroImage: 'wde'
+heroImageAlt: 'Web Dev Evulator'
+content: [true, 3]
+md: 'wde'
+---
+
+Tentative text
+
+<!-- ---
+layout: '../../layouts/ProjectPost.astro'
 title: 'Holoboard'
 description: 'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'
 repository: 'https://github.com/wesngu28/holoboard'
@@ -34,4 +49,4 @@ Some things I learned about Next 13:
 | React      | Node.js       | swr |
 | Next.js   | Next.js        |  |
 | Typescript  |         |  |
-| Tailwind  |        |  |
+| Tailwind  |        |  | -->

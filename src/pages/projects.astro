@@ -9,10 +9,21 @@ import recipe from '../assets/projects/food.png'
 import info from '../assets/projects/info.png'
 import trade from '../assets/projects/trade.png'
 import concert from '../assets/projects/conert.png'
+import wde from '../assets/projects/wde.png'
+import holoboard from '../assets/projects/holoboard.png'
+import procrab from '../assets/projects/procrab.png'
 ---
 
 <Base title="Projects">
-  <div class="grid xs:grid-cols-2 grid-cols-1 place-items-center">
+  <div class="grid project:grid-cols-2 grid-cols-1 place-items-center">
+    <ProjectCard
+      techs={['Tauri', 'Next.js', 'TypeScript', 'Rust', 'SQLite', 'Astro']}
+      live={'https://procrabstinator.vercel.app/'}
+      url={'https://github.com/Mistralton/procrabstinator'}
+      image={procrab}
+      name={'Procrabstinator'}
+      desc={'TreasureHacks hackathon project. Tauri app to help stop procrastination, complete with landing page.'}
+    />
     <ProjectCard
       techs={['Javascript', 'Svelte', 'Tailwind', 'Supabase']}
       live={'https://gwen.vercel.app'}
@@ -20,23 +31,6 @@ import concert from '../assets/projects/conert.png'
       image={gwen}
       name={'Gwen'}
       desc={'SvelteKit url shortener with a Supabase backend that works with and without login.'}
-    />
-    <ProjectCard
-      techs={[
-        'TypeScript',
-        'React',
-        'Tailwind',
-        'Next.js',
-        'Python',
-        'R',
-        'Kotlin',
-        'Spring',
-      ]}
-      live={'https://webdev-evaluator.vercel.app/'}
-      url={'https://github.com/kyleung1/WebdevEvaluator'}
-      image={concert}
-      name={'Web Tech Evaluator'}
-      desc={'Collaborated on fullstack project, making the Kotlin backend.'}
     />
     <ProjectCard
       techs={['TypeScript', 'React', 'Next.js', 'Cypress', 'CSS']}
@@ -61,6 +55,14 @@ import concert from '../assets/projects/conert.png'
       image={recipe}
       name={'co2x5 Recipe Blog'}
       desc={"A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account."}
+    />
+    <ProjectCard
+      techs={['TypeScript', 'Node.js', 'CSS']}
+      live={'https://holoboard.vercel.app/'}
+      url={'https://github.com/wesngu28/holoboard'}
+      image={holoboard}
+      name={'Holoboard'}
+      desc={'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'}
     />
     <ProjectCard
       techs={['R', 'Python', 'SCSS', 'Shiny']}

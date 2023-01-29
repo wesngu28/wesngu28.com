@@ -26,32 +26,37 @@ import git from '../assets/skills/git.png'
 import linux from '../assets/skills/linux.png'
 ---
 
-<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center my-40">
+<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-40">
   <h1 class="text-center text-2xl p-4 font-bold">⚙️ Skills ✏️</h1>
-  <ul class="grid md:grid-cols-1 lg:grid-cols-2 ultrawide:grid-cols-4 gap-4">
+  <ul class="grid place-items-center w-[375px] grid-cols-1 sm:w-auto sm:h-auto sm:grid-cols-2 xl:grid-cols-4 gap-4">
     <SkillCard
       images={[linux, git, opensuse, docker, windows, markdown]}
       name={['Linux', 'Git', 'OpenSuse', 'Docker', 'Windows', 'Markdown']}
+      heading={'Developer Tools'}
       grid={'grid grid-cols-3'}
-      desc={'Operating systems and tools that help me run services and start new projects.'}
+      desc={'The primary operating systems and developer tools that I am most familiar with. While I have used Windows my entire life, I recently swapped my productivity machines to OpenSuse Tumbleweed. Over the summer of 2021, I became familiar with Docker during my home server setup.'}
     />
     <SkillCard
       images={[html, css, bootstrap, sass, js, ts]}
       grid={'grid grid-cols-3'}
       name={['HTML', 'CSS', 'Bootstrap', 'Sass', 'Javascript', 'Typescript']}
-      desc={'The building blocks of the internet. CSS enhanced by Bootstrap, Sass, and Tailwind.'}
+      heading={'Web Essentials'}
+      grid={'grid grid-cols-3'}
+      desc={'The core building blocks of frontend, I am well-versed in both HTML and vanilla CSS and its frameworks. My favorite CSS framework is Tailwind, because of how much it improves the developer experience. I also prefer Typescript, due to its ability to catch errors before runtime and make me more responsible.'}
     />
     <SkillCard
       images={[svelte, react, next, vue, nuxt, vite]}
       name={['Svelte', 'React', 'Next.js', 'Vue', 'Nuxt.js', 'Vite']}
+      heading={'Javascript'}
       grid={'grid grid-cols-3'}
-      desc={'The various flavors of Javascript, its frameworks, bundlers (Vite), and everything in-between.'}
+      desc={'I was once afraid to learn a JavaScript framework, and now I am afraid to ever go back. My favorite frameworks are React and Svelte, but I also learned Vue and Solid, the latter I am very interested in. I also know SvelteKit, Next.js, and Nuxt.js. I am familiar with also using Vite and its large plugin ecosystem.'}
     />
     <SkillCard
       images={[node, python, flask, sql, mongo, redis]}
       name={['Node.js', 'Python', 'Flask', 'SQL', 'MongoDB', 'Redis']}
+      heading={'Backend'}
       grid={'grid grid-cols-3'}
-      desc={'The language of data and AI. I have also used Jupyter and the ML libaries to some extent.'}
+      desc={'I have experience and familiarity with many backend technologies. The two backend languages I am most familiar with are Node.js and Python, but I can also use Rust, Kotlin/Java, and R. I am familiar with database systems like SQL databases and NoSQL databases. In the future, I want to learn GraphQL.'}
     />
   </ul>
 </div>
