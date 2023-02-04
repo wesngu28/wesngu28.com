@@ -1,9 +1,13 @@
 ---
 import { Image } from '@astrojs/image/components'
-const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-)
+import { getCollection } from 'astro:content'
+const allBlogPosts = await getCollection('blog')
+const posts = Array.from(allBlogPosts)
+  .map(post => {
+    let data = { ...post.data, slug: post.slug }
+    return data
+  })
+  .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())
 ---
 
 <div class="mb-16 w-[100vw] relative">
@@ -12,28 +16,28 @@ const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
     {
       posts.map(post => (
         <li class="p-4 bg-[#21222a] m-4 text-center">
-          <a href={post.url} class="max-w-[480px] inline-block">
+          <a href={`/blog/${post.slug}`} class="max-w-[480px] inline-block">
             <Image
               class="p-4"
               loading={'eager'}
               format={'webp'}
-              alt={post.frontmatter.heroImageAlt}
+              alt={post.heroImageAlt}
               height={360}
               width={480}
-              src={post.frontmatter.heroImage}
+              src={post.heroImage}
             />
-            <h2 class="text-3xl"> {post.frontmatter.title}</h2>
+            <h2 class="text-3xl"> {post.title}</h2>
             <p class="text-sm mb-4">
               🕘{' '}
-              <time datetime={post.frontmatter.pubDate}>
-                {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+              <time datetime={post.pubDate}>
+                {new Date(post.pubDate).toLocaleDateString('en-us', {
                   year: 'numeric',
                   month: 'short',
                   day: 'numeric',
                 })}
               </time>
             </p>
-            <p>{post.frontmatter.description}</p>
+            <p>{post.description}</p>
           </a>
         </li>
       ))

@@ -1,26 +1,18 @@
 ---
 import ProjectCard from './ProjectCard.astro'
 
-interface frontmatter {
-  layout: string
-  title: string
-  description: string
-  repository: string
-  techs: string[]
-  heroImage: string | any
-  heroImageAlt: string
-  content: [boolean, number]
-  live: string
-  md: string
-}
-
-const posts: frontmatter[] = (await Astro.glob('../pages/projects/*.{md,mdx}'))
+import { getCollection } from 'astro:content'
+const projectCollection = await getCollection('projects')
+const posts = Array.from(projectCollection)
+  .map(post => {
+    let data = { ...post.data, slug: post.slug }
+    return data
+  })
   .sort(
     (a, b) =>
-      new Date(a.frontmatter.content[1]).valueOf() -
-      new Date(b.frontmatter.content[1]).valueOf()
+      new Date(a.content).valueOf() -
+      new Date(b.content).valueOf()
   )
-  .map(post => post.frontmatter)
 ---
 
 {

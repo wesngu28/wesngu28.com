@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<Content />
