@@ -1,5 +1,17 @@
+import type { ImgHTMLAttributes } from '@astrojs/image/components'
 import { createEffect, createResource, createSignal } from 'solid-js'
-import type { spotifyAPI } from '../models/spotifyAPI'
+
+interface spotifyAPI {
+  album: string
+  albumImageUrl: string
+  albumImageUrlFmt?: ImgHTMLAttributes
+  isPlaying?: string
+  artist: string
+  songUrl: string
+  title: string
+  preview: string
+  recent?: boolean
+}
 
 const fetchNewData = async () => {
   const songQuery = await fetch('/api/spotify.json')
@@ -46,7 +58,7 @@ export default function NowPlaying() {
             </p>
             <p>{data() ? data()!.artist : 'Getting artists...'}</p>
           </div>
-          <audio class="sm:block hidden" controls></audio>
+          <audio src={data() && data()!.preview} class="sm:block hidden" controls></audio>
         </div>
       </div>
     </div>

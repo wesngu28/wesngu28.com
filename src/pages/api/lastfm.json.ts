@@ -1,6 +1,17 @@
 import type { APIRoute } from 'astro'
 import { getAccessToken } from './helper/access'
-import type { Artist, topArtist } from '../../models/lastFMArtist'
+
+interface topArtist {
+  streamable: string
+  image: []
+  mbid: string
+  url: string
+  playcount: string
+  attr: {
+    rank: string
+  }
+  name: string
+}
 
 interface lastfmAPI {
   topartists: {
@@ -37,7 +48,7 @@ export const get: APIRoute = async () => {
 
     const { access_token } = await getAccessToken()
 
-    const monthlyArtists: Array<Artist> = []
+    const monthlyArtists: Array<{name: string, playcount: string, href: string, img: string}> = []
     for (let i = 0; i < monthlyArtistsName.length; i++) {
       const search = await fetch(
         `https://api.spotify.com/v1/search?q=${monthlyArtistsName[i].name}&type=artist&limit=1&locale=en-US`,

@@ -1,11 +1,9 @@
 import { createResource, For, Show } from 'solid-js'
-import type { lastFMAPI } from '../models/lastFMAPI'
-import type { Artist } from '../models/lastFMArtist'
 
 async function fetchData() {
   const songQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`)
   const songText = await songQuery.text()
-  const songJson: Array<lastFMAPI> = await JSON.parse(songText)
+  const songJson: Array<{name: string, playcount: string, href: string, img: string}> = await JSON.parse(songText)
   return songJson
 }
 
@@ -15,7 +13,7 @@ export default function ArtistCard() {
     <>
       <Show when={data()}>
         <For each={data()}>
-          {(artist: Artist) => (
+          {(artist: {name: string, playcount: string, href: string, img: string}) => (
             <div class="artist flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg hidden">
               <a target="_blank" href={artist.href} rel="noopener noreferrer">
                 <img

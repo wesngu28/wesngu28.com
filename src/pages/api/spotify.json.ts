@@ -1,6 +1,16 @@
 import { getAccessToken } from './helper/access'
-import type { spotifyArtist } from '../../models/spotifyArtist'
 import type { APIRoute } from 'astro'
+
+interface spotifyArtist {
+  external_urls: {
+    spotify: string
+  }
+  href: string
+  id: string
+  name: string
+  type: string
+  url: string
+}
 
 export const getCurrentSong = async () => {
   const { access_token } = await getAccessToken()
@@ -35,6 +45,7 @@ export const get: APIRoute = async () => {
     const album = song.track.album.name
     const albumImageUrl = song.track.album.images[0].url
     const songUrl = song.track.external_urls.spotify
+    const preview = song.track.preview_url
     return {
       body: JSON.stringify({
         album,
@@ -42,6 +53,7 @@ export const get: APIRoute = async () => {
         artist,
         songUrl,
         title,
+        preview,
         recent: true,
       }),
     }
@@ -56,6 +68,7 @@ export const get: APIRoute = async () => {
   const album = song.item.album.name
   const albumImageUrl = song.item.album.images[0].url
   const songUrl = song.item.external_urls.spotify
+  const preview = song.item.preview_url
 
   return {
     body: JSON.stringify({
@@ -65,6 +78,7 @@ export const get: APIRoute = async () => {
       isPlaying,
       songUrl,
       title,
+      preview
     }),
   }
 }

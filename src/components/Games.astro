@@ -8,7 +8,15 @@ import sc2 from "../assets/gamecover/Starcraft 2.jpg"
 import civ from "../assets/gamecover/Civilization V.jpg"
 import ak from "../assets/gamecover/Arknights.jpg"
 import al from "../assets/gamecover/Azur Lane.jpg"
-import type { Game } from '../models/game'
+
+interface Game {
+  name: string
+  url: string
+  img?: ImageMetadata
+  description?: string
+  stats?: ImageMetadata
+}
+
 const games: Array<Game> = [
   {
     name: "Skyrim",
