@@ -6,32 +6,42 @@ import Sidebar from '../components/Sidebar.astro'
 import '../styles/base.css'
 export interface Props {
   title: string
+  map: boolean
 }
 import '@fontsource/karla'
-const { title } = Astro.props
+const { title, map } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <Head title={title} />
-  <body
-    class="font-karla flex flex-col items-center bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen"
-  >
-    <div
-      id="wrapper"
-      class="flex flex-col justify-center items-center h-full w-full md:max-w-[1280px]"
-    >
-      <div class="xl:flex relative items-center justify-center w-[100vw] bg-[#1F2022]">
-        <div class="md:absolute hidden md:block md:left-0 top-1/2 z-10">
-          <Sidebar />
+  {
+    map ? (
+      <body class="font-karla bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
+        <slot />
+      </body>
+    ) : (
+      <body class="font-karla flex flex-col items-center bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
+        <div
+          id="wrapper"
+          class="flex flex-col justify-center items-center h-full w-full md:max-w-[1280px]"
+        >
+          <div class="xl:flex relative items-center justify-center w-[100vw] bg-[#1F2022]">
+            <div class="md:absolute hidden md:block md:left-0 top-1/2 z-10">
+              <Sidebar />
+            </div>
+            <About header={title} />
+            <div class="md:absolute block md:hidden md:left-0">
+              <Sidebar />
+            </div>
+          </div>
+          <slot />
+          <Footer />
         </div>
-        <About header={title} />
-        <div class="md:absolute block md:hidden md:left-0">
-          <Sidebar />
-        </div>
-      </div>
-      <slot />
-      <Footer />
-    </div>
-  </body>
+      </body>
+    )
+  }
 </html>
+
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>

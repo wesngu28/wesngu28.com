@@ -7,8 +7,8 @@ techs: ['TypeScript', 'React', 'Tailwind', 'Next.js', 'Python', 'Rust']
 live: 'https://webdev-evaluator.vercel.app/'
 heroImage: 'wde'
 heroImageAlt: 'Web Dev Evulator'
-content: 3
-md: 'wde'
+content: 4
+# md: 'wde'
 ---
 
 Tentative text

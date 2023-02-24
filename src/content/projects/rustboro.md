@@ -7,7 +7,7 @@ live: 'https://rustboro.vercel.app/'
 techs: ['TypeScript', 'Svelte', 'Prisma', 'PostgreSQL', 'CockroachDB']
 heroImage: 'pokemon'
 heroImageAlt: 'Rustboro'
-content: 4
+content: 5
 md: 'rustboro'
 ---
 

@@ -23,7 +23,7 @@ export const collections = {
       heroImageAlt: z.string(),
       content: z.number(),
       live: z.string().optional(),
-      md: z.string(),
+      md: z.string().optional(),
     }),
   }),
 };

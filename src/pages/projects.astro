@@ -9,13 +9,23 @@ import recipe from '../assets/projects/food.png'
 import info from '../assets/projects/info.png'
 import trade from '../assets/projects/trade.png'
 import concert from '../assets/projects/conert.png'
-import wde from '../assets/projects/wde.png'
 import holoboard from '../assets/projects/holoboard.png'
 import procrab from '../assets/projects/procrab.png'
+import replayed from '../assets/projects/replayed.png'
+import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
+import closure from '../assets/projects/closure.png'
 ---
-
-<Base title="Projects">
-  <div class="grid project:grid-cols-2 grid-cols-1 place-items-center">
+<!-- At some point these can just be markdown posts -->
+<Base title="Projects" map={false}>
+  <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center">
+    <ProjectCard
+      techs={['Svelte', 'SvelteKit', 'TypeScript', 'Tailwind', 'Supabase', 'Chart.js']}
+      live={'https://replayedgg.vercel.app'}
+      url={'https://github.com/Mistralton/Replayed'}
+      image={replayed}
+      name={'Replayed'}
+      desc={'SvelteKit game where you guess the rank of user submitted clips, or pick the higher between two clips. '}
+    />
     <ProjectCard
       techs={['Tauri', 'Next.js', 'TypeScript', 'Rust', 'SQLite', 'Astro']}
       live={'https://procrabstinator.vercel.app/'}
@@ -41,6 +51,23 @@ import procrab from '../assets/projects/procrab.png'
       desc={'Combines aspects from Steam, Twitch, and IsThereAnyDeal APIs to show info for a queried game.'}
     />
     <ProjectCard
+      techs={['TypeScript', 'Tailwind', 'Next.js', 'Chart.js', 'React', 'Node.js']}
+      live={'https://holoboard.vercel.app/'}
+      url={'https://github.com/wesngu28/holoboard'}
+      image={holoboard}
+      name={'Holoboard'}
+      desc={'A web app to monitor the streamers of HoloEN, through a live status tracker, theater board, and sub tracker. Also has Onion mp3.'}
+    />
+    <ProjectCard
+      techs={['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']}
+      live={'https://closurets.vercel.app/'}
+      url={'https://github.com/wesngu28/closurets'}
+      image={closure}
+      name={'Closure'}
+      desc={'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'}
+      md={"closure"}
+    />
+    <ProjectCard
       techs={['TypeScript', 'Tailwind', 'React', 'Next.js', 'Python', 'R']}
       live={'https://qatarwcplayers.vercel.app/'}
       url={'https://github.com/wesngu28/world-cup-players'}
@@ -57,14 +84,6 @@ import procrab from '../assets/projects/procrab.png'
       desc={"A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account."}
     />
     <ProjectCard
-      techs={['TypeScript', 'Node.js', 'CSS']}
-      live={'https://holoboard.vercel.app/'}
-      url={'https://github.com/wesngu28/holoboard'}
-      image={holoboard}
-      name={'Holoboard'}
-      desc={'A web app to monitor the streamers of HoloEN. The below icons will change based on live status. Was made to learn some Next 13.'}
-    />
-    <ProjectCard
       techs={['R', 'Python', 'SCSS', 'Shiny']}
       live={'https://p11bc.shinyapps.io/socmed/'}
       url={'https://github.com/info201b-au2022/social-media-stress'}
@@ -79,6 +98,15 @@ import procrab from '../assets/projects/procrab.png'
       image={trade}
       name={"Let's Ride Dashboard"}
       desc={'Dashboard I made to display some of the relevant information regarding the Russell Wilson trade.'}
+    />
+    <ProjectCard
+      techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
+      live={'https://wesngu28.github.io/mapping-terrorism/'}
+      url={'https://github.com/wesngu28/mapping-terrorism'}
+      image={mappingTerrorism}
+      name={'Mapping Terrorism'}
+      desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
+      md='mapping-terrorism'
     />
     <ProjectCard
       techs={['Python', 'Tkinter']}

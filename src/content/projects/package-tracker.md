@@ -1,17 +1,17 @@
 ---
 layout: '../../layouts/ProjectPost.astro'
-title: 'Mapping Terrorism'
-description: 'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'
-repository: 'https://github.com/wesngu28/mapping-terrorism'
-live: 'https://wesngu28.github.io/mapping-terrorism/'
-techs: ['JavaScript', 'Mapbox', 'SCSS', 'Figma']
-heroImage: 'mapping-terrorism'
-heroImageAlt: 'Mapping Terrorism'
-content: 11
-md: 'mapping-terrorism'
+title: 'Package Tracker'
+description: 'Hackathon winner for Transport Hacks, a web app to track your packages across various carriers. My role was expansive, doing Firebase setup and large parts of the front-end.'
+repository: 'https://github.com/Mistralton/Package-Tracker'
+live: 'https://packagetracker.tech/'
+techs: ['TypeScript', 'Mapbox', 'Next.js', 'CSS', 'Auth0']
+heroImage: 'packagetracker'
+heroImageAlt: 'Package Tracker'
+content: 3
+# md: 'mapping-terrorism'
 ---
 
-This project was made as a part of Geography 458, Advanced Digital Geographies, at the University of Washington.
+<!-- This project was made as a part of Geography 458, Advanced Digital Geographies, at the University of Washington.
 
 ## Why
 
@@ -32,4 +32,4 @@ This was my first entry into web mapping and using the Mapbox library. I've alwa
 | HTML      | Mapbox       |
 | Sass   |         |
 | JavaScript |         |
-| Typescript  |         |
+| Typescript  |         | -->

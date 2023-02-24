@@ -1,13 +1,13 @@
 ---
 layout: '../../layouts/ProjectPost.astro'
-title: 'Closure'
-description: 'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'
-repository: 'https://github.com/wesngu28/closurets'
-techs: ['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']
-heroImage: 'closure'
-heroImageAlt: 'Closure'
-content: 10
-md: 'closure'
+title: 'NFL Typer'
+description: 'A small little game where you have to type as many NFL players you can in 60 seconds, with filterable team and position.'
+repository: 'https://github.com/wesngu28/nfl-typer'
+techs: ['TypeScript', 'Nuxt.js', 'Vue', 'Tailwind']
+heroImage: 'nfl'
+heroImageAlt: 'NFL Typer'
+content: 7
+# md: 'closure'
 ---
 
 A multifunctional discord bot offering simple utilities and commands like Arknights operator quick information and youtuber live status. I made this to complement RhodesAPI and was my second from start to end personal project. The bot is currently hosted on hmy home server inside of a Docker container.

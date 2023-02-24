@@ -10,23 +10,25 @@ const posts = Array.from(projectCollection)
   })
   .sort(
     (a, b) =>
-      new Date(a.content).valueOf() -
-      new Date(b.content).valueOf()
+      new Date(a!.content).valueOf() -
+      new Date(b!.content).valueOf()
   )
+  // At some point rethink this
+  .slice(0, 9)
 ---
 
 {
   posts.map(async post => {
-    const dynamicImage = await import(`../assets/projects/${post.heroImage}.png`)
+    const dynamicImage = await import(`../assets/projects/${post!.heroImage}.png`)
     return (
       <ProjectCard
-        techs={post.techs}
-        url={post.repository}
+        techs={post!.techs}
+        url={post!.repository}
         image={dynamicImage.default}
-        name={post.title}
-        desc={post.description}
-        live={post.live}
-        md={post.md}
+        name={post!.title}
+        desc={post!.description}
+        live={post!.live}
+        md={post!.md}
       />
     )
   })
