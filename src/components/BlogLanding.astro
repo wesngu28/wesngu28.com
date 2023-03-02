@@ -1,0 +1,46 @@
+---
+import { Image } from '@astrojs/image/components'
+import { getCollection } from 'astro:content'
+const projectCollection = await getCollection('blog')
+const posts = Array.from(projectCollection)
+  .map(post => {
+    let data = { ...post.data, slug: post.slug }
+    return data
+  })
+  .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())
+  .slice(0, 4)
+---
+
+<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-20">
+  <h1 class="text-center text-2xl p-4 font-bold">Latest Blog Posts</h1>
+  <ul class="w-full flex items-center justify-between flex-wrap">
+    {
+      posts.map(post => (
+        <li class="p-4 bg-[#21222a] m-4 text-center">
+          <a href={`/blog/${post.slug}`} class="max-w-[240px] inline-block">
+            <Image
+              class="p-4"
+              loading={'eager'}
+              format={'webp'}
+              alt={post.heroImageAlt}
+              height={180}
+              width={240}
+              src={post.heroImage}
+            />
+            <h2 class="text-xl"> {post.title}</h2>
+            <p class="text-sm mb-4">
+              🕘{' '}
+              <time datetime={post.pubDate}>
+                {new Date(post.pubDate).toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

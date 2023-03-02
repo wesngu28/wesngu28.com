@@ -22,3 +22,5 @@ pnpm-debug.log*
 .vscode.
 .vercel
 .astro
+languages.json
+linguistics.json

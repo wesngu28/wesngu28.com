@@ -4,32 +4,30 @@ title: 'Package Tracker'
 description: 'Hackathon winner for Transport Hacks, a web app to track your packages across various carriers. My role was expansive, doing Firebase setup and large parts of the front-end.'
 repository: 'https://github.com/Mistralton/Package-Tracker'
 live: 'https://packagetracker.tech/'
-techs: ['TypeScript', 'Mapbox', 'Next.js', 'CSS', 'Auth0']
+techs: ['TypeScript', 'Mapbox', 'Next.js', 'CSS', 'Auth0', 'Firebase']
 heroImage: 'packagetracker'
 heroImageAlt: 'Package Tracker'
 content: 3
-# md: 'mapping-terrorism'
+md: 'package-tracker'
 ---
 
-<!-- This project was made as a part of Geography 458, Advanced Digital Geographies, at the University of Washington.
+Package Tracker is a project that aims to be a place of consolidation for all those shipping label tracking services. Now, you don't need to jot them down to track them across different carriers, you can just add them on Package Tracker and see them all in one spot.
 
 ## Why
+Package Tracker was made as part of the TransportHacks hackathon, hosted by Major League Hacking, and won first overall. This was quite a difficult theme to plan for, since going into it my group was largely unfamiliar with the logisitics of transportation. At some point, one of us came up with this theme, and that was what was made.
 
-My group deliberated a lot over the topic, before settling on a database gathered by the University of Maryland on terrorism incidents around the world. This topic was chosen in order to show a visualization of global terrorist activities and inform users about the patterns and exact information of these activities. We knew that while these events may get headlines, people may not actually know where they are happening half the time and may not be able to visualize or think about the impact.
-
-I myself designed the primary layout for the about page, and made significant contributions to the map, including the labels that popup on clicking icidents, as well as adding the functionality for icons based on incident type.
+I chose the stack, and the stack was Next.js (React) for the frontend, and Firebase for the backend, as well as other APIs like Mapbox to provide us with maps. Auth0 was utilized because it was a sponsor category (even though we forgot to enter under it). The reason I chose React and Firebase as a part of the stack was because another member of my group was strong in React, and we came into this hackathon wanting to win. Otherwise, I may have chosen Vue or Svelte to help him and myself learn more of those frameworks. Firebase offered a quick database solution, but I also considered Supabase and MongoDB.
 
 ## What I Learned
+The main thing that I learned is that even with a smaller scope, a hackathon project is just hard. There are so many factors that can suddenly jump at you, and problems that would seem minor on a normal time scale get emphasized in a stressful and time-constrained environment.
 
-This was the first group project I ever worked on that facilitated the use of a version control system and collaborative coding. I learned a lot about using Git to coordinate and was taught the importance of the magical git pull. Thanks to my group, I also learned Figma and how to use it to create templates and design references.
-
-This was my first entry into web mapping and using the Mapbox library. I've always been into history and geography and love maps, so this was exciting and fun to learn for me.
+If I had to build this again and with more time, I would go through the process of signing up officially with USPS's API, as well as finishing th FedEx and UPS integration. It would be better to get data officially from USPS than rely on something as feeble as web scraping.
 
 ## Stack
 
-| Frontend    | Libraries     |
-| ----------- | ----------- |
-| HTML      | Mapbox       |
-| Sass   |         |
-| JavaScript |         |
-| Typescript  |         | -->
+| Frontend    | Backend     | Libraries
+| ----------- | ----------- | ----------- |
+| Next.js      | Node.js       | Mapbox |
+| React   |   Next.js      | Auth0 |
+| Typescript  |    Firebase     |  |
+|  |    |   |
