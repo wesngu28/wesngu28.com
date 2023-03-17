@@ -2,7 +2,7 @@
 
 My personal portfolio/website, a project made in Astro with Tailwind and SolidJS integrations.
 
-This is a migration of a Next.js website [here](https://github.com/wesngu28/wesngu28.com).
+This is a migration of a Next.js website [here](https://github.com/wesngu28/wesngu28.com-nextjs).
 
 #### Stack
 1. Astro - a static site builder and ssr framework implementing the islands architecture for fast load
