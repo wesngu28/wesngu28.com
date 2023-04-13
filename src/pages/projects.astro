@@ -18,6 +18,8 @@ import closure from '../assets/projects/closure.png'
 ---
 <!-- At some point these can just be markdown posts -->
 <Base title="Projects" map={false}>
+  <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Hackathons</h2>
+  <p class="mt-4">I made these projects as a part of various hackathons.</p>
   <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center">
     <ProjectCard
       techs={['TypeScript', 'Next.js', 'Tailwind', 'Supabase', 'Auth0', 'TRPC']}
@@ -43,6 +45,10 @@ import closure from '../assets/projects/closure.png'
       name={'Procrabstinator'}
       desc={'TreasureHacks hackathon project. Tauri app to help stop procrastination, complete with landing page.'}
     />
+  </div>
+  <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Personal Projects</h2>
+  <p class="mt-4">Various personal projects I made for fun and learning.</p>
+  <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center">
     <ProjectCard
       techs={['JavaScript', 'Svelte', 'Tailwind', 'Supabase']}
       live={'https://gwen.vercel.app'}
@@ -93,29 +99,12 @@ import closure from '../assets/projects/closure.png'
       desc={"A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account."}
     />
     <ProjectCard
-      techs={['R', 'Python', 'SCSS', 'Shiny']}
-      live={'https://p11bc.shinyapps.io/socmed/'}
-      url={'https://github.com/info201b-au2022/social-media-stress'}
-      image={info}
-      name={'Social Media Stress'}
-      desc={'A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles.'}
-    />
-    <ProjectCard
       techs={['Svelte', 'Tailwind', 'SvelteKit', 'Typescript']}
       live={'https://letsride.vercel.app/'}
       url={'https://github.com/wesngu28/lets-ride'}
       image={trade}
       name={"Let's Ride Dashboard"}
       desc={'Dashboard I made to display some of the relevant information regarding the Russell Wilson trade.'}
-    />
-    <ProjectCard
-      techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
-      live={'https://wesngu28.github.io/mapping-terrorism/'}
-      url={'https://github.com/wesngu28/mapping-terrorism'}
-      image={mappingTerrorism}
-      name={'Mapping Terrorism'}
-      desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
-      md='mapping-terrorism'
     />
     <ProjectCard
       techs={['Python', 'Tkinter']}
@@ -130,6 +119,27 @@ import closure from '../assets/projects/closure.png'
       image={concert}
       name={'EDM Prediction Model'}
       desc={'A model that predicts the genre of an EDM song after being trained on playlist songs. First project.'}
+    />
+  </div>
+  <h2 class="mt-16 font-semibold tracking-tighter text-3xl">School Projects</h2>
+  <p class="mt-4">Projects I made with groups during my time at UW.</p>
+  <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center mb-16">
+    <ProjectCard
+      techs={['R', 'Python', 'SCSS', 'Shiny']}
+      live={'https://p11bc.shinyapps.io/socmed/'}
+      url={'https://github.com/info201b-au2022/social-media-stress'}
+      image={info}
+      name={'Social Media Stress'}
+      desc={'A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles.'}
+    />
+    <ProjectCard
+      techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
+      live={'https://wesngu28.github.io/mapping-terrorism/'}
+      url={'https://github.com/wesngu28/mapping-terrorism'}
+      image={mappingTerrorism}
+      name={'Mapping Terrorism'}
+      desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
+      md='mapping-terrorism'
     />
   </div>
 </Base>

@@ -11,7 +11,7 @@ content: 1
 md: 'portfolio'
 ---
 
-Over the summer, while at my internship, I wanted to work on a portfolio website to showcase my skills. I poured much time into researching options and getting inspiration, before finally deciding to start working on it, choosing Next.js and Tailwand as my main stack. Since then, it evolved and changed with me as I've improved as a developer, and is currently going to the moon with Astro.
+Over the summer, while at my internship, I wanted to work on a portfolio website to showcase my skills. I poured much time into researching options and getting inspiration, before finally deciding to start working on it, choosing Next.js and Tailwind as my main stack. Since then, it evolved and changed with me as I've improved as a developer, and is currently going to the moon with Astro.
 
 ## Why
 

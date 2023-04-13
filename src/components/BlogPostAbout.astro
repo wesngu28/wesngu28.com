@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components'
 import { langs } from '../utils/LanguageList'
 import Github from './Github'
 import Navbar from './Navbar.astro'
@@ -9,15 +10,18 @@ export interface Props {
   paragraph1: string
   repository?: string
   techs?: string[]
+  nav?: boolean
+  imageData?: [string, any]
 }
-const { header, paragraph1, repository, techs } = Astro.props
+const { header, paragraph1, repository, techs, nav, imageData } = Astro.props
 ---
 
 <div class="md:flex flex-col bg-[#1F2022] w-full relative justify-center">
-  <Navbar />
+  { nav && <Navbar /> }
+  { nav &&
   <div class="md:absolute hidden md:block md:left-0">
     <Sidebar />
-  </div>
+  </div> }
   <div class="justify-center items-center p-4 md:flex relative">
     <div
       class="md:p-4 w-full md:w-[75vw] lg:w-[55vw] m-auto flex justify-center items-center flex-col relative"
@@ -27,6 +31,16 @@ const { header, paragraph1, repository, techs } = Astro.props
     </a>
       <h1 class="text-center text-4xl font-bold">{header}</h1>
       <p class="md:p-4 text-left text-md md:text-xl leading-8">{paragraph1}</p>
+      { imageData &&
+        <Image
+          alt={imageData[0]}
+          format={'webp'}
+          loading={'eager'}
+          class="w-full md:w-[75vw] lg:w-[55vw]"
+          src={imageData[1].default}
+          class="p-4 m-auto"
+        />
+      }
       {
         repository && (
           <>
@@ -37,7 +51,9 @@ const { header, paragraph1, repository, techs } = Astro.props
       }
     </div>
   </div>
+  { nav &&
   <div class="md:absolute block md:hidden md:left-0">
     <Sidebar />
   </div>
+  }
 </div>

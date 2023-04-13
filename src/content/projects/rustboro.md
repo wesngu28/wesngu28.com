@@ -4,7 +4,7 @@ title: 'Rustboro'
 description: 'This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.'
 repository: 'https://github.com/wesngu28/rustboro'
 live: 'https://rustboro.vercel.app/'
-techs: ['TypeScript', 'Svelte', 'Prisma', 'PostgreSQL', 'CockroachDB']
+techs: ['TypeScript', 'Svelte', 'Prisma', 'CockroachDB']
 heroImage: 'pokemon'
 heroImageAlt: 'Rustboro'
 content: 5

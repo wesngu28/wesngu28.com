@@ -17,11 +17,11 @@ const { techs } = Astro.props
       }
       return color ? (
         <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg`}>
-          <p class="text-xs">{arr}</p>
+          <p class="text-sm text-center">{arr}</p>
         </li>
       ) : (
         <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
-          <p class="text-xs">{arr}</p>
+          <p class="text-sm text-center">{arr}</p>
         </li>
       )
     })
