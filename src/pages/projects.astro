@@ -15,6 +15,9 @@ import replayed from '../assets/projects/replayed.png'
 import cat from '../assets/projects/cat.png'
 import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
 import closure from '../assets/projects/closure.png'
+import thawip from '../assets/projects/tha-wip.png'
+import kessoku from '../assets/projects/kessoku.png'
+import doa from '../assets/projects/doa.png'
 ---
 <!-- At some point these can just be markdown posts -->
 <Base title="Projects" map={false}>
@@ -27,7 +30,8 @@ import closure from '../assets/projects/closure.png'
       url={'https://github.com/wesngu28/picatso'}
       image={cat}
       name={'Picatso'}
-      desc={'A full-stack wb app that lets you create cat art with DALLE-2 and share them with the community.'}
+      desc={'A full-stack web app that lets you create cat art with DALLE-2 and share them with the community.'}
+      hackathon={true}
     />
     <ProjectCard
       techs={['Svelte', 'SvelteKit', 'TypeScript', 'Tailwind', 'Supabase', 'Chart.js']}
@@ -49,6 +53,29 @@ import closure from '../assets/projects/closure.png'
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Personal Projects</h2>
   <p class="mt-4">Various personal projects I made for fun and learning.</p>
   <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center">
+    <ProjectCard
+      techs={['TypeScript', 'React', 'Redux', 'Next.js', 'Supabase', 'Stripe']}
+      url={'https://github.com/wesngu28/septim-shop'}
+      image={thawip}
+      name={'Imperial Housing Agency'}
+      desc={'An in-progress  e-commerce website, allowing the citizens of Tamriel to browse and purchase homes throughout Cyrodiil and Skyrim.'}
+    />
+    <ProjectCard
+      techs={['Astro', 'Tailwind', 'Playwright']}
+      live={"https://kessokuband.vercel.app"}
+      url={'https://github.com/wesngu28/kessokuband'}
+      image={kessoku}
+      name={'Kessoku Band'}
+      desc={'A landing page for Kessoku Band, the band featured in the anime series Bocchi the Rock, made with Astro.'}
+    />
+    <ProjectCard
+      techs={['TypeScript', 'Solid', 'Solid Start', 'Tailwind']}
+      live={"https://doabrowser.vercel.app/"}
+      url={'https://github.com/wesngu28/doabrowser'}
+      image={doa}
+      name={'DOA3 Browser'}
+      desc={'A viewer for images from the cast of Dead or Alive 3, a fighting game, made to learn Solid Start.'}
+    />
     <ProjectCard
       techs={['JavaScript', 'Svelte', 'Tailwind', 'Supabase']}
       live={'https://gwen.vercel.app'}
