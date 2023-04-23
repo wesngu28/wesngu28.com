@@ -9,6 +9,7 @@ heroImage: 'packagetracker'
 heroImageAlt: 'Package Tracker'
 content: 3
 md: 'package-tracker'
+hackathon: true
 ---
 
 Package Tracker is a project that aims to be a place of consolidation for all those shipping label tracking services. Now, you don't need to jot them down to track them across different carriers, you can just add them on Package Tracker and see them all in one spot.

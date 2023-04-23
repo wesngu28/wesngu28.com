@@ -24,6 +24,7 @@ export const collections = {
       content: z.number(),
       live: z.string().optional(),
       md: z.string().optional(),
+      hackathon: z.boolean().optional()
     }),
   }),
 };
