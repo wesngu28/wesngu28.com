@@ -1,46 +1,53 @@
----
-import { Image } from '@astrojs/image/components'
-import curr from '../assets/parts.jpg'
-import suse from '../assets/suse.png'
-import debian from '../assets/debian.png'
-import wind from '../assets/skills/windows.png'
----
-
-<div class="mb-40 w-full flex flex-col items-center text-center">
-  <h1 class="text-3xl">my systems</h1>
-  <p>We do not talk about the power draw. I love my 3423dw.</p>
-  <div class="my-5 lg:flex lg:justify-center items-center">
-    <Image class="m-auto" aspectRatio="1:1" height={200} alt="Windows" src={wind} />
-    <Image class="m-auto" aspectRatio="342:400" height={400} alt="Current" src={curr} />
-  </div>
-  <div class="my-5 tiny:flex justify-center">
-    <Image
-      class="m-auto"
-      width={320}
-      height={200}
-      aspectRatio="320:200"
-      alt="OpenSuse"
-      src={suse}
-    />
-    <div class="bg-slate-700 opacity-75 m-2 p-2">
-      <p class="text-green-300 inline-block">openSuse Tumbleweed</p>
-      <h2 class="mb-4 text-xl mr-auto">HP Pavillion 15z-cw100</h2>
-      <p class="mb-4">Laptop</p>
+<div class="ml-5 mb-40 w-full flex flex-col items-center text-center max-w-3xl">
+  <h1 class="text-3xl">Specs</h1>
+  <div class="flex flex-col w-full items-start">
+    <h1 class="text-3xl mt-8 font-bold mb-2">Software</h1>
+    <div class="text-left flex flex-col gap-1">
+      <p><span class="font-bold">Browser</span>: <span class="text-orange-600">Firefox</span></p>
+      <p><span class="font-bold">Passwords</span>: Bitwarden</p>
+      <p><span class="font-bold">IDE</span>: Visual Studio Code</p>
+      <p><span class="font-bold">Email</span>: Fastmail</p>
+      <p><span class="font-bold">Notes</span>: Obsidian</p>
     </div>
-  </div>
-  <div class="my-5 flex justify-center">
-    <div class="bg-slate-700 opacity-75 m-2 p-2">
-      <h2 class="mb-4 text-xl mr-auto">Dell Precision 5810</h2>
-      <p class="text-red-300 inline-block">Debian</p>
-      <p>Home Server</p>
-      <ul>
+    <h1 class="text-3xl mt-8 font-bold">Hardware</h1>
+    <div class="flex flex-col gap-4 items-start text-left">
+      <h2 class="text-lg font-semibold mb-2">Gaming</h2>
+      <ul class="list-disc list-inside">
+        <li class="mb-1"><span class="font-bold">OS</span>: Windows 10 Home</li>
+        <li class="mb-1"><span class="font-bold">CPU</span>: AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor</li>
+        <li class="mb-1"><span class="font-bold">CPU Cooler</span>: Cooler Master Hyper 212 Black Edition 42 CFM CPU Cooler</li>
+        <li class="mb-1"><span class="font-bold">Motherboard</span>: MSI B450 TOMAHAWK ATX AM4 Motherboard</li>
+        <li class="mb-1"><span class="font-bold">Memory</span>: Corsair Vengeance LPX 32 GB (2 x 16 GB) DDR4-3200 CL16 Memory</li>
+        <li class="mb-1"><span class="font-bold">Main Storage</span>: Samsung 970 Evo Plus 1 TB M.2-2280 NVME</li>
+        <li class="mb-1"><span class="font-bold">Bulk Storage</span>: Western Digital Caviar Blue 1 TB 3.5" 7200 RPM Internal Hard Drive</li>
+        <li class="mb-1"><span class="font-bold">Secondary</span>: ADATA SU630 480 GB 2.5" Solid State Drive</li>
+        <li class="mb-1"><span class="font-bold">Video Card</span>: PowerColor Hellhound AMD Radeon RX 7900 XT Graphics Card</li>
+        <li class="mb-1"><span class="font-bold">Case</span>: NZXT H500 ATX Mid Tower Case</li>
+        <li class="mb-1"><span class="font-bold">Power Supply</span>: EVGA 850 GQ 850 W 80+ Gold Certified Semi-modular ATX Power Supply</li>
+        <li class="mb-1"><span class="font-bold">Monitor</span>: Alienware AW3423DW 34.2" 3440 x 1440 175 Hz Curved Monitor</li>
+        <li><span class="font-bold">2nd Monitor</span>: Acer XV2772U Pbmiiprzx 26.0" 2560x1440 144 zZ Monitor</li>
+      </ul>
+      <h2 class="text-lg"><span class="font-semibold">Test PC</span>: Dell Optiplex 3040 (<span class="text-green-600">OpenSUSE Tumbleweed</span>)</h2>
+      <h2 class="text-lg"><span class="font-semibold">Test PC (2)</span>: Dell Optiplex 3040 (<span class="text-blue-600">ZorinOS</span>)</h2>
+      <h2 class="text-lg"><span class="font-semibold">Laptop</span>: HP Pavillion 15z-cw100 (<span class="text-green-600">OpenSuse Tumbleweed</span>)</h2>
+      <h2 class="text-lg"><span class="font-semibold">Home Server</span>: Dell Precision 5810 (<span class="text-red-600">Debian</span>)</h2>
+      <ul class="-mt-4">
+        Most Used Services</span>:
+        <li class="ml-10">Portainer</li>
         <li class="ml-10">Jellyfin</li>
-        <li class="ml-10">Overleaf</li>
-        <li class="ml-10">Code Server</li>
+        <li class="ml-10">FreshRSS</li>
         <li class="ml-10">Syncthing</li>
+        <li class="ml-10">Unifi Controller</li>
         <li class="ml-10">and more...</li>
       </ul>
+      <h2 class="text-lg"><span class="font-semibold">Phone</span>: Samsung Galaxy S23 Ultra</h2>
+      <h2 class="text-lg font-semibold">Peripherals</h2>
+      <ul class="list-disc list-inside">
+        <li class="mb-1"><span class="font-bold">Keyboard</span>: Leopold FC660M Black 65% Double Shot PBT</li>
+        <li class="mb-1"><span class="font-bold">Mouse</span>: Logitech G502 Hero</li>
+        <li class="mb-1"><span class="font-bold">Headphones</span>: Beyerdynamic DT770</li>
+        <li class="mb-1"><span class="font-bold">Headphones</span>: Bose QuietComfort 35 Series II</li>
+      </ul>
     </div>
-    <Image class="m-auto" aspectRatio="162:200" height={200} alt="Debian" src={debian} />
   </div>
 </div>
