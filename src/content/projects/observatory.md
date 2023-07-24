@@ -7,7 +7,7 @@ techs: ['TypeScript', 'Node.js', 'Tailwind', 'React', 'Next.js']
 live: 'https://observatories.vercel.app/'
 heroImage: 'observatory'
 heroImageAlt: 'Observatory from unsplash'
-content: 6
+content: 8
 md: 'observatory'
 ---
 

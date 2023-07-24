@@ -8,11 +8,7 @@ const posts = Array.from(projectCollection)
     let data = { ...post.data, slug: post.slug }
     return data
   })
-  .sort(
-    (a, b) =>
-      new Date(a!.content).valueOf() -
-      new Date(b!.content).valueOf()
-  )
+  .sort((a, b) => new Date(a!.content).valueOf() - new Date(b!.content).valueOf())
   // At some point rethink this
   .slice(1, 10)
 ---
@@ -34,3 +30,17 @@ const posts = Array.from(projectCollection)
     )
   })
 }
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      } else {
+        entry.target.classList.remove('show')
+      }
+    })
+  })
+  const posts = document.querySelectorAll('.clienthide')
+  posts.forEach(post => observer.observe(post))
+</script>

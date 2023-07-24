@@ -3,7 +3,7 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'RhodesAPI'
 description: 'A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.'
 repository: 'https://github.com/wesngu28/rhodesapi'
-techs: ['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Svelte']
+techs: ['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Redis', 'Svelte']
 live: 'https://rhodesapi.vercel.app/'
 heroImage: 'rhodes'
 heroImageAlt: 'UW quad'

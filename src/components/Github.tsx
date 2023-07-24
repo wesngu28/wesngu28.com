@@ -32,7 +32,7 @@ export default function Github({ url, langs }: Props) {
           <For each={Object.keys(data()!)}>
             {lang => (
               <span
-                title={lang}
+                title={`${lang} - ${data()![lang].toFixed(2)}%}`}
                 style={`width: ${data()![lang]}%; background-color: ${
                   langs[lang].color
                 }; color: ${langs[lang].color}`}

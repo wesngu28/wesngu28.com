@@ -16,11 +16,11 @@ const { techs } = Astro.props
         color = langs[arr].color
       }
       return color ? (
-        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg`}>
+        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg flex justify-center items-center`}>
           <p class="text-sm text-center">{arr}</p>
         </li>
       ) : (
-        <li class={`m-1 p-1 bg-[beige] text-black rounded-lg`}>
+        <li class={`m-1 p-1 bg-[beige] text-black rounded-lg flex justify-center items-center`}>
           <p class="text-sm text-center">{arr}</p>
         </li>
       )

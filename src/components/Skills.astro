@@ -3,7 +3,7 @@ import SkillCard from './SkillCard.astro'
 import mongo from '../assets/skills/mongo.png'
 import redis from '../assets/skills/redis.png'
 import markdown from '../assets/skills/markdown.png'
-import flask from '../assets/skills/flask.png'
+import fastapi from '../assets/skills/fastapi.png'
 import python from '../assets/skills/python.png'
 import sql from '../assets/skills/sql.png'
 import nuxt from '../assets/skills/nuxt.png'
@@ -20,7 +20,7 @@ import bootstrap from '../assets/skills/bootstrap.png'
 import sass from '../assets/skills/sass.png'
 import css from '../assets/skills/css.png'
 import html from '../assets/skills/html.png'
-import opensuse from '../assets/skills/opensuse.png'
+import powershell from '../assets/skills/powershell.png'
 import docker from '../assets/skills/docker.png'
 import git from '../assets/skills/git.png'
 import linux from '../assets/skills/linux.png'
@@ -30,11 +30,11 @@ import linux from '../assets/skills/linux.png'
   <h1 class="text-center text-2xl p-4 font-bold">⚙️ Skills ✏️</h1>
   <ul class="grid place-items-center w-[375px] grid-cols-1 sm:w-auto sm:h-auto sm:grid-cols-2 xl:grid-cols-4 gap-4">
     <SkillCard
-      images={[linux, git, opensuse, docker, windows, markdown]}
+      images={[linux, git, powershell, docker, windows, markdown]}
       name={['Linux', 'Git', 'OpenSuse', 'Docker', 'Windows', 'Markdown']}
       heading={'Developer Tools'}
       grid={'grid grid-cols-3'}
-      desc={'The primary operating systems and developer tools that I am most familiar with. While I have used Windows my entire life, I recently swapped my productivity machines to OpenSuse Tumbleweed. Over the summer of 2021, I became familiar with Docker during my home server setup.'}
+      desc={'The primary developer tools that I am most familiar with. In terms of operating systems, while I have used Windows my entire life, I have used many Linux distributions, and am currently using Siduction as a daily driver. Over the summer of 2021, I became familiar with Docker during my home server setup.'}
     />
     <SkillCard
       images={[html, css, bootstrap, sass, js, ts]}
@@ -52,7 +52,7 @@ import linux from '../assets/skills/linux.png'
       desc={'I was once afraid to learn a JavaScript framework, and now I am afraid to ever go back. My favorite frameworks are React and Svelte, but I also learned Vue and Solid, the latter I am very interested in. I also know SvelteKit, Next.js, and Nuxt.js. I am familiar with also using Vite and its large plugin ecosystem.'}
     />
     <SkillCard
-      images={[node, python, flask, sql, mongo, redis]}
+      images={[node, python, fastapi, sql, mongo, redis]}
       name={['Node.js', 'Python', 'Flask', 'SQL', 'MongoDB', 'Redis']}
       heading={'Backend'}
       grid={'grid grid-cols-3'}

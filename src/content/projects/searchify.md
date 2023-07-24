@@ -7,7 +7,7 @@ live: 'https://searchifyy.vercel.app/'
 techs: ['TypeScript', 'Python', 'React', 'Next.js', 'Flask']
 heroImage: 'searchify'
 heroImageAlt: 'Searchify'
-content: 8
+content: 10
 md: 'searchify'
 ---
 

@@ -6,8 +6,7 @@ repository: 'https://github.com/wesngu28/nfl-typer'
 techs: ['TypeScript', 'Nuxt.js', 'Vue', 'Tailwind']
 heroImage: 'nfl'
 heroImageAlt: 'NFL Typer'
-content: 7
-# md: 'closure'
+content: 9
 ---
 
 A multifunctional discord bot offering simple utilities and commands like Arknights operator quick information and youtuber live status. I made this to complement RhodesAPI and was my second from start to end personal project. The bot is currently hosted on hmy home server inside of a Docker container.

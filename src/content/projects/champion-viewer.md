@@ -7,7 +7,7 @@ live: 'https://champvuer.vercel.app/'
 techs: ['TypeScript', 'Vue', 'Nuxt.js', 'CSS']
 heroImage: 'champview'
 heroImageAlt: 'Champ Viewer'
-content: 6
+content: 12
 md: 'champion-viewer'
 ---
 

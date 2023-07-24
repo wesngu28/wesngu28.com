@@ -7,7 +7,7 @@ live: 'https://packagetracker.tech/'
 techs: ['TypeScript', 'Mapbox', 'Next.js', 'CSS', 'Auth0', 'Firebase']
 heroImage: 'packagetracker'
 heroImageAlt: 'Package Tracker'
-content: 3
+content: 4
 md: 'package-tracker'
 hackathon: true
 ---

@@ -6,7 +6,7 @@ repository: 'https://github.com/wesngu28/closurets'
 techs: ['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']
 heroImage: 'closure'
 heroImageAlt: 'Closure'
-content: 10
+content: 11
 md: 'closure'
 ---
 

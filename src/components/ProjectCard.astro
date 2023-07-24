@@ -22,7 +22,7 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
 ---
 
 <li
-  class="transition duration-500 hover:scale-105 hover:skew-y-1 p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-[300px] tiny:w-[400px] md:w-auto 2xl:w-3/4"
+  class="clienthide p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-[300px] tiny:w-[400px] md:w-auto 2xl:w-3/4"
 >
   <Image
     loading={'lazy'}
@@ -100,3 +100,21 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
   </div>
   <Techbar techs={techs} />
 </li>
+
+<style>
+  .clienthide {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  @media (prefers-reduced-motion) {
+    .clienthide {
+      transition: none;
+    }
+  }
+</style>
