@@ -13,10 +13,10 @@ const posts = Array.from(projectCollection)
 
 <div class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-20">
   <h1 class="text-center text-2xl p-4 font-bold">Latest Blog Posts</h1>
-  <ul class="w-full flex items-center justify-between flex-wrap">
+  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex-wrap">
     {
       posts.map(post => (
-        <li class="p-4 bg-[#21222a] m-4 text-center">
+        <li class="p-4 bg-[#21222a] rounded-lg m-4 text-center transition duration-500 hover:scale-105">
           <a href={`/blog/${post.slug}`} class="max-w-[240px] inline-block">
             <Image
               class="p-4"

@@ -22,24 +22,14 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
 ---
 
 <li
-  class="p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-[300px] tiny:w-[400px] md:w-auto 2xl:w-3/4"
+  class="transition duration-500 hover:scale-105 hover:skew-y-1 p-4 bg-[#21222a] m-4 flex flex-col justify-center relative rounded-lg place-items-center w-[300px] tiny:w-[400px] md:w-auto 2xl:w-3/4"
 >
-  {md ? <a href={`/projects/${md}`}>
-    <Image
-      loading={'lazy'}
-      format={'webp'}
-      class="hover:scale-105 z-10 ease-out duration-500"
-      alt={`${name} screenshot or related content if no screenshot makes sense`}
-      src={image}
-    />
-  </a> :
-    <Image
-      loading={'lazy'}
-      format={'webp'}
-      alt={`${name} screenshot or related content if no screenshot makes sense`}
-      src={image}
-    />
-  }
+  <Image
+    loading={'lazy'}
+    format={'webp'}
+    alt={`${name} screenshot or related content if no screenshot makes sense`}
+    src={image}
+  />
   <Github langs={langs} url={url} client:idle />
   <div class={`pr-2 pl-2 mb-5`}>
     <div class="mt-4">
@@ -50,7 +40,17 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
           </h2>
         </a>
         <div class="flex items-center">
-          {hackathon && <Image class={"m-1"} width={30} height={30} alt="external link" src={crown} />}
+          {
+            hackathon && (
+              <Image
+                class={'m-1'}
+                width={30}
+                height={30}
+                alt="external link"
+                src={crown}
+              />
+            )
+          }
           <a
             target="_blank"
             href={url}
@@ -73,8 +73,30 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
           }
         </div>
       </div>
-      <p class="m-2 h-24 lg:text-sm ultrawide:text-base">{desc}</p>
+      <p class="m-2 h-24 text-[0.825rem] sm:text-sm ultrawide:text-base">{desc}</p>
     </div>
+    {
+      md && (
+        <a href={`/projects/${md}`}>
+          <div class="flex items-center gap-2 justify-end mr-5">
+          <p>Read More</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-arrow-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+            />
+          </svg>
+          </div>
+        </a>
+      )
+    }
   </div>
   <Techbar techs={techs} />
 </li>

@@ -33,7 +33,7 @@ const dynamicImage = await import(`../assets/projects/${heroImage}.png`)
       imageData={[heroImageAlt, dynamicImage]}
     />
     <div class="w-[100vw] mb-12 relative flex items-center justify-center">
-      <article class="w-full md:w-[75vw] lg:w-[55vw]">
+      <article class="w-full max-w-5xl">
         <div class="prose prose-xl prose-invert max-w-none p-6">
           <slot />
         </div>
