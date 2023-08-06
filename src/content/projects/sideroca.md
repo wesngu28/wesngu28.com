@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/ProjectPost.astro'
 title: 'Sideroca'
-description: 'Sideroca (Simplifying Interactions and Dynamic Enhancements for Remarkable Outcomes in Card Acquisition) is a full-stack web application for NationStates trading cards.'
+description: 'Sideroca is a Next.js and FastAPI powered web application for the NationStates trading card game.'
 repository: 'https://github.com/wesngu28/wesngu28.com'
 live: 'https://wesngu28.com/'
 techs: ['TypeScript', 'Next.js', 'Tailwind', 'FastAPI', 'Postgres', 'Docker']
@@ -11,7 +11,7 @@ content: 3
 md: 'sideroca'
 ---
 
-Sideroca, or Simplifying Interactions and Dynamic Enhancements for Remarkable Outcomes in Card Acquisition, is a full-stack web application that allows users to query over 500,000 cards in the NationStates trading card game for various desired parameters.
+Sideroca is a full-stack web application that allows users to query over 500,000 cards in the NationStates trading card game for various desired parameters.
 
 This just a brain dump of some thoughts I had in post-production.
 
