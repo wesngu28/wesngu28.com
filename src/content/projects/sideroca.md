@@ -2,8 +2,8 @@
 layout: '../../layouts/ProjectPost.astro'
 title: 'Sideroca'
 description: 'Sideroca is a Next.js and FastAPI powered web application for the NationStates trading card game.'
-repository: 'https://github.com/wesngu28/wesngu28.com'
-live: 'https://wesngu28.com/'
+repository: 'https://github.com/wesngu28/sideroca'
+live: 'https://sideroca.com/'
 techs: ['TypeScript', 'Next.js', 'Tailwind', 'FastAPI', 'Postgres', 'Docker']
 heroImage: 'sideroca'
 heroImageAlt: 'Legendary cards in the North Pacific'
