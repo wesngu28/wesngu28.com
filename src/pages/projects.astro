@@ -12,7 +12,6 @@ import concert from '../assets/projects/conert.png'
 import holoboard from '../assets/projects/holoboard.png'
 import procrab from '../assets/projects/procrab.png'
 import replayed from '../assets/projects/replayed.png'
-import cat from '../assets/projects/cat.png'
 import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
 import closure from '../assets/projects/closure.png'
 import thawip from '../assets/projects/tha-wip.png'
@@ -211,3 +210,17 @@ import wp from '../assets/projects/wp.png'
     />
   </div>
 </Base>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      } else {
+        entry.target.classList.remove('show')
+      }
+    })
+  })
+  const posts = document.querySelectorAll('.clienthide')
+  posts.forEach(post => observer.observe(post))
+</script>

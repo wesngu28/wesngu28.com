@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import tes5 from "../assets/gamecover/Skyrim.jpg"
 import hoi4 from "../assets/gamecover/Hearts of Iron IV.jpg"
 import lol from "../assets/gamecover/League of Legends.jpg"
@@ -45,7 +45,7 @@ const games: Array<Game> = [
     img: sc2,
   },
   {
-    name: "Honkai: Star Rail",
+    name: "Honkai Star Rail",
     url: "https://hsr.hoyoverse.com/en-us/home/",
     img: hsr
   },
@@ -66,6 +66,7 @@ const game: Array<Game> = games
 <div class="w-[75vw] md:w-full mb-40">
   <h1 class="text-center text-2xl mb-0">Games</h1>
   <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
+  <p class="p-4 text-center text-xl">Last updated: July 24</p>
   <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
     {
       game.map((game) => (
@@ -76,7 +77,7 @@ const game: Array<Game> = games
                 <Image
                   class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
                   loading="lazy"
-                  src={game.img!.src}
+                  src={game.img!}
                   alt={`${game.name} header`}
                   width={460}
                   height={215}

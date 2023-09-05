@@ -7,7 +7,7 @@ import Techbar from './Techbar.astro'
 import { langs } from '../utils/LanguageList'
 
 import { getCollection } from 'astro:content'
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 const projectCollection = await getCollection('projects')
 const posts = Array.from(projectCollection)
     .map(post => {
