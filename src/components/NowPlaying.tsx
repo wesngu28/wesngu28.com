@@ -1,10 +1,8 @@
-import type { ImgHTMLAttributes } from '@astrojs/image/components'
 import { createEffect, createResource, createSignal } from 'solid-js'
 
 interface spotifyAPI {
   album: string
   albumImageUrl: string
-  albumImageUrlFmt?: ImgHTMLAttributes
   isPlaying?: string
   artist: string
   songUrl: string
@@ -15,7 +13,7 @@ interface spotifyAPI {
 
 const fetchNewData = async () => {
   const songQuery = await fetch('/api/spotify.json')
-  const songJson: spotifyAPI = await JSON.parse(await songQuery.text())
+  const songJson = await JSON.parse(await songQuery.text())
   return songJson
 }
 

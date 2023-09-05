@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import Github from './Github'
 import github from '../assets/github.png'
 import crown from '../assets/crown.png'
@@ -46,7 +46,7 @@ const { techs, image, name, desc, url, live, md, hackathon } = Astro.props
                 class={'m-1'}
                 width={30}
                 height={30}
-                alt="external link"
+                alt="Hackathon winner"
                 src={crown}
               />
             )
