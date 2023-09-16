@@ -32,7 +32,8 @@ const posts = Array.from(projectCollection)
 }
 
 <script>
-  const observer = new IntersectionObserver(entries => {
+  function observer() {
+    const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show')
@@ -43,4 +44,7 @@ const posts = Array.from(projectCollection)
   })
   const posts = document.querySelectorAll('.clienthide')
   posts.forEach(post => observer.observe(post))
+  }
+  observer()
+  document.addEventListener('astro:after-swap', observer)
 </script>

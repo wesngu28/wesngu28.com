@@ -97,7 +97,8 @@ const game: Array<Game> = games
 </div>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
+  function observer() {
+    const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show')
@@ -108,6 +109,9 @@ const game: Array<Game> = games
   })
   const games = document.querySelectorAll('.clienthide')
   games.forEach(game => observer.observe(game))
+  }
+  observer()
+  document.addEventListener('astro:after-swap', observer)
   const gameList: Array<{name: string, url: string}> = [
   {
     name: "Skyrim",

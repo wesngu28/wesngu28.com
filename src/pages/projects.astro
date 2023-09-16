@@ -212,6 +212,7 @@ import wp from '../assets/projects/wp.png'
 </Base>
 
 <script>
+  function observer() {
     const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -223,4 +224,7 @@ import wp from '../assets/projects/wp.png'
   })
   const posts = document.querySelectorAll('.clienthide')
   posts.forEach(post => observer.observe(post))
+  }
+  observer()
+  document.addEventListener('astro:after-swap', observer)
 </script>
