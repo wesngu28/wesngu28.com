@@ -11,7 +11,9 @@ const posts = Array.from(projectCollection)
   .slice(0, 4)
 ---
 
-<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-20">
+<div
+  class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-20"
+>
   <h1 class="text-center text-2xl p-4 font-bold">Latest Blog Posts</h1>
   <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex-wrap">
     {
@@ -43,4 +45,22 @@ const posts = Array.from(projectCollection)
       ))
     }
   </ul>
+  <a class="my-4" href="/blog">
+    <div class="flex gap-4 items-center">
+      <p>View More</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="currentColor"
+        class="bi bi-arrow-right"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+        ></path>
+      </svg>
+    </div>
+  </a>
 </div>
