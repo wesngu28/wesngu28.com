@@ -21,6 +21,7 @@ import doa from '../assets/projects/doa.png'
 import sap from '../assets/projects/sap.png'
 import nspuppet from '../assets/projects/nspuppet.png'
 import wp from '../assets/projects/wp.png'
+import mistralton from '../assets/projects/mistralton.png'
 ---
 
 <!-- At some point these can just be markdown posts -->
@@ -47,9 +48,18 @@ import wp from '../assets/projects/wp.png'
       name={'Procrabstinator'}
       desc={'TreasureHacks hackathon project. Tauri app to help stop procrastination, complete with landing page.'}
     />
+    <ProjectCard
+      techs={['Astro', 'TypeScript', 'Tailwind']}
+      live={'https://mistralton.netlify.app/'}
+      url={'https://github.com/Mistralton/procrabstinator'}
+      image={mistralton}
+      name={'Mistralton'}
+      desc={'Landing page designed and made by me for my hackathon group.'}
+    />
   </div>
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Personal Projects</h2>
   <p class="mt-4">Various personal projects I made for fun and learning.</p>
+  <p>(not in chronological order)</p>
   <div
     class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center"
   >
@@ -214,16 +224,16 @@ import wp from '../assets/projects/wp.png'
 <script>
   function observer() {
     const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show')
-      } else {
-        entry.target.classList.remove('show')
-      }
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        } else {
+          entry.target.classList.remove('show')
+        }
+      })
     })
-  })
-  const posts = document.querySelectorAll('.clienthide')
-  posts.forEach(post => observer.observe(post))
+    const posts = document.querySelectorAll('.clienthide')
+    posts.forEach(post => observer.observe(post))
   }
   observer()
   document.addEventListener('astro:after-swap', observer)
