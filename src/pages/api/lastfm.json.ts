@@ -26,7 +26,7 @@ interface lastfmAPI {
   }
 }
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   try {
     const lastfmKey = await import.meta.env.LASTFM_API_KEY
     let artists: lastfmAPI | { message: string } = { message: ' run' }
@@ -68,10 +68,8 @@ export const get: APIRoute = async () => {
         img: artistResult.artists.items[0].images[2].url,
       })
     }
-    return {
-      body: JSON.stringify(monthlyArtists),
-    }
+    return new Response(JSON.stringify(monthlyArtists))
   } catch (err: any) {
-    return { body: JSON.stringify({ error: err.message }) }
+    return new Response(JSON.stringify({ error: err.message }))
   }
 }

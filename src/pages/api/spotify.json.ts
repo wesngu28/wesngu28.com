@@ -31,7 +31,7 @@ export const getRecentSong = async () => {
   })
 }
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   const response = await getCurrentSong()
 
   if (response.status === 204 || response.status > 400) {
@@ -46,8 +46,7 @@ export const get: APIRoute = async () => {
     const albumImageUrl = song.track.album.images[0].url
     const songUrl = song.track.external_urls.spotify
     const preview = song.track.preview_url
-    return {
-      body: JSON.stringify({
+    return new Response(JSON.stringify({
         album,
         albumImageUrl,
         artist,
@@ -55,8 +54,7 @@ export const get: APIRoute = async () => {
         title,
         preview,
         recent: true,
-      }),
-    }
+    }))
   }
 
   const song = await response.json()
@@ -70,15 +68,13 @@ export const get: APIRoute = async () => {
   const songUrl = song.item.external_urls.spotify
   const preview = song.item.preview_url
 
-  return {
-    body: JSON.stringify({
-      album,
-      albumImageUrl,
-      artist,
-      isPlaying,
-      songUrl,
-      title,
-      preview
-    }),
-  }
+  return new Response(JSON.stringify({
+    album,
+    albumImageUrl,
+    artist,
+    isPlaying,
+    songUrl,
+    title,
+    preview
+  }))
 }
