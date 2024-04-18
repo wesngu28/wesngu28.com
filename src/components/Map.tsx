@@ -1,5 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Map, Marker } from 'mapbox-gl'
+import pkg from 'mapbox-gl'
+const { Map, Marker} = pkg;
 import Chapter from './Chapter'
 import { onMount } from 'solid-js'
 

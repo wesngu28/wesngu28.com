@@ -1,18 +1,7 @@
 import { createEffect, createResource, createSignal } from 'solid-js'
 
-interface spotifyAPI {
-  album: string
-  albumImageUrl: string
-  isPlaying?: string
-  artist: string
-  songUrl: string
-  title: string
-  preview: string
-  recent?: boolean
-}
-
 const fetchNewData = async () => {
-  const songQuery = await fetch('/api/spotify.json')
+  const songQuery = await fetch(`${import.meta.env.PUBLIC_URL}/api/spotify.json`)
   const songJson = await JSON.parse(await songQuery.text())
   return songJson
 }
