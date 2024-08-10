@@ -1,62 +1,11 @@
 ---
 import SkillCard from './SkillCard.astro'
-import mongo from '../assets/skills/mongo.png'
-import redis from '../assets/skills/redis.png'
-import markdown from '../assets/skills/markdown.png'
-import fastapi from '../assets/skills/fastapi.png'
-import python from '../assets/skills/python.png'
-import sql from '../assets/skills/sql.png'
-import nuxt from '../assets/skills/nuxt.png'
-import next from '../assets/skills/next.png'
-import vue from '../assets/skills/vue.png'
-import vite from '../assets/skills/vite.png'
-import svelte from '../assets/skills/svelte.png'
-import react from '../assets/skills/react.png'
-import node from '../assets/skills/node.png'
-import ts from '../assets/skills/ts.png'
-import js from '../assets/skills/js.png'
-import windows from '../assets/skills/windows.png'
-import bootstrap from '../assets/skills/bootstrap.png'
-import sass from '../assets/skills/sass.png'
-import css from '../assets/skills/css.png'
-import html from '../assets/skills/html.png'
-import powershell from '../assets/skills/powershell.png'
-import docker from '../assets/skills/docker.png'
-import git from '../assets/skills/git.png'
-import linux from '../assets/skills/linux.png'
+import skills from '../data/skills.json'
 ---
 
-<div class="w-[100vw] tiny:w-full relative flex flex-col justify-center items-center my-40">
-  <h1 class="text-center text-2xl p-4 font-bold">⚙️ Skills ✏️</h1>
-  <ul class="grid place-items-center w-[375px] grid-cols-1 sm:w-auto sm:h-auto sm:grid-cols-2 xl:grid-cols-4 gap-4">
-    <SkillCard
-      images={[linux, git, powershell, docker, windows, markdown]}
-      name={['Linux', 'Git', 'OpenSuse', 'Docker', 'Windows', 'Markdown']}
-      heading={'Developer Tools'}
-      grid={'grid grid-cols-3'}
-      desc={'The primary developer tools that I am most familiar with. In terms of operating systems, while I have used Windows my entire life, I have used many Linux distributions, and am currently using Siduction as a daily driver. Over the summer of 2021, I became familiar with Docker during my home server setup.'}
-    />
-    <SkillCard
-      images={[html, css, bootstrap, sass, js, ts]}
-      grid={'grid grid-cols-3'}
-      name={['HTML', 'CSS', 'Bootstrap', 'Sass', 'Javascript', 'Typescript']}
-      heading={'Web Essentials'}
-      grid={'grid grid-cols-3'}
-      desc={'The core building blocks of frontend, I am well-versed in both HTML and vanilla CSS and its frameworks. My favorite CSS framework is Tailwind, because of how much it improves the developer experience. I also prefer Typescript, due to its ability to catch errors before runtime and make me more responsible.'}
-    />
-    <SkillCard
-      images={[react, next, svelte, vue, nuxt, vite]}
-      name={['React', 'Next.js', 'Svelte', 'Vue', 'Nuxt.js', 'Vite']}
-      heading={'Javascript'}
-      grid={'grid grid-cols-3'}
-      desc={'I was once afraid to learn a JavaScript framework, and now I am afraid to ever go back. My favorite frameworks are React and Svelte, but I also learned Vue and Solid, the latter I am very interested in. I also know SvelteKit, Next.js, and Nuxt.js. I am familiar with also using Vite and its large plugin ecosystem.'}
-    />
-    <SkillCard
-      images={[node, python, fastapi, sql, mongo, redis]}
-      name={['Node.js', 'Python', 'Flask', 'SQL', 'MongoDB', 'Redis']}
-      heading={'Backend'}
-      grid={'grid grid-cols-3'}
-      desc={'I have experience and familiarity with many backend technologies. The two backend languages I am most familiar with are Node.js and Python, but I can also use Rust, Kotlin/Java, and R. I am familiar with database systems like SQL databases and NoSQL databases. In the future, I want to learn GraphQL.'}
-    />
-  </ul>
+<div class="max-w-7xl relative flex flex-col justify-center items-center my-20">
+  <h1 class="text-center text-2xl p-4 font-bold flex items-center gap-2">⚙️ Skills</h1>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+    {skills.map(skill => <SkillCard name={skill.name} image={skill.image || ''} link={skill.link || ''} />)}
+  </div>
 </div>
