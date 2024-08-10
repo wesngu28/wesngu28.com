@@ -1,0 +1,48 @@
+---
+import { MoveLeft } from 'lucide-astro'
+import ContactLinks from './ContactLinks.astro'
+
+export interface Props {
+  title?: string
+  header: string
+  text: string
+  center?: boolean
+  pubDate?: string
+}
+
+const { header, text, center, pubDate } = Astro.props
+---
+
+<div class="md:pt-16">
+  {
+    pubDate && (
+      <a
+        class="text-2xl underline hover:animate-pulse transform h-max w-max transition duration-500 hover:scale-105"
+        href={'/blog'}
+      >
+        <MoveLeft class="size-8 m-auto" />
+      </a>
+    )
+  }
+  <h1 class="text-6xl font-bold m-4 mb-8 text-center">
+    {header}
+  </h1>
+  <p class={`m-auto text-xl leading-8 max-w-3xl ${center ? 'text-center' : 'text-left'}`}>
+    {text}
+  </p>
+  {
+    pubDate && (
+      <p class="text-lg text-center m-2">
+        <time>
+          {' '}
+          {new Date(pubDate).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </time>
+      </p>
+    )
+  }
+  <ContactLinks />
+</div>

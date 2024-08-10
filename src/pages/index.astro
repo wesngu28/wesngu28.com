@@ -1,16 +1,21 @@
 ---
 import Base from '../layouts/Base.astro'
+import Blurb from '../components/Blurb.astro'
 import Skills from '../components/Skills.astro'
 import Projects from '../components/Projects.astro'
-import MapContainer from '../components/MapContainer.astro'
-import Career from '../components/Career.astro';
-import BlogLanding from '../components/BlogLanding.astro';
+import Career from '../components/Career.astro'
+import BlogLanding from '../components/BlogLanding.astro'
 ---
 
 <Base title="Wesley Nguyen" map={false}>
+  <Blurb
+    title={'Wesley Nguyen'}
+    header={"Hi, I'm Wesley"}
+    text="I am a full-stack web developer. I am drawn to the immediate visual impact of my work on a website and connecting the front-end experience with the power of the backend. I like to bring my ideas to life and create dynamic, user-friendly experiences. Seeing the changes I make reflected on a website is both satisfying and addictive, and I am excited to continue learning and growing."
+    slot={'about'}
+  />
   <Skills />
   <Projects />
   <BlogLanding />
   <Career />
-  <MapContainer />
 </Base>
