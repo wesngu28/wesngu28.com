@@ -12,7 +12,7 @@ This article is essentially just a snapshot and small post about my homelab/self
 
 After finding myself in the position to inherit loads of old computers during my IT internship with International Wood Products in the summer of 2022, I tripped and fell deep into the world of self-hosting. What I particularly liked was being able to run popular services or alternatives to these popular services just on my local network, which could mean faster speeds, more features, or just plainly grant more granular control over the service, app, or program.
 
-A few months later, I became more cognizant and aware of my data privacy, and how my actions can impact them. Combine these two, and it is easy to see how this can easily spiral out of control, with nothing in the way to stop it. 
+A few months later, I became more cognizant and aware of my data privacy, and how my actions can impact them. Combine these two, and it is easy to see how this can easily spiral out of control, with nothing in the way to stop it.
 
 Except money. And time.
 
@@ -33,7 +33,7 @@ This is the main computer used for hosting most of the services and also as file
 
 - VPS on Hetzner
 
-This hosts my [Sideroca](https://sideroca.com) project, a query frontend for a card game. The VPS is running Portainer and Nginx, as well as Postgres, Redis, and a Next.js application.
+This hosts various projects that I want exposed to the internet.
 
 ### Networking
 
