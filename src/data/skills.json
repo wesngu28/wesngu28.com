@@ -1,0 +1,22 @@
+[
+  {
+    "link": "https://www.typescriptlang.org/",
+    "image": "ts",
+    "name": "TypeScript"
+  },
+  {
+    "link": "https://tailwindcss.com/",
+    "image": "tailwind",
+    "name": "Tailwind"
+  },
+  { "link": "https://react.dev/", "image": "react", "name": "React" },
+  { "link": "https://nextjs.org/", "image": null, "name": "Next.js" },
+  { "link": "https://svelte.dev/", "image": "svelte", "name": "Svelte" },
+  { "link": "https://nodejs.org/en", "image": "node", "name": "Node.js" },
+  { "link": "https://www.python.org/", "image": "python", "name": "Python" },
+  { "link": null, "image": "sql", "name": "SQL" },
+  { "link": "https://www.mongodb.com/", "image": "mongo", "name": "MongoDB" },
+  { "link": "https://www.docker.com/", "image": "docker", "name": "Docker" },
+  { "link": "https://kernel.org/", "image": "linux", "name": "Linux" },
+  { "link": "https://git-scm.com/", "image": "git", "name": "Git" }
+]
