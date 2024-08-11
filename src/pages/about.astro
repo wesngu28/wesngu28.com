@@ -1,13 +1,21 @@
 ---
 import Base from '../layouts/Base.astro'
-import Music from '../components/Music.astro'
+import Blurb from '../components/Blurb.astro'
+import Artists from '../components/Artists.astro'
 import Games from '../components/Games.astro'
 import Specs from '../components/Specs.astro'
 import Petfolio from '../components/Petfolio.astro'
+import NowPlaying from '../components/NowPlaying'
 ---
 
 <Base title="About Me" map={false}>
-  <Music />
+  <Blurb
+    header={'Even More About Me'}
+    text="In my free time, I enjoy listening to music, particularly progressive house and j-rock. I also enjoy playing games, including modding games like Skyrim. Some of my favorite content creators are Fireship and Northernlion, and I enjoy watching vtubers. In addition to these hobbies, I have two dogs that I enjoy spending time with. Overall, I am always looking for new and interesting ways to entertain myself and expand my interests."
+    slot={'about'}
+  />
+  <NowPlaying client:idle />
+  <Artists />
   <Games />
   <Specs />
   <Petfolio />

@@ -39,14 +39,13 @@ export const GET: APIRoute = async () => {
     const recentSongs = await response.json()
     const song = recentSongs.items[Math.floor(Math.random() * recentSongs.items.length)]
     const title = song.track.name
-    const artist = song.track.artists
-      .map((_artist: spotifyArtist) => _artist.name)
-      .join(', ')
+    const artist = song.track.artists.map((_artist: spotifyArtist) => _artist.name).join(', ')
     const album = song.track.album.name
     const albumImageUrl = song.track.album.images[0].url
     const songUrl = song.track.external_urls.spotify
     const preview = song.track.preview_url
-    return new Response(JSON.stringify({
+    return new Response(
+      JSON.stringify({
         album,
         albumImageUrl,
         artist,
@@ -54,27 +53,28 @@ export const GET: APIRoute = async () => {
         title,
         preview,
         recent: true,
-    }))
+      })
+    )
   }
 
   const song = await response.json()
   const isPlaying = song.is_playing
   const title = song.item.name
-  const artist = song.item.artists
-    .map((_artist: spotifyArtist) => _artist.name)
-    .join(', ')
+  const artist = song.item.artists.map((_artist: spotifyArtist) => _artist.name).join(', ')
   const album = song.item.album.name
   const albumImageUrl = song.item.album.images[0].url
   const songUrl = song.item.external_urls.spotify
   const preview = song.item.preview_url
 
-  return new Response(JSON.stringify({
-    album,
-    albumImageUrl,
-    artist,
-    isPlaying,
-    songUrl,
-    title,
-    preview
-  }))
+  return new Response(
+    JSON.stringify({
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+      preview,
+    })
+  )
 }
