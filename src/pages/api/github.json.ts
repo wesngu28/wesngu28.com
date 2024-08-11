@@ -1,20 +1,17 @@
 import type { APIRoute } from 'astro'
+import { GITHUB_PERSONAL_TOKEN } from 'astro:env/server'
 
 export const GET: APIRoute = async ({ request }) => {
-  const githubToken = await import.meta.env.GITHUB_PERSONAL_TOKEN
   const url = new URL(request.url)
   const params = new URLSearchParams(url.search)
   const repoName = params.get('repo')
   const author = params.get('author')
 
-  const response = await fetch(
-    `https://api.github.com/repos/${author}/${repoName}/languages`,
-    {
-      headers: {
-        authorization: `token ${githubToken}`,
-      },
-    }
-  )
+  const response = await fetch(`https://api.github.com/repos/${author}/${repoName}/languages`, {
+    headers: {
+      authorization: `token ${GITHUB_PERSONAL_TOKEN}`,
+    },
+  })
 
   const languages = await response.json()
   const langLines: Array<number> = Object.values(languages)
