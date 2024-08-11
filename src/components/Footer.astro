@@ -1,7 +1,9 @@
-<div class="w-screen">
-  <footer class="bg-[#1F2022] p-8 relative flex-shrink-0 w-full">
-    <p class="text-center">Made with Tailwind, Astro, and SolidJS.</p>
-    <p class="mt-3 text-center">Hosted by Vercel.</p>
-    <p class="mt-3 text-center">Wesley Nguyen 2022</p>
-  </footer>
-</div>
+---
+import ContactLinks from './ContactLinks.astro'
+---
+
+<footer class="p-8 relative flex-shrink-0 w-full mb-20">
+  <p class="text-center font-bold text-lg">© 2024 Wesley Nguyen.</p>
+  <p class="mt-3 text-center">Made with Astro.</p>
+  <ContactLinks />
+</footer>
