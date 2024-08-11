@@ -1,5 +1,5 @@
 ---
-import { langs } from '../utils/LanguageList'
+import langs from '../data/language-list.json'
 
 export interface Props {
   techs: string[]
@@ -8,22 +8,23 @@ export interface Props {
 const { techs } = Astro.props
 ---
 
-<ul class={'grid mt-4 grid-cols-3'}>
+<div class={'flex flex-wrap gap-x-4'}>
   {
-    techs.map(arr => {
+    techs.map(tech => {
       let color = ''
-      if (Object.keys(langs).includes(arr)) {
-        color = langs[arr].color
+      if ((langs as {[key:string]: { color: string }} )[tech]) {
+        color = (langs as {[key:string]: { color: string }} )[tech].color
       }
-      return color ? (
-        <li style={`background-color: ${color};`} class={`m-1 p-1 text-black rounded-lg flex justify-center items-center`}>
-          <p class="text-sm text-center">{arr}</p>
-        </li>
-      ) : (
-        <li class={`m-1 p-1 bg-[beige] text-black rounded-lg flex justify-center items-center`}>
-          <p class="text-sm text-center">{arr}</p>
-        </li>
+      return (
+        <div title={tech} class="mt-4 space-x-3 font-mono text-sm">
+          <span
+            style={`border-color: ${color ? color : '#525252'};`}
+            class={`inline-block border rounded-md px-2 py-1`}
+          >
+            {tech}
+          </span>
+        </div>
       )
     })
   }
-</ul>
+</div>

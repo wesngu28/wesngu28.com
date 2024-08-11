@@ -1,25 +1,42 @@
 ---
-import LongProjectDeck from './LongProjectDeck.astro';
-import ProjectDeck from './ProjectDeck.astro'
+import projects from '../data/projects.json'
+import ProjectCard from './ProjectCard.astro'
+import { Palette } from 'lucide-astro'
 ---
 
-<div class="w-[100vw] tiny:w-full my-20 flex flex-col items-center">
-  <h1 class="text-center font-bold text-2xl p-2">🎨 Projects 🖨️</h1>
+<div class="my-20 flex flex-col items-center">
+  <h1 class="text-center text-2xl p-4 font-bold flex items-center gap-2">
+    <Palette class="size-8" /> Projects
+  </h1>
   <p class="m-auto w-72 tiny:w-96 break-normal text-center">
-    I like to make projects that are personal to me so I feel more engaged with my
-    learning. Here are some of the ones I have worked on recently!
+    I like to make projects that are personal to me so I feel more engaged with my learning. Here are some of the ones I
+    have worked on recently!
   </p>
-  <a
-    href="/projects"
-    class="font-bold hover:underline m-4 sm:w-96 break-normal text-center"
-  >
+  <a href="/projects" class="font-bold hover:underline m-4 sm:w-96 break-normal text-center">
     Click me for other projects I've made
   </a>
-  <LongProjectDeck />
-  <ul class="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center">
-    <ProjectDeck />
-  </ul>
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center max-w-[910px]">
+    {
+      projects.map(async project => {
+        return (
+          <ProjectCard
+            techs={project.techs}
+            title={project.title}
+            description={project.description}
+            repository={project.repository}
+            live={project.live}
+            md={project.md}
+            image={project!.image}
+            orientation={project.orientation}
+          />
+        )
+      })
+    }
+  </div>
 </div>
 
-<!-- //https://www.pixiv.net/en/artworks/76168775 rhodes
-//https://www.flickr.com/photos/sfwmd/33645199696 python -->
+<script>
+  import { observer } from "../utils/observer"
+  observer()
+  document.addEventListener('astro:after-swap', observer)
+</script>

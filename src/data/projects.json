@@ -1,0 +1,47 @@
+[
+  {
+    "techs": ["TypeScript", "Tailwind", "Astro", "SolidJS"],
+    "title": "Personal Website",
+    "description": "I built this portfolio/website using Astro, SolidJS, and Tailwind. This project helped me improve my web development skills.",
+    "repository": "https://github.com/wesngu28/wesngu28.com",
+    "live": "https://wesngu28.com",
+    "md": "portfolio",
+    "image": "personal-web",
+    "orientation": "horizontal"
+  },
+  {
+    "techs": ["TypeScript", "Node.js", "Fastify", "MongoDB"],
+    "title": "RhodesAPI",
+    "description": "A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.",
+    "repository": "https://github.com/wesngu28/rhodesapi",
+    "live": "https://rhodesapi.com",
+    "md": "rhodesapi",
+    "image": "rhodes"
+  },
+  {
+    "techs": ["TypeScript", "Tailwind", "Next.js", "Chart.js"],
+    "title": "Package Tracker",
+    "description": "Hackathon winner for Transport Hacks, a web app to track your packages across various carriers. My role was expansive, doing Firebase setup and large parts of the front-end.",
+    "repository": "https://github.com/Mistralton/Package-Tracker",
+    "live": "https://packagetracker.tech/",
+    "image": "packagetracker",
+    "md": "package-tracker"
+  },
+  {
+    "techs": ["TypeScript", "Tailwind", "Next.js", "Chart.js"],
+    "title": "Holoboard",
+    "description": "A web app to monitor the streamers of HoloEN, through a live status tracker, theater board, and sub tracker.",
+    "repository": "https://github.com/wesngu28/rhodesapi",
+    "live": "https://holoboard.vercel.app/",
+    "image": "holoboard"
+  },
+  {
+    "techs": ["TypeScript", "Tailwind", "Next.js", "Supabase"],
+    "title": "Picatso",
+    "description": "A full-stack web app that lets you create cat art with DALLE-2 and share them with the community.",
+    "repository": "https://github.com/wesngu28/picatso",
+    "live": "https://picatso.vercel.app/",
+    "image": "picatso",
+    "md": "picatso"
+  }
+]
