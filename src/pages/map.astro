@@ -1,13 +1,13 @@
 ---
 export const prerender = true
-import Map from '../components/Map'
+import Mapbox from '../components/Mapbox'
 import MapHeader from '../components/MapHeader.astro'
-import Base from '../layouts/Base.astro';
+import Base from '../layouts/Base.astro'
 ---
 
 <Base title="My Map" map={true}>
   <div class="h-[920vh] md:h-[625vh]">
     <MapHeader />
-    <Map client:load />
+    <Mapbox client:load />
   </div>
 </Base>

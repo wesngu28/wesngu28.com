@@ -1,6 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import pkg from 'mapbox-gl'
-const { Map, Marker} = pkg;
+const { Map, Marker } = pkg
 import Chapter from './Chapter'
 import { onMount } from 'solid-js'
 
@@ -92,11 +92,7 @@ export default function ScrollyMap() {
               let marker = null
               if (mapChapter[flyHere].marker)
                 marker = (
-                  <img
-                    loading="lazy"
-                    alt={mapChapter[flyHere].alt}
-                    src={mapChapter[flyHere].marker}
-                  />
+                  <img loading="lazy" alt={mapChapter[flyHere].alt} src={mapChapter[flyHere].marker} />
                 ) as HTMLElement
               let markers = document.getElementsByClassName('mapboxgl-marker')
               for (let i = 0; i < markers.length; i++) {
