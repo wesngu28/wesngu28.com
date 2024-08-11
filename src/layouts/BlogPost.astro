@@ -1,8 +1,4 @@
 ---
-import '../styles/base.css'
-import Footer from '../components/Footer.astro'
-import { Image } from 'astro:assets'
-import BlogPostAbout from '../components/BlogPostAbout.astro'
 export interface Props {
   content: {
     title: string
@@ -14,28 +10,20 @@ export interface Props {
     heroImageAttr: string
   }
 }
-import '@fontsource/lora'
 import Base from './Base.astro'
+import Blurb from '../components/Blurb.astro'
 
 const {
-  content: {
-    title,
-    description,
-    pubDate,
-    updatedDate,
-    heroImage,
-    heroImageAlt,
-    heroImageAttr,
-  },
+  content: { title, description, pubDate, heroImage, heroImageAlt, heroImageAttr },
 } = Astro.props
 ---
 
-<Base title={title} map={true}>
+<Base title={title} map={false}>
+  <Blurb header={title} text={description} slot={'about'} center={true} pubDate={pubDate} />
   <div class="flex flex-col justify-center items-center h-full w-full">
-    <BlogPostAbout header={title} paragraph1={description} />
     <div class="w-[100vw] mb-12 relative flex items-center justify-center">
       <article class="w-full md:w-[75vw] lg:w-[55vw]">
-        <Image
+        <!-- <Image
           alt={heroImageAlt}
           format={'webp'}
           loading={'eager'}
@@ -44,29 +32,11 @@ const {
           height={360}
           src={heroImage}
           class="p-4 m-auto"
-        />
-        {
-          pubDate && (
-            <p class="text-lg text-center m-2">
-              <time>{pubDate}</time>
-            </p>
-          )
-        }
-        {
-          updatedDate && (
-            <div class="text-">
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr />
-        <div class="prose prose-xl prose-invert max-w-none p-6">
+        /> -->
+        <div class="prose prose-xl prose-invert max-w-none p-6 my-20">
           <slot />
         </div>
       </article>
-    </div>
-    <div class="relative">
-      <Footer />
     </div>
   </div>
 </Base>

@@ -1,9 +1,15 @@
 ---
-export const prerender = true;
+export const prerender = true
 import Base from '../layouts/Base.astro'
 import BlogPosts from '../components/BlogPosts.astro'
+import Blurb from '../components/Blurb.astro'
 ---
 
 <Base title="My Blog" map={false}>
+  <Blurb
+    header={'My Blog'}
+    text="Why does this blog exist in the first place? Well, I just wanted a place to be able to type out some thoughts and feelings I have bubbled up inside on various topics, as well as document my projects and things I've learned. Welcome to my corner of rambling and babble."
+    slot={'about'}
+  />
   <BlogPosts />
 </Base>

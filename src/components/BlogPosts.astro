@@ -10,25 +10,24 @@ const posts = Array.from(allBlogPosts)
   .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())
 ---
 
-<div class="mb-16 w-[100vw] relative">
-  <h1 class="mt-11 text-center text-2xl p-4 font-bold">Posts</h1>
-  <ul class="flex items-center justify-center flex-wrap">
-    {
-      posts.map(post => (
-        <li class="p-4 bg-[#21222a] m-4 text-center">
-          <a href={`/blog/${post.slug}`} class="max-w-[480px] inline-block">
-            <Image
-              class="p-4"
-              loading={'eager'}
-              format={'webp'}
-              alt={post.heroImageAlt}
-              height={360}
-              width={480}
-              src={post.heroImage}
-            />
-            <h2 class="text-3xl"> {post.title}</h2>
-            <p class="text-sm mb-4">
-              🕘{' '}
+<div class="mb-16 relative">
+  {
+    posts.map(post => (
+      <div class="my-20">
+        <a href={`/blog/${post.slug}`} class="flex">
+          <Image
+            class="p-4"
+            loading={'eager'}
+            format={'webp'}
+            alt={post.heroImageAlt}
+            height={240}
+            width={360}
+            src={post.heroImage}
+          />
+          <div class="max-w-md text-left my-auto">
+            <h2 class="text-2xl underline"> {post.title}</h2>
+            <p class="text-sm">
+              🕘
               <time datetime={post.pubDate}>
                 {new Date(post.pubDate).toLocaleDateString('en-us', {
                   year: 'numeric',
@@ -38,9 +37,9 @@ const posts = Array.from(allBlogPosts)
               </time>
             </p>
             <p>{post.description}</p>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+          </div>
+        </a>
+      </div>
+    ))
+  }
 </div>
