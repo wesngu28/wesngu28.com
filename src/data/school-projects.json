@@ -1,0 +1,19 @@
+[
+  {
+    "techs": ["R", "Python", "SCSS", "Shiny"],
+    "title": "Social Media Stress",
+    "description": "A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles.",
+    "repository": "https://github.com/info201b-au2022/social-media-stress",
+    "live": "https://p11bc.shinyapps.io/socmed/",
+    "image": "info"
+  },
+  {
+    "techs": ["JavaScript", "Mapbox", "SCSS", "Figma"],
+    "title": "Mapping Terrorism",
+    "description": "A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.",
+    "repository": "https://github.com/wesngu28/mapping-terrorism",
+    "live": "https://wesngu28.github.io/mapping-terrorism/",
+    "image": "mapping-terrorism",
+    "md": "mapping-terrorism"
+  }
+]

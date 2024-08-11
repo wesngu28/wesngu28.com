@@ -1,0 +1,27 @@
+[
+  {
+    "techs": ["Svelte", "SvelteKit", "TypeScript", "Tailwind", "Supabase", "Chart.js"],
+    "title": "Replayed",
+    "description": "SvelteKit game where you guess the rank of user submitted clips, or pick the higher between two clips.",
+    "repository": "https://github.com/Mistralton/replayed",
+    "live": "https://replayed.vercel.app",
+    "image": "replayed"
+  },
+  {
+    "techs": ["Tauri", "Next.js", "TypeScript", "Rust", "SQLite", "Astro"],
+    "title": "Procrabstinator",
+    "description": "TreasureHacks hackathon project. Tauri app to help stop procrastination, complete with landing page.",
+    "repository": "https://github.com/Mistralton/procrabstinator",
+    "live": "https://procrabstinator.vercel.app/",
+    "image": "procrab"
+  },
+  {
+    "techs": ["TypeScript", "Svelte", "Tailwind"],
+    "title": "Mistralton",
+    "description": "Landing page designed and made by me for my hackathon group.",
+    "repository": "https://github.com/Mistralton/Mistralton",
+    "live": "https://mistralton.vercel.app/",
+    "image": "mistralton",
+    "orientation": "horizontal"
+  }
+]

@@ -1,0 +1,153 @@
+[
+  {
+    "techs": ["TypeScript", "Svelte", "Prisma", "CockroachDB"],
+    "title": "Rustboro",
+    "description": "This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.",
+    "repository": "https://github.com/wesngu28/rustboro",
+    "live": "https://rustboro.vercel.app/",
+    "image": "pokemon",
+    "imageAlt": "Rustboro",
+    "md": "rustboro"
+  },
+  {
+    "techs": ["TypeScript", "React", "Tailwind", "Next.js", "Python", "Rust"],
+    "title": "Web Dev Evaluator",
+    "description": "A collaborative full-stack React and Rust project to view Twitter sentiments on a variety of web technologies. Still under development.",
+    "repository": "https://github.com/kyleung1/WebdevEvaluator",
+    "live": "https://webdev-evaluator.vercel.app/",
+    "image": "wde",
+    "imageAlt": "Web Dev Evulator"
+  },
+  {
+    "techs": ["TypeScript", "Svelte", "Tailwind"],
+    "title": "NS Puppeteer",
+    "description": "An auto-login suite for NationStates to help players manage their puppets. Successor to nslogin-web by Auralia.",
+    "repository": "https://github.com/wesngu28/ns-puppeteer",
+    "live": "https://ns-puppeteer.vercel.app/",
+    "image": "nspuppet"
+  },
+  {
+    "techs": ["Astro", "Tailwind", "Playwright"],
+    "title": "Kessoku Band",
+    "description": "A landing page for Kessoku Band, the band featured in the anime series Bocchi the Rock, made with Astro.",
+    "repository": "https://github.com/wesngu28/kessokuband",
+    "live": "https://kessokuband.vercel.app",
+    "image": "kessoku"
+  },
+  {
+    "techs": ["TypeScript", "Solid", "Solid Start", "Tailwind"],
+    "title": "DOA3 Browser",
+    "description": "A viewer for images from the cast of Dead or Alive 3, a fighting game, made to learn Solid Start.",
+    "repository": "https://github.com/wesngu28/doabrowser",
+    "live": "https://doabrowser.vercel.app/",
+    "image": "doa"
+  },
+  {
+    "techs": ["JavaScript", "Svelte", "Tailwind", "Supabase"],
+    "title": "Gwen",
+    "description": "SvelteKit url shortener with a Supabase backend that works with and without login.",
+    "repository": "https://github.com/wesngu28/seamstress",
+    "live": "https://gwen.vercel.app",
+    "image": "gwen"
+  },
+  {
+    "techs": ["TypeScript", "React", "Next.js", "Cypress", "CSS"],
+    "title": "Game Hunter",
+    "description": "Combines aspects from Steam, Twitch, and IsThereAnyDeal APIs to show info for a queried game.",
+    "repository": "https://github.com/wesngu28/game-hunter",
+    "live": "https://gameinfohunter.netlify.app",
+    "image": "gamehunter"
+  },
+  {
+    "techs": ["TypeScript", "Node.js", "Tailwind", "React", "Next.js"],
+    "title": "Observatory",
+    "description": "Web app that helps you manage GitHub stars for JS and Python projects, showing you a list of repositories that you have yet to star.",
+    "repository": "https://github.com/wesngu28/observatory",
+    "live": "https://observatories.vercel.app/",
+    "image": "observatory",
+    "imageAlt": "Observatory from unsplash",
+    "md": "observatory"
+  },
+  {
+    "techs": ["TypeScript", "Nuxt.js", "Vue", "Tailwind"],
+    "title": "NFL Typer",
+    "description": "A small little game where you have to type as many NFL players you can in 60 seconds, with filterable team and position.",
+    "repository": "https://github.com/wesngu28/nfltyper",
+    "live": "https://nfl-typer.vercel.app/",
+    "image": "nfl"
+  },
+  {
+    "techs": ["TypeScript", "Node.js", "Discord.js", "MongoDB", "Docker"],
+    "title": "Closure",
+    "description": "Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.",
+    "repository": "https://github.com/wesngu28/closurets",
+    "live": "https://closurets.vercel.app/",
+    "image": "closure",
+    "md": "closure"
+  },
+  {
+    "techs": ["TypeScript", "Python", "React", "Next.js", "Flask"],
+    "title": "Searchify",
+    "description": "This website allows you to search Spotify artists, tracks, playlists, or albums, and get recommendations. You can also log in to learn about your listening habits.",
+    "repository": "https://github.com/mm/searchify",
+    "live": "https://searchifyy.vercel.app/",
+    "image": "searchify",
+    "imageAlt": "Searchify",
+    "md": "searchify"
+  },
+  {
+    "techs": ["TypeScript", "Vue", "Nuxt.js", "CSS"],
+    "title": "Champion Vuer",
+    "description": "A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.",
+    "repository": "https://github.com/wesngu28/champion-vuer",
+    "live": "https://champvuer.vercel.app/",
+    "image": "champview",
+    "md": "champion-viewer"
+  },
+  {
+    "techs": ["TypeScript", "Tailwind", "React", "Next.js", "Python", "R"],
+    "title": "Qatar 2022 Player Map",
+    "description": "This project maps the birthplaces of all the players at Qatar 2022, as well as other data visualizations.",
+    "repository": "https://github.com/wesngu28/world-cup-players",
+    "live": "https://qatarwcplayers.vercel.app/",
+    "image": "wc"
+  },
+  {
+    "techs": ["WordPress", "SEO"],
+    "title": "Wordpress Portfolio",
+    "description": "A simple portfolio I made emulating this one to learn WordPress.",
+    "repository": "https://github.com/wesngu28/doabrowser",
+    "live": "https://doabrowser.vercel.app/",
+    "image": "wp"
+  },
+  {
+    "techs": ["TypeScript", "Tailwind", "React", "Next.js"],
+    "title": "co2x5 Recipe Blog",
+    "description": "A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account.",
+    "repository": "https://github.com/wesngu28/recipe-blog",
+    "live": "https://co2x5.vercel.app/",
+    "image": "food"
+  },
+  {
+    "techs": ["Svelte", "Tailwind", "SvelteKit", "Typescript"],
+    "title": "Let's Ride Dashboard",
+    "description": "Dashboard I made to display some of the relevant information regarding the Russell Wilson trade.",
+    "repository": "https://github.com/wesngu28/lets-ride",
+    "live": "https://letsride.vercel.app/",
+    "image": "trade"
+  },
+  {
+    "techs": ["Python", "Tkinter"],
+    "title": "Twitter Translator",
+    "description": "A Python GUI that requests user input for a twitter profile and translate their tweets to English.",
+    "repository": "https://github.com/wesngu28/Twitter-Translator",
+    "image": "translator"
+  },
+  {
+    "techs": ["Python", "Jupyter Notebook", "SKLearn"],
+    "title": "EDM Prediction Model",
+    "description": "A model that predicts the genre of an EDM song after being trained on playlist songs. First project.",
+    "repository": "https://github.com/wesngu28/edm-prediction-model",
+    "image": "concert"
+  }
+]

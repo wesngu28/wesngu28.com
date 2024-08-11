@@ -1,223 +1,97 @@
 ---
 import Base from '../layouts/Base.astro'
-import gwen from '../assets/projects/gwen.png'
+import hackathonProjects from '../data/hackathon-projects.json'
+import otherProjects from '../data/other-projects.json'
+import schoolProjects from '../data/school-projects.json'
+
 import ProjectCard from '../components/ProjectCard.astro'
-import gamehunter from '../assets/projects/gamehunter.png'
-import translator from '../assets/projects/translator.png'
-import wc from '../assets/projects/wcpng.png'
-import recipe from '../assets/projects/food.png'
-import info from '../assets/projects/info.png'
-import trade from '../assets/projects/trade.png'
-import concert from '../assets/projects/conert.png'
-import holoboard from '../assets/projects/holoboard.png'
-import procrab from '../assets/projects/procrab.png'
-import replayed from '../assets/projects/replayed.png'
-import mappingTerrorism from '../assets/projects/mapping-terrorism.png'
-import closure from '../assets/projects/closure.png'
-import thawip from '../assets/projects/tha-wip.png'
-import kessoku from '../assets/projects/kessoku.png'
-import champview from '../assets/projects/champview.png'
-import doa from '../assets/projects/doa.png'
-import sap from '../assets/projects/sap.png'
-import nspuppet from '../assets/projects/nspuppet.png'
-import wp from '../assets/projects/wp.png'
-import mistralton from '../assets/projects/mistralton.png'
+import Blurb from '../components/Blurb.astro'
 ---
 
 <!-- At some point these can just be markdown posts -->
 <Base title="Projects" map={false}>
-  <h1 class="font-bold text-4xl tracking-tight mt-16">Other Projects</h1>
+  <Blurb
+    header={'Other Projects'}
+    text="I've made many projects in an effort to expand my skills and learn. Here are the ones that did not get shown on the home page."
+    slot={'about'}
+  />
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Hackathons</h2>
   <p class="mt-4">I made these projects as a part of various hackathons.</p>
-  <div
-    class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center"
-  >
-    <ProjectCard
-      techs={['Svelte', 'SvelteKit', 'TypeScript', 'Tailwind', 'Supabase', 'Chart.js']}
-      live={'https://replayedgg.vercel.app'}
-      url={'https://github.com/Mistralton/Replayed'}
-      image={replayed}
-      name={'Replayed'}
-      desc={'SvelteKit game where you guess the rank of user submitted clips, or pick the higher between two clips.'}
-    />
-    <ProjectCard
-      techs={['Tauri', 'Next.js', 'TypeScript', 'Rust', 'SQLite', 'Astro']}
-      live={'https://procrabstinator.vercel.app/'}
-      url={'https://github.com/Mistralton/procrabstinator'}
-      image={procrab}
-      name={'Procrabstinator'}
-      desc={'TreasureHacks hackathon project. Tauri app to help stop procrastination, complete with landing page.'}
-    />
-    <ProjectCard
-      techs={['Astro', 'TypeScript', 'Tailwind']}
-      live={'https://mistralton.netlify.app/'}
-      url={'https://github.com/Mistralton/procrabstinator'}
-      image={mistralton}
-      name={'Mistralton'}
-      desc={'Landing page designed and made by me for my hackathon group.'}
-    />
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center max-w-[910px]">
+    {
+      hackathonProjects.map(async project => {
+        return (
+          <ProjectCard
+            techs={project.techs}
+            title={project.title}
+            description={project.description}
+            repository={project.repository}
+            live={project.live}
+            image={project.image}
+            orientation={project.orientation}
+          />
+        )
+      })
+    }
   </div>
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">Personal Projects</h2>
   <p class="mt-4">Various personal projects I made for fun and learning.</p>
   <p>(not in chronological order)</p>
-  <div
-    class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center"
-  >
-    <ProjectCard
-      techs={['TypeScript', 'Svelte', 'Tailwind']}
-      live={'https://ns-puppeteer.vercel.app/'}
-      url={'https://github.com/wesngu28/ns-puppeteer'}
-      image={nspuppet}
-      name={'NS Puppeteer'}
-      desc={'An auto-login suite for NationStates to help players manage their puppets. Successor to nslogin-web by Auralia.'}
-    />
-    <ProjectCard
-      techs={['Astro', 'Tailwind', 'Playwright']}
-      live={'https://kessokuband.vercel.app'}
-      url={'https://github.com/wesngu28/kessokuband'}
-      image={kessoku}
-      name={'Kessoku Band'}
-      desc={'A landing page for Kessoku Band, the band featured in the anime series Bocchi the Rock, made with Astro.'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Solid', 'Solid Start', 'Tailwind']}
-      live={'https://doabrowser.vercel.app/'}
-      url={'https://github.com/wesngu28/doabrowser'}
-      image={doa}
-      name={'DOA3 Browser'}
-      desc={'A viewer for images from the cast of Dead or Alive 3, a fighting game, made to learn Solid Start.'}
-    />
-    <ProjectCard
-      techs={['JavaScript', 'Svelte', 'Tailwind', 'Supabase']}
-      live={'https://gwen.vercel.app'}
-      url={'https://github.com/wesngu28/seamstress'}
-      image={gwen}
-      name={'Gwen'}
-      desc={'SvelteKit url shortener with a Supabase backend that works with and without login.'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'React', 'Next.js', 'Cypress', 'CSS']}
-      live={'https://gameinfohunter.netlify.app'}
-      url={'https://github.com/wesngu28/game-hunter'}
-      image={gamehunter}
-      name={'Game Hunter'}
-      desc={'Combines aspects from Steam, Twitch, and IsThereAnyDeal APIs to show info for a queried game.'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Tailwind', 'Next.js', 'Chart.js', 'React', 'Node.js']}
-      live={'https://holoboard.vercel.app/'}
-      url={'https://github.com/wesngu28/holoboard'}
-      image={holoboard}
-      name={'Holoboard'}
-      desc={'A web app to monitor the streamers of HoloEN, through a live status tracker, theater board, and sub tracker. Also has Onion mp3.'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Docker']}
-      live={'https://closurets.vercel.app/'}
-      url={'https://github.com/wesngu28/closurets'}
-      image={closure}
-      name={'Closure'}
-      desc={'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'}
-      md={'closure'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Vue', 'Nuxt.js', 'CSS']}
-      live={'https://champvuer.vercel.app/'}
-      url={'https://github.com/wesngu28/champion-vuer'}
-      image={champview}
-      name={'Champion Vuer'}
-      desc={'A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.'}
-      md={'champion-viewer'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Tailwind', 'React', 'Next.js', 'Python', 'R']}
-      live={'https://qatarwcplayers.vercel.app/'}
-      url={'https://github.com/wesngu28/world-cup-players'}
-      image={wc}
-      name={'Qatar 2022 Player Map'}
-      desc={'This project maps the birthplaces of all the players at Qatar 2022, as well as other data visualizations.'}
-    />
-    <ProjectCard
-      techs={['WordPress', 'SEO']}
-      live={'https://doabrowser.vercel.app/'}
-      url={'https://github.com/wesngu28/doabrowser'}
-      image={wp}
-      name={'Wordpress Portfolio'}
-      desc={'A simple portfolio I made emulating this one to learn WordPress.'}
-    />
-    <ProjectCard
-      techs={['TypeScript', 'Tailwind', 'React', 'Next.js']}
-      live={'https://co2x5.vercel.app/'}
-      url={'https://github.com/wesngu28/recipe-blog'}
-      image={recipe}
-      name={'co2x5 Recipe Blog'}
-      desc={"A web app that serves as the source code for a recipe blog I made for my Aunt's instagram account."}
-    />
-    <ProjectCard
-      techs={['Svelte', 'Tailwind', 'SvelteKit', 'Typescript']}
-      live={'https://letsride.vercel.app/'}
-      url={'https://github.com/wesngu28/lets-ride'}
-      image={trade}
-      name={"Let's Ride Dashboard"}
-      desc={'Dashboard I made to display some of the relevant information regarding the Russell Wilson trade.'}
-    />
-    <ProjectCard
-      techs={['Python', 'Tkinter']}
-      url={'https://github.com/wesngu28/Twitter-Translator'}
-      image={translator}
-      name={'Twitter Translator'}
-      desc={'A Python GUI that requests user input for a twitter profile and translate their tweets to English.'}
-    />
-    <ProjectCard
-      techs={['Python', 'Jupyter Notebook', 'SKLearn']}
-      url={'https://github.com/wesngu28/edm-prediction-model'}
-      image={concert}
-      name={'EDM Prediction Model'}
-      desc={'A model that predicts the genre of an EDM song after being trained on playlist songs. First project.'}
-    />
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center max-w-[910px]">
+    {
+      otherProjects.map(async project => {
+        return (
+          <ProjectCard
+            techs={project.techs}
+            title={project.title}
+            description={project.description}
+            repository={project.repository}
+            md={project.md}
+            live={project.live}
+            image={project.image}
+          />
+        )
+      })
+    }
   </div>
-  <h2 class="mt-16 font-semibold tracking-tighter text-3xl">In-Progress or On-Hold</h2>
+  <!-- <h2 class="mt-16 font-semibold tracking-tighter text-3xl">In-Progress or On-Hold</h2>
   <p class="mt-4">Projects that are incomplete and I am working on or on-hold.</p>
   <div
     class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center"
   >
     <ProjectCard
       techs={['TypeScript', 'React', 'Redux', 'Next.js', 'Supabase', 'Stripe']}
-      url={'https://github.com/wesngu28/septim-shop'}
+      url={'https://github.com/matthewmercer/septim-shop'}
       image={thawip}
       name={'Imperial Housing Agency'}
       desc={'An on-hold e-commerce website, for the citizens of Tamriel to purchase homes throughout Cyrodiil and Skyrim. I want to get the best screenshots possible.'}
     />
     <ProjectCard
       techs={['Python', 'Django', 'MySQL']}
-      url={'https://github.com/wesngu28/sapdb'}
+      url={'https://github.com/matthewmercer/sapdb'}
       image={sap}
       name={'Super Auto Pets DB'}
       desc={'An on-hold API and frontend for the game Super Auto Pets. I plan to restart development on this using Drizzle and a JS framework.'}
     />
-  </div>
+  </div> -->
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">School Projects</h2>
   <p class="mt-4">Projects I made with groups during my time at UW.</p>
-  <div
-    class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center mb-16"
-  >
-    <ProjectCard
-      techs={['R', 'Python', 'SCSS', 'Shiny']}
-      live={'https://p11bc.shinyapps.io/socmed/'}
-      url={'https://github.com/info201b-au2022/social-media-stress'}
-      image={info}
-      name={'Social Media Stress'}
-      desc={'A web app for INFO 201 that analyzes stress and social media. Managed the data with Python and styles.'}
-    />
-    <ProjectCard
-      techs={['JavaScript', 'Mapbox', 'SCSS', 'Figma']}
-      live={'https://wesngu28.github.io/mapping-terrorism/'}
-      url={'https://github.com/wesngu28/mapping-terrorism'}
-      image={mappingTerrorism}
-      name={'Mapping Terrorism'}
-      desc={'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'}
-      md="mapping-terrorism"
-    />
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center max-w-[910px] mb-20">
+    {
+      schoolProjects.map(async project => {
+        return (
+          <ProjectCard
+            techs={project.techs}
+            title={project.title}
+            description={project.description}
+            repository={project.repository}
+            md={project.md}
+            live={project.live}
+            image={project.image}
+          />
+        )
+      })
+    }
   </div>
 </Base>
 
