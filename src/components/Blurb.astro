@@ -1,6 +1,10 @@
 ---
 import { MoveLeft } from 'lucide-astro'
 import ContactLinks from './ContactLinks.astro'
+import { Image } from 'astro:assets'
+import Techbar from './Techbar.astro'
+import langs from '../data/language-list.json'
+import Github from './Github'
 
 export interface Props {
   title?: string
@@ -8,17 +12,21 @@ export interface Props {
   text: string
   center?: boolean
   pubDate?: string
+  repository?: string
+  techs?: string[]
+  imageData?: [string, any]
 }
 
-const { header, text, center, pubDate } = Astro.props
+const { header, text, center, pubDate, repository, techs, imageData } = Astro.props
 ---
 
-<div class="md:pt-16">
+<div class="pt-16">
   {
-    pubDate && (
+    (pubDate || repository) && (
       <a
         class="text-2xl underline hover:animate-pulse transform h-max w-max transition duration-500 hover:scale-105"
-        href={'/blog'}
+        onclick="window.history.back()"
+        role="button"
       >
         <MoveLeft class="size-8 m-auto" />
       </a>
@@ -27,6 +35,15 @@ const { header, text, center, pubDate } = Astro.props
   <h1 class="text-6xl font-bold m-4 mb-8 text-center">
     {header}
   </h1>
+  { imageData &&
+    <Image
+      alt={imageData[0]}
+      format={'webp'}
+      loading={'eager'}
+      class="max-w-lg p-4 mx-auto mb-8"
+      src={imageData[1].default}
+    />
+  }
   <p class={`m-auto text-xl leading-8 max-w-3xl ${center ? 'text-center' : 'text-left'}`}>
     {text}
   </p>
@@ -44,5 +61,15 @@ const { header, text, center, pubDate } = Astro.props
       </p>
     )
   }
+  <div class="max-w-md flex flex-col mx-auto mt-4">
+    {
+      repository && (
+        <>
+          <Github langs={langs} url={repository} client:idle />
+          {techs && <Techbar techs={techs} margin='auto' />}
+        </>
+      )
+    }
+  </div>
   <ContactLinks />
 </div>

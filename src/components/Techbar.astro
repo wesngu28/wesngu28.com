@@ -3,12 +3,13 @@ import langs from '../data/language-list.json'
 
 export interface Props {
   techs: string[]
+  margin?: string
 }
 
-const { techs } = Astro.props
+const { techs, margin } = Astro.props
 ---
 
-<div class={'flex flex-wrap gap-x-4'}>
+<div class={`flex flex-wrap gap-x-4 ${margin && "m-auto"}`}>
   {
     techs.map(tech => {
       let color = ''

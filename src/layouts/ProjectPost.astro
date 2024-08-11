@@ -1,7 +1,6 @@
 ---
 import '../styles/base.css'
 import Footer from '../components/Footer.astro'
-import BlogPostAbout from '../components/BlogPostAbout.astro'
 export interface Props {
   content: {
     title: string
@@ -12,8 +11,8 @@ export interface Props {
     heroImageAlt: string
   }
 }
-import '@fontsource/lora'
 import Base from './Base.astro'
+import Blurb from '../components/Blurb.astro'
 
 const {
   content: { title, description, techs, repository, heroImage, heroImageAlt },
@@ -22,25 +21,23 @@ const {
 const dynamicImage = await import(`../assets/projects/${heroImage}.png`)
 ---
 
-<Base title={title} map={true}>
+<Base title={title} map={false}>
+  <Blurb
+    header={title}
+    text={description}
+    slot={'about'}
+    center={true}
+    repository={repository}
+    techs={techs}
+    imageData={[heroImageAlt, dynamicImage]}
+  />
   <div class="flex flex-col justify-center items-center h-full w-full">
-    <BlogPostAbout
-      header={title}
-      paragraph1={description}
-      repository={repository}
-      techs={techs}
-      nav={false}
-      imageData={[heroImageAlt, dynamicImage]}
-    />
     <div class="w-[100vw] mb-12 relative flex items-center justify-center">
-      <article class="w-full max-w-5xl">
-        <div class="prose prose-xl prose-invert max-w-none p-6">
+      <article class="w-full max-w-xl md:max-w-3xl lg:max-w-5xl">
+        <div class="prose prose-xl prose-invert max-w-none p-6 my-20">
           <slot />
         </div>
       </article>
-    </div>
-    <div class="relative">
-      <Footer />
     </div>
   </div>
 </Base>
