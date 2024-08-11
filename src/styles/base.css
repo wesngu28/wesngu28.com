@@ -12,21 +12,6 @@
   }
 }
 
-@layer components {
-  .arrow {
-    @apply w-10 h-10 rounded-full bg-[#35373a] flex items-center justify-center cursor-pointer transition-transform duration-200 ease-in-out;
-  }
-  .arrow::before {
-    @apply w-2 h-2 rounded-full bg-black transform rotate-45;
-  }
-  .arrow:hover {
-    @apply transform scale-110;
-  }
-  .arrow:active {
-    @apply transform scale-90;
-  }
-}
-
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -35,5 +20,21 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .clienthide {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  @media (prefers-reduced-motion) {
+    .clienthide {
+      transition: none;
+    }
   }
 }
