@@ -9,12 +9,12 @@ export interface Props {
 const { techs, margin } = Astro.props
 ---
 
-<div class={`flex flex-wrap gap-x-4 ${margin && "m-auto"}`}>
+<div class={`flex flex-wrap gap-x-4 ${margin && 'm-auto'}`}>
   {
     techs.map(tech => {
       let color = ''
-      if ((langs as {[key:string]: { color: string }} )[tech]) {
-        color = (langs as {[key:string]: { color: string }} )[tech].color
+      if ((langs as { [key: string]: { color: string } })[tech]) {
+        color = (langs as { [key: string]: { color: string } })[tech].color
       }
       return (
         <div title={tech} class="mt-4 space-x-3 font-mono text-sm">

@@ -39,7 +39,9 @@ export default function NowPlaying() {
 
   return (
     <div class="my-20">
-      <p class={`text-center text-2xl mb-4`}>{recent() ? 'Recently Played on Spotify' : 'Currently Live on Spotify'}</p>
+      <p class={`text-center text-2xl font-bold mb-4`}>
+        {recent() ? 'Recently Played on Spotify' : 'Currently Live on Spotify'}
+      </p>
       <div class="w-max max-w-[320px] m-auto">
         <a
           class={`m-auto transition-opacity duration-300 ${visible() ? 'animate-slideshow' : 'opacity-0'}`}

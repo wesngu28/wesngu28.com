@@ -54,26 +54,6 @@ import Blurb from '../components/Blurb.astro'
       })
     }
   </div>
-  <!-- <h2 class="mt-16 font-semibold tracking-tighter text-3xl">In-Progress or On-Hold</h2>
-  <p class="mt-4">Projects that are incomplete and I am working on or on-hold.</p>
-  <div
-    class="grid grid-cols-1 md:gap-16 md:grid-cols-2 xl:grid-cols-3 place-items-center"
-  >
-    <ProjectCard
-      techs={['TypeScript', 'React', 'Redux', 'Next.js', 'Supabase', 'Stripe']}
-      url={'https://github.com/matthewmercer/septim-shop'}
-      image={thawip}
-      name={'Imperial Housing Agency'}
-      desc={'An on-hold e-commerce website, for the citizens of Tamriel to purchase homes throughout Cyrodiil and Skyrim. I want to get the best screenshots possible.'}
-    />
-    <ProjectCard
-      techs={['Python', 'Django', 'MySQL']}
-      url={'https://github.com/matthewmercer/sapdb'}
-      image={sap}
-      name={'Super Auto Pets DB'}
-      desc={'An on-hold API and frontend for the game Super Auto Pets. I plan to restart development on this using Drizzle and a JS framework.'}
-    />
-  </div> -->
   <h2 class="mt-16 font-semibold tracking-tighter text-3xl">School Projects</h2>
   <p class="mt-4">Projects I made with groups during my time at UW.</p>
   <div class="mt-5 grid grid-cols-1 md:grid-cols-2 place-items-center max-w-[910px] mb-20">
@@ -96,19 +76,7 @@ import Blurb from '../components/Blurb.astro'
 </Base>
 
 <script>
-  function observer() {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        } else {
-          entry.target.classList.remove('show')
-        }
-      })
-    })
-    const posts = document.querySelectorAll('.clienthide')
-    posts.forEach(post => observer.observe(post))
-  }
+  import { observer } from '../utils/observer'
   observer()
   document.addEventListener('astro:after-swap', observer)
 </script>

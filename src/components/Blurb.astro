@@ -35,14 +35,16 @@ const { header, text, center, pubDate, repository, techs, imageData } = Astro.pr
   <h1 class="text-6xl font-bold m-4 mb-8 text-center">
     {header}
   </h1>
-  { imageData &&
-    <Image
-      alt={imageData[0]}
-      format={'webp'}
-      loading={'eager'}
-      class="max-w-lg p-4 mx-auto mb-8"
-      src={imageData[1].default}
-    />
+  {
+    imageData && (
+      <Image
+        alt={imageData[0]}
+        format={'webp'}
+        loading={'eager'}
+        class="max-w-lg p-4 mx-auto mb-8"
+        src={imageData[1].default}
+      />
+    )
   }
   <p class={`m-auto text-xl leading-8 max-w-3xl ${center ? 'text-center' : 'text-left'}`}>
     {text}
@@ -66,7 +68,7 @@ const { header, text, center, pubDate, repository, techs, imageData } = Astro.pr
       repository && (
         <>
           <Github langs={langs} url={repository} client:idle />
-          {techs && <Techbar techs={techs} margin='auto' />}
+          {techs && <Techbar techs={techs} margin="auto" />}
         </>
       )
     }
