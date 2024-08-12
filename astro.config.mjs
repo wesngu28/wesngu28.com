@@ -27,6 +27,8 @@ export default defineConfig({
             SPOTIFY_REFRESH_TOKEN: envField.string({ context: "server", access: "secret" }),
             LASTFM_API_KEY: envField.string({ context: "server", access: "secret" }),
             GITHUB_PERSONAL_TOKEN: envField.string({ context: "server", access: "secret" }),
+            STEAM_KEY: envField.string({ context: "server", access: "secret" }),
+            STEAM_ID: envField.string({ context: "server", access: "secret" })
         }
     }
   }

@@ -1,184 +1,68 @@
 ---
-import { Image } from 'astro:assets'
-import tes5 from "../assets/gamecover/Skyrim.jpg"
-import hoi4 from "../assets/gamecover/Hearts of Iron IV.jpg"
-import lol from "../assets/gamecover/League of Legends.jpg"
-import sap from "../assets/gamecover/Super Auto Pets.jpg"
-import sc2 from "../assets/gamecover/Starcraft 2.jpg"
-import hsr from "../assets/gamecover/HSR.png"
-import ak from "../assets/gamecover/Arknights.jpg"
-import al from "../assets/gamecover/Azur Lane.jpg"
-import sc2game from "../assets/games/Starcraft 2.jpg"
+import games from '../data/games.json'
+import GameCard from './GameCard.astro'
 
-interface Game {
+const steamers = await fetch(`${import.meta.env.PUBLIC_URL}/api/steam.json`)
+const activeGame: {
   name: string
-  url: string
-  img?: ImageMetadata
-  description?: string
-  stats?: ImageMetadata
-}
-
-const games: Array<Game> = [
-  {
-    name: "Skyrim",
-    url: "https://elderscrolls.bethesda.net/en/skyrim",
-    img: tes5,
-  },
-  {
-    name: "Hearts of Iron IV",
-    img: hoi4,
-    url: "https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about"
-  },
-  {
-    name: "Super Auto Pets",
-    url: "https://teamwoodgames.com/",
-    img: sap,
-  },
-  {
-    name: "League of Legends",
-    url: "https://www.leagueoflegends.com/en-us/",
-    img: lol,
-  },
-  {
-    name: "Starcraft 2",
-    url: "https://starcraft2.com/en-us/",
-    img: sc2,
-  },
-  {
-    name: "Honkai Star Rail",
-    url: "https://hsr.hoyoverse.com/en-us/home/",
-    img: hsr
-  },
-  {
-    name: "Arknights",
-    url: "https://www.arknights.global/",
-    img: ak,
-  },
-  {
-    name: "Azur Lane",
-    url: "https://azurlane.yo-star.com/#/",
-    img: al,
-  }
-]
-const game: Array<Game> = games
+  image: string
+  website: string
+  developers: string[]
+  publishers: string[]
+} = await steamers.json()
 ---
 
-<div class="w-[75vw] md:w-full mb-40">
-  <h1 class="text-center text-2xl mb-0">Games</h1>
-  <p class="p-4 text-center text-xl">These are just some games I like playing.</p>
-  <p class="p-4 text-center text-xl">Last updated: July 24</p>
-  <div class="grid grid-cols md:grid-cols-2 lg:grid-cols-4">
-    {
-      game.map((game) => (
-        <div class={`bg-[#21222a] hover:z-50 m-1 inline-block border-b-4 clienthide`}>
-          <div class={`${game.description ? 'hover:scale-125 hover:cursor-pointer z-10 ease-out' : 'null'}`}>
-            <span class="box-border block overflow-hidden w-[initial] h-[initial] bg-none opacity-100 border-none m-0 p-0 relative">
-              <span class="box-border block w-[initial] h-[initial] bg-none opacity-100 border-none m-0 pt-[46.7391%] pb-0 px-0">
-                <Image
-                  class="p-0 block m-auto min-w-full max-w-full max-h-full min-h-full inset-0 w-auto h-auto absolute"
-                  loading="lazy"
-                  src={game.img!}
-                  alt={`${game.name} header`}
-                  width={460}
-                  height={215}
-                />
-              </span>
-            </span>
-          </div>
-        </div>
-      ))
-    }
-  </div>
-  <div class="hidden hoverable:block desc m-4 w-full">
-    <div class="w-full flex flex-col justify-center">
-      <Image class="p-4 m-auto object-contain" src={sc2game} alt={'profile'} />
+<div class="my-20">
+  <h1 class="text-center text-2xl font-bold">Games</h1>
+  {
+    activeGame && (
+      <div class="my-10">
+        <p class="p-4 text-center text-lg">
+          I am currently playing{' '}
+          <a
+            href={activeGame.website}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="hover:underline font-bold"
+            title={`${activeGame.name}${activeGame.developers && activeGame.developers[0] ? ` developed by ${activeGame.developers[0]}` : ''}${activeGame.publishers && activeGame.publishers[0] ? `, published by ${activeGame.publishers[0]}` : ''}`}
+          >
+            {activeGame.name}
+          </a>{' '}
+          on Steam.
+        </p>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href={activeGame.website}
+          class="m-auto"
+          title={`${activeGame.name}${activeGame.developers && activeGame.developers[0] && ` developed by ${activeGame.developers[0]}`}${activeGame.publishers && activeGame.publishers[0] && `, published by ${activeGame.publishers[0]}`}`}
+        >
+          <img class="m-auto" alt={activeGame.name} src={activeGame.image} />
+        </a>
+      </div>
+    )
+  }
+  <div class="my-10">
+    <p class="p-4 text-center text-lg mb-2">These are some games I have been playing.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
+      {
+        games.map(game => (
+          <a target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>
+            <GameCard name={game.name} />
+          </a>
+        ))
+      }
     </div>
   </div>
+
+  <p class="p-4 text-lg mb-2 max-w-lg sm:max-w-xl md:max-w-2xl text-left break-keep">
+    I have historically also enjoyed League of Legends (unfortunately), Hearts of Iron IV (made some competitive
+    multiplayer focused mods), and other strategy games. Currently, I enjoy roguelikes.
+  </p>
 </div>
 
 <script>
-  function observer() {
-    const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show')
-      } else {
-        entry.target.classList.remove('show')
-      }
-    })
-  })
-  const games = document.querySelectorAll('.clienthide')
-  games.forEach(game => observer.observe(game))
-  }
+  import { observer } from '../utils/observer'
   observer()
   document.addEventListener('astro:after-swap', observer)
-  const gameList: Array<{name: string, url: string}> = [
-  {
-    name: "Skyrim",
-    url: "https://elderscrolls.bethesda.net/en/skyrim",
-  },
-  {
-    name: "Hearts of Iron IV",
-    url: "https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about"
-  },
-  {
-    name: "Super Auto Pets",
-    url: "https://teamwoodgames.com/",
-  },
-  {
-    name: "League of Legends",
-    url: "https://www.leagueoflegends.com/en-us/",
-  },
-  {
-    name: "Starcraft 2",
-    url: "https://starcraft2.com/en-us/",
-  },
-  {
-    name: "Honkai Star Rail",
-    url: "https://hsr.hoyoverse.com/en-us/home/",
-  },
-  {
-    name: "Arknights",
-    url: "https://www.arknights.global/",
-  },
-  {
-    name: "Azur Lane",
-    url: "https://azurlane.yo-star.com/#/",
-  }
-]
-
-  const images = document.querySelectorAll('.clienthide img')
-  async function mouseOver(event: Event) {
-    const image = event.target as HTMLImageElement
-    const description = gameList.filter(game => image.alt.includes(game.name))
-    if (description[0]) {
-      const descimg: HTMLImageElement = document.querySelector('.desc img')!
-      if(description[0].name !== 'Hearts of Iron IV' || 'Civilization V') {
-        const img = await import(`../assets/games/${description[0].name}.jpg`)
-        if(img) descimg.src = img.default.src
-        descimg.alt = img.default.alt
-      }
-    }
-  }
-  images.forEach(image => {
-    image.addEventListener('mouseenter', mouseOver)
-  })
 </script>
-
-<style>
-  .clienthide {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1s;
-  }
-  .show {
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 1s;
-  }
-  @media (prefers-reduced-motion) {
-    .clienthide {
-      transition: none;
-    }
-  }
-</style>

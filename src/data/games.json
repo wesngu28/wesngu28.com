@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Skyrim",
+    "url": "https://elderscrolls.bethesda.net/en/skyrim",
+    "img": "Skyrim"
+  },
+  {
+    "name": "Starcraft 2",
+    "url": "https://starcraft2.com/en-us/",
+    "img": "Starcraft 2"
+  },
+  {
+    "name": "NationStates",
+    "url": "https://www.nationstates.net",
+    "img": "NationStates"
+  },
+  {
+    "name": "Honkai Star Rail",
+    "url": "https://hsr.hoyoverse.com/en-us/home/",
+    "img": "HSR"
+  },
+  {
+    "name": "Arknights",
+    "url": "https://www.arknights.global/",
+    "img": "Arknights"
+  },
+  {
+    "name": "Azur Lane",
+    "url": "https://azurlane.yo-star.com/#/",
+    "img": "Azur Lane"
+  },
+  {
+    "name": "Blue Archive",
+    "url": "https://bluearchive.nexon.com/home",
+    "img": "Blue Archive"
+  },
+  {
+    "name": "Nikke",
+    "url": "https://nikke-en.com/",
+    "img": "Nikke"
+  }
+]

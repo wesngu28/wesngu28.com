@@ -1,0 +1,13 @@
+---
+import { Image } from 'astro:assets'
+
+export interface Props {
+  name: string
+}
+
+const { name } = Astro.props
+
+const dynamicImage = await import(`../assets/gamecover/${name}.png`)
+---
+
+<Image loading="lazy" src={dynamicImage.default} alt={name} width={148} height={148} />
