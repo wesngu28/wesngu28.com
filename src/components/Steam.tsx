@@ -3,7 +3,7 @@ import { createResource, Show } from 'solid-js'
 async function fetchData() {
   const steamers = await fetch(`${import.meta.env.PUBLIC_URL}/api/steam.json`)
 
-  if (steamers.status !== 404) {
+  if (steamers.status !== 400) {
     return await steamers.json()
   }
 }

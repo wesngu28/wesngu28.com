@@ -68,7 +68,7 @@ export const GET: APIRoute = async () => {
       name: monthlyArtistsName[i].name,
       playcount: monthlyArtistsName[i].playcount,
       href: artistResult.artists.items[0].external_urls.spotify,
-      img: artistResult.artists.items[0].images.length > 0 ? artistResult.artists.items[0].images[2].url : '',
+      img: artistResult.artists.items[0].images.length > 0 ? artistResult.artists.items[0].images[2].url : './placeholder.jpg',
     })
   }
 
