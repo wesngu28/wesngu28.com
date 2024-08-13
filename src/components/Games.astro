@@ -1,47 +1,12 @@
 ---
 import games from '../data/games.json'
 import GameCard from './GameCard.astro'
-
-const steamers = await fetch(`${import.meta.env.PUBLIC_URL}/api/steam.json`)
-const activeGame: {
-  name: string
-  image: string
-  website: string
-  developers: string[]
-  publishers: string[]
-} = await steamers.json()
+import Steam from './Steam'
 ---
 
 <div class="my-20">
   <h1 class="text-center text-2xl font-bold">Games</h1>
-  {
-    activeGame && (
-      <div class="my-10 clienthide">
-        <p class="p-4 text-center text-lg">
-          I am currently playing{' '}
-          <a
-            href={activeGame.website}
-            target="_blank"
-            rel="noreferrer noopener"
-            class="hover:underline font-bold"
-            title={`${activeGame.name}${activeGame.developers && activeGame.developers[0] ? ` developed by ${activeGame.developers[0]}` : ''}${activeGame.publishers && activeGame.publishers[0] ? `, published by ${activeGame.publishers[0]}` : ''}`}
-          >
-            {activeGame.name}
-          </a>{' '}
-          on Steam.
-        </p>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          href={activeGame.website}
-          class="m-auto"
-          title={`${activeGame.name}${activeGame.developers && activeGame.developers[0] && ` developed by ${activeGame.developers[0]}`}${activeGame.publishers && activeGame.publishers[0] && `, published by ${activeGame.publishers[0]}`}`}
-        >
-          <img class="m-auto" alt={activeGame.name} src={activeGame.image} />
-        </a>
-      </div>
-    )
-  }
+  <Steam client:idle />
   <div class="my-10">
     <p class="p-4 text-center text-lg mb-2">These are some games I have been playing.</p>
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
