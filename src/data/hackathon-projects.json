@@ -4,7 +4,7 @@
     "title": "Replayed",
     "description": "SvelteKit game where you guess the rank of user submitted clips, or pick the higher between two clips.",
     "repository": "https://github.com/Mistralton/replayed",
-    "live": "https://replayed.vercel.app",
+    "live": "https://replayedgg.vercel.app",
     "image": "replayed"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Mistralton",
     "description": "Landing page designed and made by me for my hackathon group.",
     "repository": "https://github.com/Mistralton/Mistralton",
-    "live": "https://mistralton.vercel.app/",
+    "live": "https://mistralton.netlify.app/",
     "image": "mistralton",
     "orientation": "horizontal"
   }
