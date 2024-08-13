@@ -12,7 +12,7 @@ const { name, dynamicAlt } = Astro.props
   <MoveLeft
     class="hover:scale-110 active:scale-95 mr-2 w-10 h-10 p-2 border border-neutral-700 bg-neutral-800 rounded-lg clicks flex items-center justify-center cursor-pointer transition-transform duration-200 ease-in-out"
   />
-  {Array.from({ length: 6 }).map((item, index) => <PetCard name={name} index={index} alt={dynamicAlt} />)}
+  {Array.from({ length: 6 }).map((item, index) => <PetCard name={name} importLoc={`${name}${index+1}`} alt={dynamicAlt} />)}
   <MoveRight
     class="hover:scale-110 active:scale-95 ml-2 w-10 h-10 p-2 border border-neutral-700 bg-neutral-800 rounded-lg clicks flex items-center justify-center cursor-pointer transition-transform duration-200 ease-in-out"
   />

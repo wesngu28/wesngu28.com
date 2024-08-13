@@ -3,13 +3,13 @@ import { Image } from 'astro:assets'
 
 export interface Props {
   name: string
-  index: number
+  importLoc: string
   alt: string
 }
 
-const { name, index, alt } = Astro.props
+const { name, importLoc, alt } = Astro.props
 
-const dynamicImage = await import(`../assets/dog/${name}${index + 1}.webp`)
+const dynamicImage = await import(`../assets/dog/${importLoc}.webp`)
 ---
 
 <Image class={`clienthide ${alt} hidden`} src={dynamicImage.default} height={617} width={300} alt={name} />
