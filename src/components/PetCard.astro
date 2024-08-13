@@ -12,4 +12,4 @@ const { name, index, alt } = Astro.props
 const dynamicImage = await import(`../assets/dog/${name}${index + 1}.webp`)
 ---
 
-<Image class={`${alt} hidden`} src={dynamicImage.default} height={617} width={300} alt={name} />
+<Image class={`clienthide ${alt} hidden`} src={dynamicImage.default} height={617} width={300} alt={name} />

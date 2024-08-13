@@ -20,3 +20,9 @@ import NowPlaying from '../components/NowPlaying'
   <Specs />
   <Petfolio />
 </Base>
+
+<script>
+  import { observer } from '../utils/observer'
+  observer()
+  document.addEventListener('astro:after-swap', observer)
+</script>

@@ -16,7 +16,7 @@ const activeGame: {
   <h1 class="text-center text-2xl font-bold">Games</h1>
   {
     activeGame && (
-      <div class="my-10">
+      <div class="my-10 clienthide">
         <p class="p-4 text-center text-lg">
           I am currently playing{' '}
           <a
@@ -47,7 +47,7 @@ const activeGame: {
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
       {
         games.map(game => (
-          <a target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>
+          <a class="clienthide" target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>
             <GameCard name={game.name} />
           </a>
         ))
@@ -60,9 +60,3 @@ const activeGame: {
     multiplayer focused mods), and other strategy games. Currently, I enjoy roguelikes.
   </p>
 </div>
-
-<script>
-  import { observer } from '../utils/observer'
-  observer()
-  document.addEventListener('astro:after-swap', observer)
-</script>

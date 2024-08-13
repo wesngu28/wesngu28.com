@@ -19,7 +19,7 @@ export default function ArtistCard() {
       <Show when={data()}>
         <For each={data()}>
           {(artist: { name: string; playcount: string; href: string; img: string }) => (
-            <div class="artist flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg hidden">
+            <div class="artist justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg hidden">
               <a target="_blank" href={artist.href} rel="noopener noreferrer">
                 <img
                   class="m-auto w-[160px] h-[160px] object-contain"

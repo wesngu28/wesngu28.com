@@ -17,7 +17,7 @@ const posts = Array.from(projectCollection)
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex-wrap">
     {
       posts.map(post => (
-        <div class="p-4 border border-neutral-700 bg-neutral-800 rounded-lg m-4 text-center transition duration-500 hover:scale-105">
+        <div class="clienthide p-4 border border-neutral-700 bg-neutral-800 rounded-lg m-4 text-center transition duration-500 hover:scale-105">
           <a href={`/blog/${post.slug}`} class="max-w-[240px] inline-block">
             <Image
               class="p-4"

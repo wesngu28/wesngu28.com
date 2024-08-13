@@ -13,7 +13,7 @@ const posts = Array.from(allBlogPosts)
 <div class="mb-16 relative">
   {
     posts.map(post => (
-      <div class="my-20">
+      <div class="my-20 clienthide">
         <a href={`/blog/${post.slug}`} class="flex">
           <Image
             class="p-4"
