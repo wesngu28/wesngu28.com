@@ -4,9 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-black to-slate-900;
-    @apply text-gray-300;
-    @apply overflow-x-hidden;
     @apply scrollbar-hide;
     @apply min-h-screen;
   }
