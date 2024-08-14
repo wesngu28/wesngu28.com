@@ -3,7 +3,7 @@ layout: '../../layouts/ProjectPost.astro'
 title: 'NFL Typer'
 description: 'A small little game where you have to type as many NFL players you can in 60 seconds, with filterable team and position.'
 repository: 'https://github.com/wesngu28/nfltyper'
-live: 'https://nfl-typer.vercel.app/'
+live: 'https://nfltyper.vercel.app/'
 techs: ['TypeScript', 'Nuxt.js', 'Vue', 'Tailwind']
 heroImage: 'nfl'
 heroImageAlt: 'NFL Typer'
