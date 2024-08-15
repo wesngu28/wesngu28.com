@@ -17,7 +17,7 @@
     "@astrojs/solid-js": "^4.4.1",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.7.2",
-    "@fontsource/karla": "^5.0.20",
+    "@fontsource-variable/karla": "^5.0.21",
     "@playform/compress": "^0.1.1",
     "astro": "^4.13.3",
     "lucide-astro": "^0.427.0",
