@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets'
 import placeholder from '../assets/placeholder.jpg'
-import ArtistCard from './ArtistCard'
 ---
 
 <div class="my-20 flex w-full justify-evenly items-center flex-col lg:flex-row relative">
@@ -10,12 +9,12 @@ import ArtistCard from './ArtistCard'
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 h-max">
       {
         Array.from({ length: 8 }, _ => (
-          <div class="placeholder flex justify-center items-center m-2 p-1 bg-[beige] text-black rounded-lg">
+          <div class="artist flex justify-center items-center m-2 p-1 bg-[beige] rounded-lg">
             <Image alt="placeholder" src={placeholder} width={160} height={160} />
           </div>
         ))
       }
-      <ArtistCard client:load />
+      <!-- <ArtistCard client:idle /> -->
     </div>
   </div>
 </div>
@@ -28,24 +27,27 @@ import ArtistCard from './ArtistCard'
 </style>
 
 <script>
-  const placeholders = document.querySelectorAll('.placeholder')
-  const intervalId = setInterval(() => {
-    const artists = document.querySelectorAll('.artist')
-    if (artists.length > 0) {
-      placeholders.forEach(placeholder => {
-        placeholder.classList.add('hiddens')
-      })
-      setTimeout(() => {
-        placeholders.forEach(placeholder => {
-          placeholder.remove()
-        })
-        clearInterval(intervalId)
-        artists.forEach(artist => {
-          artist.classList.remove('hidden')
-          artist.classList.add('animate-slideshow')
-        })
-        return
-      }, 1000)
-    }
-  }, 100)
+    const artistDivs = document.querySelectorAll('.artist');
+    const response = await fetch(`${import.meta.env.PUBLIC_URL}/api/lastfm.json`);
+    const songJson = await response.json();
+
+    artistDivs.forEach((artistDiv, index) => {
+      const artist = songJson[index];
+      if (artist) {
+        artistDiv.classList.add('animate-slideshow')
+        artistDiv.innerHTML = `
+          <a target="_blank" href="${artist.href}" rel="noopener noreferrer">
+            <img
+              class="m-auto w-[160px] h-[160px] object-contain"
+              loading="lazy"
+              src="${artist.img}"
+              width="160"
+              height="160"
+              alt="${artist.name} icon from Spotify"
+              title="${artist.name} - ${artist.playcount} plays"
+            />
+          </a>
+        `;
+      }
+    });
 </script>
