@@ -8,7 +8,7 @@ import { Settings } from 'lucide-astro'
   <h1 class="text-center text-2xl p-4 font-bold flex items-center gap-2">
     <Settings class="size-8" /> Skills
   </h1>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+  <div class="grid min-[450px]:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
     {skills.map(skill => <SkillCard name={skill.name} image={skill.image || ''} link={skill.link || ''} />)}
   </div>
 </div>

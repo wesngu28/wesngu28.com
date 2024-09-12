@@ -10,7 +10,7 @@ const posts = Array.from(allBlogPosts)
   .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())
 ---
 
-<div class="mb-16 relative grid grid-cols-1 tiny:grid-cols-2 my-20">
+<div class="mb-16 relative grid grid-cols-1 min-[450px]:grid-cols-2 my-20">
   {
     posts.map(post => (
       <div class="clienthide">

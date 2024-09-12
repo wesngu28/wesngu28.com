@@ -8,13 +8,6 @@ module.exports = {
       'karla': ['Karla Variable', 'sans-serif']
     },
     extend: {
-      screens: {
-        'ultrawide': '1921px',
-        'xs': '550px',
-        'tiny': '400px',
-        'project': '830px',
-        'hoverable': {'raw': '(hover: hover)'},
-      },
       animation: {
         slideshow: 'slideshow 1s ease-out',
         slideshowslower: 'slideshow 2s ease-out',
