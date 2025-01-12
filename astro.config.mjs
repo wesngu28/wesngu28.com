@@ -2,9 +2,15 @@ import { defineConfig, envField } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import solidJs from '@astrojs/solid-js';
 import vercel from "@astrojs/vercel/serverless";
+// import node from "@astrojs/node";
 import sitemap from "@astrojs/sitemap";
 import prefetch from '@astrojs/prefetch';
 
+let adapter = vercel();
+
+// if (process.argv[3] === "--node" || process.argv[4] === "--node") {
+//   adapter = node({ mode: "standalone" });
+// }
 
 // https://astro.build/config
 import playformCompress from "@playform/compress";
@@ -14,7 +20,7 @@ export default defineConfig({
   output: 'server',
   integrations: [tailwind(), solidJs(), sitemap(), prefetch(), playformCompress()],
   site: 'https://wesngu28.com/',
-  adapter: vercel(),
+  adapter: adapter,
   server: {
     port: 3000
   },
