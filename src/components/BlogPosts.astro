@@ -2,9 +2,10 @@
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 const allBlogPosts = await getCollection('blog')
+
 const posts = Array.from(allBlogPosts)
   .map(post => {
-    let data = { ...post.data, slug: post.slug }
+    let data = { ...post.data, slug: post.id }
     return data
   })
   .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())

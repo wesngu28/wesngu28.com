@@ -63,7 +63,7 @@ export default function Chapter({ index, ref }: Props) {
     <div
       id={String(index)}
       ref={ref}
-      class={`rounded-3xl border border-neutral-700 bg-neutral-800 text-white z-10 absolute ${chapters[index].top[1]} ${chapters[index].top[0]} md:p-4 md:w-[35%] h-max rounded`}
+      class={`rounded-3xl border border-neutral-700 bg-neutral-800 text-white z-10 absolute ${chapters[index].top[1]} ${chapters[index].top[0]} md:p-4 md:w-[35%] h-max rounded-sm`}
     >
       <h2 class="text-center text-2xl font-bold">{chapters[index].heading}</h2>
       {chapters[index].duration ? <p class="m-2 text-center">{chapters[index].duration}</p> : null}

@@ -6,7 +6,7 @@ export interface Props {
   title: string
   map: boolean
 }
-import '../styles/base.css'
+import '../styles/global.css'
 
 import '@fontsource-variable/karla'
 const { title, map } = Astro.props
@@ -17,11 +17,11 @@ const { title, map } = Astro.props
   <Head title={title} />
   {
     map ? (
-      <body class="font-karla bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
+      <body class="font-karla bg-linear-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
         <slot />
       </body>
     ) : (
-      <body class="font-karla flex flex-col items-center bg-gradient-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
+      <body class="font-karla flex flex-col items-center bg-linear-to-br from-black to-slate-900 text-gray-300 overflow-x-hidden min-h-screen">
         <div class="xl:flex relative items-center justify-center w-full bg-[#1F2022]">
           <div class="p-4 bg-[#1F2022] w-full md:max-w-[1280px] relative z-0">
             <Navbar />

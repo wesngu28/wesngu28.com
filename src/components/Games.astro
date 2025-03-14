@@ -9,7 +9,7 @@ import Steam from './Steam'
   <Steam client:idle />
   <div class="my-10">
     <p class="p-4 text-center text-lg mb-2">These are some games I have been playing.</p>
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
+    <div class="grid grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
       {
         games.map(game => (
           <a class="clienthide" target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>

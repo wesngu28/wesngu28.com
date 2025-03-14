@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Rustboro'
 description: 'This project allows users to view Pokemon and includes a challenge feature, where users choose the Pokemon with the higher value for a specified stat.'
 repository: 'https://github.com/wesngu28/rustboro'

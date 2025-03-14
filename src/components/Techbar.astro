@@ -9,7 +9,7 @@ export interface Props {
 const { techs, margin } = Astro.props
 ---
 
-<div class={`flex flex-wrap gap-x-4 ${margin && 'm-auto'}`}>
+<div class={`flex flex-wrap gap-x-4 ${margin ? 'm-auto' : ''}`}>
   {
     techs.map(tech => {
       let color = ''
@@ -17,10 +17,10 @@ const { techs, margin } = Astro.props
         color = (langs as { [key: string]: { color: string } })[tech].color
       }
       return (
-        <div title={tech} class="mt-4 space-x-3 font-mono text-sm">
+        <div title={tech} class="mt-4 space-x-3 font-mono text-xs">
           <span
             style={`border-color: ${color ? color : '#525252'};`}
-            class={`inline-block border rounded-md px-2 py-1`}
+            class={`inline-block border rounded-md px-1 py-1`}
           >
             {tech}
           </span>

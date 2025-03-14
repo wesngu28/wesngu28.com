@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Observatory'
 description: 'Web app that helps you manage GitHub stars for JS and Python projects, showing you a list of repositories that you have yet to star.'
 repository: 'https://github.com/wesngu28/observatory'

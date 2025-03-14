@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Champ Vuer'
 description: 'A web app that lets you search for information about League champions, including their skins, spells, and other details. First experience with Vue and Nuxt.'
 repository: 'https://github.com/wesngu28/champion-vuer'

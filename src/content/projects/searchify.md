@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Searchify'
 description: 'This website allows you to search Spotify artists, tracks, playlists, or albums, and get recommendations. You can also log in to learn about your listening habits.'
 repository: 'https://github.com/wesngu28/searchify'

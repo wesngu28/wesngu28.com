@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Web Dev Evaluator'
 description: 'A collaborative full-stack React and Rust project to view Twitter sentiments on a variety of web technologies. Still under development.'
 repository: 'https://github.com/kyleung1/WebdevEvaluator'

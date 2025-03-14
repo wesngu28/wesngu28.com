@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'RhodesAPI'
 description: 'A RESTful API for Arknights that provides information about operators. The API also includes a documentation website built with Svelte.'
 repository: 'https://github.com/wesngu28/rhodesapi'

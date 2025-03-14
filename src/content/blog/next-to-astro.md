@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: 'From Next.js to Astro'
 description: 'Switching my website from Next.js to Astro'
 pubDate: '11 11 2022'

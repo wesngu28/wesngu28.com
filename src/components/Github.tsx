@@ -11,11 +11,13 @@ const fetchLanguages = async (url: string) => {
       url.match('https://github.com/([^/]*)/')![1]
     }&repo=${url.match(/\/([^/]*)$/)![1]}`
   )
+
   const langs: { [key: string]: number } = await JSON.parse(await linguist.text())
   const total = Object.values(langs).reduce((previousValue: number, currentValue) => previousValue + currentValue, 0)
   Object.keys(langs).map(extension => {
     langs[extension] = (langs[extension] / total) * 100
   })
+
   return langs
 }
 

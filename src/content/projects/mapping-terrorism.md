@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Mapping Terrorism'
 description: 'A group project, we created a website dashboard that visualizes data from the University of Maryland Global Terrorism Database.'
 repository: 'https://github.com/wesngu28/mapping-terrorism'

@@ -1,20 +1,16 @@
 ---
 export interface Props {
-  content: {
-    title: string
-    description: string
-    repository: string
-    techs: string[]
-    heroImage: string
-    heroImageAlt: string
-  }
+  title: string
+  description: string
+  repository: string
+  techs: string[]
+  heroImage: string
+  heroImageAlt: string
 }
 import Base from './Base.astro'
 import Blurb from '../components/Blurb.astro'
 
-const {
-  content: { title, description, techs, repository, heroImage, heroImageAlt },
-} = Astro.props
+const { title, description, techs, repository, heroImage, heroImageAlt } = Astro.props
 
 const dynamicImage = await import(`../assets/projects/${heroImage}.png`)
 ---

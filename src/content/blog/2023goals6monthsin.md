@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: '2023 - Seven Months In'
 description: 'How are my goals looking, seven months into 2023?'
 pubDate: '7 23 2023'
@@ -18,7 +17,7 @@ I came into 2023 wanting to learn Rust and Tauri, improve my JavaScript skills, 
 
 ### Rust and Tauri
 
-Less than a week after writing my goals, I joined the Treasure Hacks hackathon, where I managed to siren song my group into making a Tauri project. I took charge of writing the Rust portion, and I immediately realized that I bit off more than I could chew. Rust was definitely not a language that you could learn within 2 days for a hackathon. Nevertheless, this experience exposed me to Rust and Tauri, providing valuable insights into where I needed to focus my learning efforts. 
+Less than a week after writing my goals, I joined the Treasure Hacks hackathon, where I managed to siren song my group into making a Tauri project. I took charge of writing the Rust portion, and I immediately realized that I bit off more than I could chew. Rust was definitely not a language that you could learn within 2 days for a hackathon. Nevertheless, this experience exposed me to Rust and Tauri, providing valuable insights into where I needed to focus my learning efforts.
 
 I continued to use Rust and later used it to architect the API and backend for another project I made with a friend, [Web Dev Evaluator](https://github.com/kyleung1/WebdevEvaluator).
 
@@ -32,7 +31,7 @@ I also was able to get dirty with Kotlin. Going back to Web Dev Evaluator, I act
 
 While I still haven't delved into Android development as initially planned, I remain open to exploring React Native as an alternative path for mobile app development. This is not a slight towards native or Kotlin development, I feel like time would be better spent since I already know React in learning React Native and using Expo as my framework.
 
-Ultimately, I have decided to drop Kotlin and Android from my learning goals in 2023. While these are two technologies that I would love to know, I've chosen to focus on other technologies and projects that align more closely with my interests and career aspirations. 
+Ultimately, I have decided to drop Kotlin and Android from my learning goals in 2023. While these are two technologies that I would love to know, I've chosen to focus on other technologies and projects that align more closely with my interests and career aspirations.
 
 ### Getting a Job?
 

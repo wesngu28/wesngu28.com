@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Picatso'
 description: 'A full-stack web app that lets you create cat art with DALLE-2 and share them with the community.'
 repository: 'https://github.com/wesngu28/picatso'

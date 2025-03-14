@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: 'Looking Back'
 description: 'Reminiscing on my path and journey through software development'
 pubDate: '11 07 2022'

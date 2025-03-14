@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Closure'
 description: 'Discord bot with Arknights and Youtube features. This bot has been successfully implemented in a Discord community with over 300 members.'
 repository: 'https://github.com/wesngu28/closurets'

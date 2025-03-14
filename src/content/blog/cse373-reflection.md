@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/BlogPost.astro'
 title: 'Reflecting on CSE 373'
 description: 'Reflection on the Data Structures and Algorithms class offered at UW Seattle.'
 pubDate: '12 12 2022'

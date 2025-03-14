@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Personal Website'
 description: 'I built this portfolio/website using Astro, SolidJS, and Tailwind. This project helped me improve my web development skills.'
 repository: 'https://github.com/wesngu28/wesngu28.com'

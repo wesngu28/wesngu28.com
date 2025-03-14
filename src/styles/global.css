@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant hover (&:hover);
+@custom-variant dark (&:is(.dark *));
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility clienthide {
+  opacity: 0;
+  /* transform: translateX(-100%); */
+  transition: all 1s;
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+@utility show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1s;
+}
+
+@layer base {
+  body {
+    @apply scrollbar-hide;
+    @apply min-h-screen;
+  }
+}
+
+@theme {
+  --font-karla: 'Karla Variable', sans-serif;
+
+  --animate-slideshow: slideshow 1s ease-out;
+  @keyframes slideshow {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

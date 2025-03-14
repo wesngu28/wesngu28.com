@@ -1,5 +1,4 @@
 ---
-layout: '../../layouts/ProjectPost.astro'
 title: 'Package Tracker'
 description: 'Hackathon winner for Transport Hacks, a web app to track your packages across various carriers. My role was expansive, doing Firebase setup and large parts of the front-end.'
 repository: 'https://github.com/Mistralton/Package-Tracker'

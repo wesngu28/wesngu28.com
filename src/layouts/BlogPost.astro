@@ -1,21 +1,17 @@
 ---
 export interface Props {
-  content: {
-    title: string
-    description: string
-    pubDate?: string
-    updatedDate?: string
-    heroImage: string
-    heroImageAlt: string
-    heroImageAttr: string
-  }
+  title: string
+  description: string
+  pubDate?: string
+  updatedDate?: string
+  heroImage?: string
+  heroImageAlt?: string
+  heroImageAttr?: string
 }
 import Base from './Base.astro'
 import Blurb from '../components/Blurb.astro'
 
-const {
-  content: { title, description, pubDate, heroImage, heroImageAlt, heroImageAttr },
-} = Astro.props
+const { title, description, pubDate, heroImage, heroImageAlt, heroImageAttr } = Astro.props
 ---
 
 <Base title={title} map={false}>
