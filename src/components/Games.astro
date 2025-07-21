@@ -12,7 +12,7 @@ import Steam from './Steam'
     <div class="grid grid-cols-4 md:grid-cols-2 xl:grid-cols-4 place-items-center">
       {
         games.map(game => (
-          <a class="clienthide" target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>
+          <a class="clienthide my-1" target="_blank" rel="noreferrer noopener" href={game.url} title={game.name}>
             <GameCard name={game.name} />
           </a>
         ))
