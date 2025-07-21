@@ -1,5 +1,5 @@
 import { defineConfig, envField } from 'astro/config';
-import solidJs from '@astrojs/solid-js';
+// import solidJs from '@astrojs/solid-js';
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 
@@ -8,12 +8,14 @@ let adapter = vercel();
 import playformCompress from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
 
+import solidJs from "@astrojs/solid-js";
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  integrations: [solidJs(), sitemap(), playformCompress()],
+  integrations: [sitemap(), playformCompress(), solidJs()],
   site: 'https://wesngu28.com/',
-  adapter: adapter,
+  adapter: vercel(),
   prefetch: true,
 
   server: {
