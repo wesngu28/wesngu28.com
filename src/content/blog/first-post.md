@@ -5,6 +5,7 @@ pubDate: '11 07 2022'
 heroImage: '/blog/first-post/first-post.jpg'
 heroImageAlt: 'Seattle skyline'
 heroImageAttr: Photo by Zhifei Zhou on Unsplash
+slug: first-post
 ---
 
 Hooray, first blog post! This won't be particularly informative, just a monologue. Below, I will recount the twists and turns I took to get to where I am today, as well as detail some projects I made prior to this blog.
@@ -15,7 +16,7 @@ My first experience with computer programming came in an intro to programming co
 
 AP Computer Science was quite tough for me. It was my teacher's first time teaching the course, and not to place blame elsewhere, but his knowledge of the content wasn't very strong, so I frequently had to rely on others in the class and documentation. With a focus on Java and object-oriented programming principles and algorithms, I found it dificult to stay motivated and concentrated and fell behind in the course. I spent a lot of time in the course just goofing around with a friend for most of each class.
 
-![Pokemon Edhesive](/map/edhesive.png)
+![Pokemon Edhesive](/blog/first-post/edhesive.png)
 The highlight of the course was being able to create a Pokemon fangame for my final project with RPG Maker XP, a game development program using Ruby with a powerful and well-developed library for Pokemon games called [Pokemon Essentials](https://github.com/Maruno17/pokemon-essentials). All of these factors combined meant that the project didn't really involve much coding, but nevertheless, I learned a lot about design principles, collaboration, and a bit of Ruby as well.
 
 To round out this era of my programming career, I took the equivalent of UW's CS 142 and 143 at Bellevue College, called CS 210 and 211. I did pretty well in CS210, and my prior experience in AP Computer Science really helped. This carried over into the next course, but the pace was much more fast and difficult. I was holding a good grade until the last week, where I missed a few lectures, and these lectures ultimately comprised around 50% of the final.

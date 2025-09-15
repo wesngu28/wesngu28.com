@@ -5,6 +5,7 @@ pubDate: '12 12 2022'
 heroImage: '/blog/third-post/third-post.jpg'
 heroImageAlt: 'UW quad'
 heroImageAttr: Photo distributed under Creative Commons under this article https://com.uw.edu/post/uw-communication-spring-2021-graduation-celebration/
+slug: cse373-reflection
 ---
 
 When I decided to take CSE 373, all I knew about it was very important to learning about the data structures and algorithms that you would need to be able to tackle most technical interviews. Going into the course, I was nervous about my ability to succeed in the course, because I last took a computer science course that pertained to data structures when I was a Junior doing Running Start, and that class almost made me pivot careers. This isn't to say that I didn't code since 2018/2019, I have learned a bit of web development and am in a tangentinally related major in data science, but needless to say, the class seemed daunting.

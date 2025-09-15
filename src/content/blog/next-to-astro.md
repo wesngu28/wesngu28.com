@@ -5,6 +5,7 @@ pubDate: '11 11 2022'
 heroImage: '/blog/second-post/astro.jpg'
 heroImageAlt: 'Astro'
 heroImageAttr: Astro
+slug: next-to-astro
 ---
 
 After watching videos on Astro from people like Fireship and Theo, I decided that I wanted to make a blog or some sort of personal project with Astro. The problem was, I already made this portfolio website in Next.js not even a month ago. It had some interactive components, like a slideshow and some fetching for Spotify and Last.fm, as well as that extra scrolly map. Essentially, Next, React, Tailwind, and JSX were helping me streamline the experience of implementing the website.

@@ -5,6 +5,7 @@ pubDate: '7 23 2023'
 heroImage: '/blog/Portland night 2023 summer.jpeg'
 heroImageAlt: '2023 Summer'
 heroImageAttr: Sudkate U-Jarean https://www.flickr.com/photos/thailandtarot/9496238705/in/pool-557984@N24/
+slug: 2023goals6monthsin
 ---
 
 It is now seven months into the year 2023. It really feels like the coronavirus has accelerated the passage of time for me, but maybe I'm just getting older. At seven months in, I think now is a good time for me to look at some of the goals I set at the start and reflect, and maybe adjust them for the rest of the year.

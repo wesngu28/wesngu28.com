@@ -11,6 +11,7 @@ export const collections = {
       heroImage: z.string(),
       heroImageAlt: z.string(),
       heroImageAttr: z.string(),
+      slug: z.string(),
     }),
   }),
   projects: defineCollection({

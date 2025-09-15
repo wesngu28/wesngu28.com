@@ -5,7 +5,7 @@ import { MoveRight } from 'lucide-astro'
 const projectCollection = await getCollection('blog')
 const posts = Array.from(projectCollection)
   .map(post => {
-    let data = { ...post.data, slug: post.slug }
+    let data = { ...post.data, slug: post.data.slug }
     return data
   })
   .sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf())

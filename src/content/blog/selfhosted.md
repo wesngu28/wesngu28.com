@@ -6,6 +6,7 @@ pubDate: '9 19 2023'
 heroImage: '/blog/Server.jpg'
 heroImageAlt: 'CERN server room (not mine)'
 heroImageAttr: Torkild Retvedt https://www.flickr.com/photos/torkildr/3462607995
+slug: selfhosted
 ---
 
 This article is essentially just a snapshot and small post about my homelab/self-hosting setup.
