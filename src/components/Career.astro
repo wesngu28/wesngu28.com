@@ -1,8 +1,11 @@
 ---
+import Image from 'astro/components/Image.astro'
 import Techbar from './Techbar.astro'
+import UA from '../assets/UA.png'
+import UW from '../assets/UW.png'
 ---
 
-<div class="flex flex-col items-center my-20">
+<div class="flex flex-col items-center my-20 max-w-5xl">
   <h1 class="text-center text-2xl p-4 font-bold">Career Journey</h1>
   <div class="flex flex-col p-6 rounded-lg">
     <div class="flex justify-between items-center mb-2">
@@ -67,5 +70,36 @@ import Techbar from './Techbar.astro'
       with technical issues and physical installations.
     </p>
     <Techbar techs={['Windows Server', 'Python', 'Hardware', 'Microsoft 365']} />
+  </div>
+</div>
+
+<div class="flex flex-col items-center my-20 max-w-5xl">
+  <h1 class="text-center text-2xl p-4 font-bold">Education</h1>
+  <p class="text-purple-600">Go Huskies!</p>
+  <div class="flex p-6 rounded-lg items-center gap-12">
+    <Image loading={'lazy'} format={'webp'} alt={`University of Arizona`} src={UA} class={`h-min`} />
+    <div class="flex flex-col">
+      <div class="flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl text-white font-bold mb-2">Masters</h2>
+          <p>University of Arizona (Software Engineering)</p>
+        </div>
+        <p class="mb-4">January 2025 - Present</p>
+      </div>
+      <Techbar techs={['Agile Methodologies', 'Computer Architecture', 'DevSecOps']} />
+    </div>
+  </div>
+  <div class="flex p-6 rounded-lg items-center gap-12">
+    <div class="flex flex-col">
+      <div class="flex justify-between items-center mb-2">
+        <div>
+          <h2 class="text-2xl text-white font-bold mb-2">Bachelors</h2>
+          <p>University of Washington (Geography: Data Science)</p>
+        </div>
+        <p class="mb-4">September 2019 - December 2022</p>
+      </div>
+      <Techbar techs={['Agile Methodologies', 'Computer Architecture', 'DevSecOps']} />
+    </div>
+    <Image loading={'lazy'} format={'webp'} alt={`University of Arizona`} src={UW} class={`h-min`} />
   </div>
 </div>
